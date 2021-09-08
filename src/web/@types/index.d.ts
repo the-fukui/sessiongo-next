@@ -12,4 +12,3 @@ type NextApiHandlerWithParams<K extends NextApiRequest['query'], T = any> = (
   req: NextApiRequestWithParams<K>,
   res: NextApiResponse<T>,
 ) => void | Promise<void>
-
