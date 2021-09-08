@@ -30,7 +30,7 @@
 ### Backend
 - Firestore?
 - Firebase Authentication or NextAuth.js?
-- Firebase Storege?
+- Firebase Storage?
 - Firebase Functions?
 
 ### Infrastructure
