@@ -1,0 +1,16 @@
+{
+  "name": "sessiongo-next",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://the-fukui@github.com/the-fukui/sessiongo-next.git",
+  "author": "the-fukui <account@the-fukui.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.0.2",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "src/*"
+    ],
+    "nohoist": []
+  }
+}

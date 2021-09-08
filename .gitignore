@@ -1,0 +1,12 @@
+# disable yarn v3 zero-install
+
+.yarn/
+!.yarn/release/*
+
+# dependencies
+node_modules
+
+# misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
