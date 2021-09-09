@@ -41,3 +41,4 @@
 
 - Yarn v3
 - Docker?
+- Firebase Emulator Suite
