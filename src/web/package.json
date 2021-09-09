@@ -1,6 +1,7 @@
 {
   "name": "web",
   "version": "0.1.0",
+  "packageManager": "yarn@3.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
