@@ -599,9 +599,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 16.7.13
-  resolution: "@types/node@npm:16.7.13"
-  checksum: 15dc28aa44674d3f49dcca4a6523b6ab1ef9bbea5c659057bec13153e1873718d6b62ab0ea57a3d57ee37f0f1136ae30e3ea503df43b0afa3ae437c8750be7f5
+  version: 16.9.0
+  resolution: "@types/node@npm:16.9.0"
+  checksum: cb210bcfe201d6506f1ace9e940cf45307c1fc845ad1e67bb4a2dc39a2e3441382973e96b78568844c6f324cd0d2dddcb07639313d75cdb1ac5776c9255349fb
   languageName: node
   linkType: hard
 
@@ -1540,9 +1540,9 @@ __metadata:
   linkType: hard
 
 "core-js-pure@npm:^3.16.0":
-  version: 3.17.2
-  resolution: "core-js-pure@npm:3.17.2"
-  checksum: d963d933f91c409daa82f1df69abcfde380ded15c963c153d27d47804f125afb9a8d6173e217fb97e73938f26e74485012ee7d068db102b8753e0678b3b4adab
+  version: 3.17.3
+  resolution: "core-js-pure@npm:3.17.3"
+  checksum: cdb02c49d4adce4e884551a216300df55183e85cdbbc6b8630649b891df6fc03037a1ff22c61265500379c2031d8b5700aeda6c558b51c06f320fc8ae4cff162
   languageName: node
   linkType: hard
 
@@ -1878,9 +1878,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.3.830":
-  version: 1.3.832
-  resolution: "electron-to-chromium@npm:1.3.832"
-  checksum: eb2297408749078d40182f54e4059cd838d5358c8fd41c2db983a7f4d5a12177ed3d7afbb893a11fd9f9f51dff63a6617e67be0390d3c3ca20d328d2cd34ba90
+  version: 1.3.833
+  resolution: "electron-to-chromium@npm:1.3.833"
+  checksum: bc44db0b6a2ec0901f3a6d36ab3211edf5e76311f7ae3c9000bf577dc1a2ea389e9ffa74934e815b5aa407b93ef8bf2c0832f325395904b962d8cb427049938a
   languageName: node
   linkType: hard
 
@@ -4682,12 +4682,12 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "prettier@npm:2.3.2"
+"prettier@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "prettier@npm:2.4.0"
   bin:
     prettier: bin-prettier.js
-  checksum: 17ce5784ac67621c292df58e2da60b2ee150c2d6aebea22a6ad9e52fcd6a5e66c349d0a8436ea3bd8ff9d778920a5f68000d7625b74f43558718a49755aa5259
+  checksum: ac1bf07566dad5f58469e6d8a954bd5c0f833935597deb00330e9f673e14e4cf81e07dee7eff5776c0edebe11358d199f332d9940be40c8b455516034e553ce0
   languageName: node
   linkType: hard
 
@@ -5211,6 +5211,15 @@ resolve@^2.0.0-next.3:
 "sessiongo-next@workspace:.":
   version: 0.0.0-use.local
   resolution: "sessiongo-next@workspace:."
+  dependencies:
+    eslint: ^7.32.0
+    eslint-config-next: 11.1.2
+    eslint-config-prettier: ^8.3.0
+    prettier: ^2.4.0
+    stylelint: ^13.13.1
+    stylelint-config-standard: ^22.0.0
+    stylelint-order: ^4.1.0
+    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -6253,17 +6262,9 @@ typescript@^4.4.2:
   resolution: "web@workspace:src/web"
   dependencies:
     "@types/react": 17.0.20
-    eslint: ^7.32.0
-    eslint-config-next: 11.1.2
-    eslint-config-prettier: ^8.3.0
     next: 11.1.2
-    prettier: ^2.3.2
     react: 17.0.2
     react-dom: 17.0.2
-    stylelint: ^13.13.1
-    stylelint-config-standard: ^22.0.0
-    stylelint-order: ^4.1.0
-    typescript: ^4.4.2
   languageName: unknown
   linkType: soft
 
