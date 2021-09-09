@@ -1,0 +1,10 @@
+{
+  "name": "firebase",
+  "packageManager": "yarn@3.0.2",
+  "scripts": {
+    "emulators:start": "firebase emulators:start --import=./db --export-on-exit --project=demo-local-firebase"
+  },
+  "devDependencies": {
+    "firebase-tools": "^9.18.0"
+  }
+}

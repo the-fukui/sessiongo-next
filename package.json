@@ -13,6 +13,7 @@
     ]
   },
   "scripts": {
+    "dev": "yarn web & yarn firebase",
     "web": "yarn workspace web dev",
     "web:build": "yarn workspace web build",
     "web:start": "yarn workspace web start",
@@ -20,7 +21,8 @@
     "web:lint:fix": "eslint . --ext .js,jsx,.ts,.tsx --fix",
     "web:lint:style": "stylelint './src/web/{styles,components}/**/*.{css,scss,sass}'",
     "web:lint:style:fix": "stylelint --fix './src/web/{styles,components}/**/*.{css,scss,sass}'",
-    "web:format": "prettier --write --ignore-path ./src/web/.gitignore './src/web/**/*.{js,jsx,ts,tsx,json}'"
+    "web:format": "prettier --write --ignore-path ./src/web/.gitignore './src/web/**/*.{js,jsx,ts,tsx,json}'",
+    "firebase": "yarn workspace firebase emulators:start"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
