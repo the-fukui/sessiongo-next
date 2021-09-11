@@ -19,7 +19,7 @@
     "web:build": "yarn workspace web build",
     "web:start": "yarn workspace web start",
     "web:lint": "yarn workspace web lint",
-    "web:lint:fix": "eslint . --ext .js,jsx,.ts,.tsx --fix",
+    "web:lint:fix": "eslint ./src/web/ --ext .js,jsx,.ts,.tsx --fix",
     "web:lint:style": "stylelint './src/web/{styles,components}/**/*.{css,scss,sass}'",
     "web:lint:style:fix": "stylelint --fix './src/web/{styles,components}/**/*.{css,scss,sass}'",
     "web:format": "prettier --write --ignore-path ./src/web/.gitignore './src/web/**/*.{js,jsx,ts,tsx,json}'",
