@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "paths": {
       "@web/*": ["../web/*"],
-      "@shared/*": ["../shared/*"]
+      "@shared/*": ["../shared/*"],
+      "@graphql/*": ["../graphql/*"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
