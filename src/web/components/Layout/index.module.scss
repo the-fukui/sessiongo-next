@@ -1,0 +1,13 @@
+.header {
+  position: relative;
+}
+
+.main {
+  &.normal_header {
+    padding-top: $pc-normal-header-nav-height;
+  }
+
+  &.top_header {
+    padding-top: $pc-top-header-nav-height;
+  }
+}

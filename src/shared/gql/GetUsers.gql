@@ -1,0 +1,21 @@
+# $sessionsWhere: SessionsWhereInput
+query GetUsers {
+  findManyUsers {
+    id
+    email
+    # sessions(where: $sessionsWhere) {
+    #   title
+    #   started_at
+    #   ended_at
+    #   tags {
+    #     tag {
+    #       label
+    #     }
+    #   }
+    #   author {
+    #     email
+    #     name
+    #   }
+    # }
+  }
+}

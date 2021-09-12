@@ -1,11 +1,11 @@
 {
   "strict": true,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "../",
     "paths": {
-      "@web/*": ["../web/*"],
-      "@shared/*": ["../shared/*"],
-      "@graphql/*": ["../graphql/*"]
+      "@web/*": ["./web/*"],
+      "@shared/*": ["./shared/*"],
+      "@graphql/*": ["./graphql/*"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],

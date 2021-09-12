@@ -9,13 +9,15 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "src/*"
+      "src/*",
+      "src/firebase/functions"
     ]
   },
   "scripts": {
-    "dev": "yarn web & yarn firebase & yarn graphql",
+    "dev": "yarn web & yarn firebase & yarn graphql & yarn shared",
     "web": "yarn workspace web dev",
     "graphql": "yarn workspace graphql dev",
+    "shared": "yarn workspace shared dev",
     "web:build": "yarn workspace web build",
     "web:start": "yarn workspace web start",
     "web:lint": "yarn workspace web lint",

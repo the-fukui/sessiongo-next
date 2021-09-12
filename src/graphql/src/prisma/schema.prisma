@@ -53,11 +53,11 @@ model session_tags {
 }
 
 model sessions_session_tags {
-
   session    sessions     @relation(fields: [session_id], references: [id])
   session_id Int
   tag        session_tags @relation(fields: [tag_id], references: [id])
   tag_id     Int
+
   @@id([session_id, tag_id])
   @@unique([session_id, tag_id])
 }
