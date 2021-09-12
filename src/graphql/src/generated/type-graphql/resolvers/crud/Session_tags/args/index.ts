@@ -1,0 +1,12 @@
+export { AggregateSession_tagsArgs } from "./AggregateSession_tagsArgs";
+export { CreateManySession_tagsArgs } from "./CreateManySession_tagsArgs";
+export { CreateSession_tagsArgs } from "./CreateSession_tagsArgs";
+export { DeleteManySession_tagsArgs } from "./DeleteManySession_tagsArgs";
+export { DeleteSession_tagsArgs } from "./DeleteSession_tagsArgs";
+export { FindFirstSession_tagsArgs } from "./FindFirstSession_tagsArgs";
+export { FindManySession_tagsArgs } from "./FindManySession_tagsArgs";
+export { FindUniqueSession_tagsArgs } from "./FindUniqueSession_tagsArgs";
+export { GroupBySession_tagsArgs } from "./GroupBySession_tagsArgs";
+export { UpdateManySession_tagsArgs } from "./UpdateManySession_tagsArgs";
+export { UpdateSession_tagsArgs } from "./UpdateSession_tagsArgs";
+export { UpsertSession_tagsArgs } from "./UpsertSession_tagsArgs";

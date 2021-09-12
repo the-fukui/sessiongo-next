@@ -1,21 +1,15 @@
+import 'reflect-metadata'
 import express from 'express'
 import { ApolloServer, gql } from 'apollo-server-express'
+import _schema from './schema'
+import { PrismaClient } from '@prisma/client'
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`
-
-const resolvers = {
-  Query: {
-    hello: () => 'Hello GrapQL!',
-  },
-}
+const prisma = new PrismaClient()
 
 const startApolloServer = async () => {
   const app = express()
-  const server = new ApolloServer({ typeDefs, resolvers })
+  const schema = await _schema
+  const server = new ApolloServer({ schema, context: () => ({ prisma }) })
   await server.start()
   server.applyMiddleware({ app })
 
