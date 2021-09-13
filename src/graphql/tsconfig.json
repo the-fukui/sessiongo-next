@@ -1,5 +1,5 @@
 {
-  "extends": "../shared/tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
