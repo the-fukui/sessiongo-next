@@ -11,7 +11,12 @@ export class UsersCreateInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  email!: string;
+  auth_id!: string;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  user_name?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true

@@ -23,7 +23,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <Login />
       {findManyUsers.map((user) => (
         <div key={user.id}>
-          {user.email}, {user.id}
+          {user.id},{user.user_name},{user.auth_id}
         </div>
       ))}
       {/* <main className={styles.main}>

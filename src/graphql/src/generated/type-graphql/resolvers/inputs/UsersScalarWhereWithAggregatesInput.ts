@@ -33,7 +33,12 @@ export class UsersScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  email?: StringWithAggregatesFilter | undefined;
+  auth_id?: StringWithAggregatesFilter | undefined;
+
+  @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
+    nullable: true
+  })
+  user_name?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true

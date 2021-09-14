@@ -16,7 +16,12 @@ export class UsersMinOrderByAggregateInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  email?: "asc" | "desc" | undefined;
+  auth_id?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true
+  })
+  user_name?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true

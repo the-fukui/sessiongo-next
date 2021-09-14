@@ -6255,7 +6255,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-flow@npm:^3.2.0":
+"dotenv-flow-cli@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "dotenv-flow-cli@npm:1.0.0"
+  dependencies:
+    cross-spawn: ^7.0.3
+    dotenv-flow: "*"
+    minimist: ^1.2.5
+  bin:
+    dotenv-flow: cli.js
+  checksum: 64feffe0d51bd0a5d72d705390fe015ff02b7cc62242ede83ab538bebe9fbc5af7fe76a605bb1bf5c3da9066ed1d94eb090d4cf5b7ddd101c407391707b3aa1a
+  languageName: node
+  linkType: hard
+
+"dotenv-flow@npm:*, dotenv-flow@npm:^3.2.0":
   version: 3.2.0
   resolution: "dotenv-flow@npm:3.2.0"
   dependencies:
@@ -8421,6 +8434,7 @@ __metadata:
     apollo-server-express: ^3.3.0
     class-validator: ^0.13.1
     dotenv-flow: ^3.2.0
+    dotenv-flow-cli: ^1.0.0
     express: ^4.17.1
     graphql: ^15.5.3
     graphql-fields: ^2.0.3

@@ -2,7 +2,9 @@
 query GetUsers {
   findManyUsers {
     id
-    email
+    auth_id
+    user_name
+    name
     # sessions(where: $sessionsWhere) {
     #   title
     #   started_at

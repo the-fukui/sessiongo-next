@@ -10,22 +10,21 @@ admin.initializeApp({
   projectId: process.env.FIREBASE_PROJECT_ID,
 })
 
-export const setCustomClaims = functions.auth.user().onCreate(async (user) => {
-  console.log('new user registered')
+export const createUser = functions.auth.user().onCreate(async (user) => {
   try {
-    if (!user.email) throw new Error('no email')
-
     // DBへのユーザーデータの作成リクエスト
     const sdk = getSdk(client)
 
-    const { createUsers } = await sdk.CreateUsersMutation({
-      createUsersData: { email: user.email },
+    await sdk.CreateUsersMutation({
+      createUsersData: { auth_id: user.uid },
     })
 
-    // // カスタムクレームの設定
-    await admin
-      .auth()
-      .setCustomUserClaims(user.uid, { db_user_id: createUsers.id })
+    console.log('new user registered')
+
+    // // // カスタムクレームの設定
+    // await admin
+    //   .auth()
+    //   .setCustomUserClaims(user.uid, { db_user_id: createUsers.id })
   } catch (e) {
     console.log(e)
   }

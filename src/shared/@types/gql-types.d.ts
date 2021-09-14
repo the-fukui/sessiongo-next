@@ -1767,10 +1767,11 @@ export type StringWithAggregatesFilter = {
 
 export type Users = {
   _count?: Maybe<UsersCount>;
-  email: Scalars['String'];
+  auth_id: Scalars['String'];
   id: Scalars['Int'];
   name?: Maybe<Scalars['String']>;
   sessions: Array<Sessions>;
+  user_name: Scalars['String'];
 };
 
 
@@ -1797,21 +1798,24 @@ export type UsersCount = {
 
 export type UsersCountAggregate = {
   _all: Scalars['Int'];
-  email: Scalars['Int'];
+  auth_id: Scalars['Int'];
   id: Scalars['Int'];
   name: Scalars['Int'];
+  user_name: Scalars['Int'];
 };
 
 export type UsersCountOrderByAggregateInput = {
-  email?: Maybe<SortOrder>;
+  auth_id?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  user_name?: Maybe<SortOrder>;
 };
 
 export type UsersCreateManyInput = {
-  email: Scalars['String'];
+  auth_id: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  user_name?: Maybe<Scalars['String']>;
 };
 
 export type UsersGroupBy = {
@@ -1820,33 +1824,38 @@ export type UsersGroupBy = {
   _max?: Maybe<UsersMaxAggregate>;
   _min?: Maybe<UsersMinAggregate>;
   _sum?: Maybe<UsersSumAggregate>;
-  email: Scalars['String'];
+  auth_id: Scalars['String'];
   id: Scalars['Int'];
   name?: Maybe<Scalars['String']>;
+  user_name: Scalars['String'];
 };
 
 export type UsersMaxAggregate = {
-  email?: Maybe<Scalars['String']>;
+  auth_id?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  user_name?: Maybe<Scalars['String']>;
 };
 
 export type UsersMaxOrderByAggregateInput = {
-  email?: Maybe<SortOrder>;
+  auth_id?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  user_name?: Maybe<SortOrder>;
 };
 
 export type UsersMinAggregate = {
-  email?: Maybe<Scalars['String']>;
+  auth_id?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+  user_name?: Maybe<Scalars['String']>;
 };
 
 export type UsersMinOrderByAggregateInput = {
-  email?: Maybe<SortOrder>;
+  auth_id?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  user_name?: Maybe<SortOrder>;
 };
 
 export type UsersOrderByWithAggregationInput = {
@@ -1855,16 +1864,18 @@ export type UsersOrderByWithAggregationInput = {
   _max?: Maybe<UsersMaxOrderByAggregateInput>;
   _min?: Maybe<UsersMinOrderByAggregateInput>;
   _sum?: Maybe<UsersSumOrderByAggregateInput>;
-  email?: Maybe<SortOrder>;
+  auth_id?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  user_name?: Maybe<SortOrder>;
 };
 
 export type UsersOrderByWithRelationInput = {
-  email?: Maybe<SortOrder>;
+  auth_id?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   sessions?: Maybe<SessionsOrderByRelationAggregateInput>;
+  user_name?: Maybe<SortOrder>;
 };
 
 export type UsersRelationFilter = {
@@ -1873,18 +1884,20 @@ export type UsersRelationFilter = {
 };
 
 export enum UsersScalarFieldEnum {
-  Email = 'email',
+  AuthId = 'auth_id',
   Id = 'id',
-  Name = 'name'
+  Name = 'name',
+  UserName = 'user_name'
 }
 
 export type UsersScalarWhereWithAggregatesInput = {
   AND?: Maybe<Array<UsersScalarWhereWithAggregatesInput>>;
   NOT?: Maybe<Array<UsersScalarWhereWithAggregatesInput>>;
   OR?: Maybe<Array<UsersScalarWhereWithAggregatesInput>>;
-  email?: Maybe<StringWithAggregatesFilter>;
+  auth_id?: Maybe<StringWithAggregatesFilter>;
   id?: Maybe<IntWithAggregatesFilter>;
   name?: Maybe<StringNullableWithAggregatesFilter>;
+  user_name?: Maybe<StringWithAggregatesFilter>;
 };
 
 export type UsersSumAggregate = {
@@ -1896,38 +1909,43 @@ export type UsersSumOrderByAggregateInput = {
 };
 
 export type UsersUncheckedCreateInput = {
-  email: Scalars['String'];
+  auth_id: Scalars['String'];
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   sessions?: Maybe<SessionsUncheckedCreateNestedManyWithoutAuthorInput>;
+  user_name?: Maybe<Scalars['String']>;
 };
 
 export type UsersUncheckedUpdateInput = {
-  email?: Maybe<StringFieldUpdateOperationsInput>;
+  auth_id?: Maybe<StringFieldUpdateOperationsInput>;
   id?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<NullableStringFieldUpdateOperationsInput>;
   sessions?: Maybe<SessionsUncheckedUpdateManyWithoutAuthorInput>;
+  user_name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
 export type UsersUncheckedUpdateManyInput = {
-  email?: Maybe<StringFieldUpdateOperationsInput>;
+  auth_id?: Maybe<StringFieldUpdateOperationsInput>;
   id?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<NullableStringFieldUpdateOperationsInput>;
+  user_name?: Maybe<StringFieldUpdateOperationsInput>;
 };
 
 export type UsersWhereInput = {
   AND?: Maybe<Array<UsersWhereInput>>;
   NOT?: Maybe<Array<UsersWhereInput>>;
   OR?: Maybe<Array<UsersWhereInput>>;
-  email?: Maybe<StringFilter>;
+  auth_id?: Maybe<StringFilter>;
   id?: Maybe<IntFilter>;
   name?: Maybe<StringNullableFilter>;
   sessions?: Maybe<SessionsListRelationFilter>;
+  user_name?: Maybe<StringFilter>;
 };
 
 export type UsersWhereUniqueInput = {
-  email?: Maybe<Scalars['String']>;
+  auth_id?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
+  user_name?: Maybe<Scalars['String']>;
 };
 
 export type Sessions_Session_TagsSession_IdTag_IdCompoundUniqueInput = {

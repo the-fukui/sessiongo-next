@@ -18,7 +18,12 @@ export class UsersUncheckedUpdateWithoutSessionsInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  email?: StringFieldUpdateOperationsInput | undefined;
+  auth_id?: StringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
+    nullable: true
+  })
+  user_name?: StringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true

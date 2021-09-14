@@ -1406,10 +1406,11 @@ input StringWithAggregatesFilter {
 
 type Users {
   _count: UsersCount
-  email: String!
+  auth_id: String!
   id: Int!
   name: String
   sessions(cursor: SessionsWhereUniqueInput, distinct: [SessionsScalarFieldEnum!], orderBy: [SessionsOrderByWithRelationInput!], skip: Int, take: Int, where: SessionsWhereInput): [Sessions!]!
+  user_name: String!
 }
 
 type UsersAvgAggregate {
@@ -1426,21 +1427,24 @@ type UsersCount {
 
 type UsersCountAggregate {
   _all: Int!
-  email: Int!
+  auth_id: Int!
   id: Int!
   name: Int!
+  user_name: Int!
 }
 
 input UsersCountOrderByAggregateInput {
-  email: SortOrder
+  auth_id: SortOrder
   id: SortOrder
   name: SortOrder
+  user_name: SortOrder
 }
 
 input UsersCreateManyInput {
-  email: String!
+  auth_id: String!
   id: Int
   name: String
+  user_name: String
 }
 
 type UsersGroupBy {
@@ -1449,33 +1453,38 @@ type UsersGroupBy {
   _max: UsersMaxAggregate
   _min: UsersMinAggregate
   _sum: UsersSumAggregate
-  email: String!
+  auth_id: String!
   id: Int!
   name: String
+  user_name: String!
 }
 
 type UsersMaxAggregate {
-  email: String
+  auth_id: String
   id: Int
   name: String
+  user_name: String
 }
 
 input UsersMaxOrderByAggregateInput {
-  email: SortOrder
+  auth_id: SortOrder
   id: SortOrder
   name: SortOrder
+  user_name: SortOrder
 }
 
 type UsersMinAggregate {
-  email: String
+  auth_id: String
   id: Int
   name: String
+  user_name: String
 }
 
 input UsersMinOrderByAggregateInput {
-  email: SortOrder
+  auth_id: SortOrder
   id: SortOrder
   name: SortOrder
+  user_name: SortOrder
 }
 
 input UsersOrderByWithAggregationInput {
@@ -1484,16 +1493,18 @@ input UsersOrderByWithAggregationInput {
   _max: UsersMaxOrderByAggregateInput
   _min: UsersMinOrderByAggregateInput
   _sum: UsersSumOrderByAggregateInput
-  email: SortOrder
+  auth_id: SortOrder
   id: SortOrder
   name: SortOrder
+  user_name: SortOrder
 }
 
 input UsersOrderByWithRelationInput {
-  email: SortOrder
+  auth_id: SortOrder
   id: SortOrder
   name: SortOrder
   sessions: SessionsOrderByRelationAggregateInput
+  user_name: SortOrder
 }
 
 input UsersRelationFilter {
@@ -1502,18 +1513,20 @@ input UsersRelationFilter {
 }
 
 enum UsersScalarFieldEnum {
-  email
+  auth_id
   id
   name
+  user_name
 }
 
 input UsersScalarWhereWithAggregatesInput {
   AND: [UsersScalarWhereWithAggregatesInput!]
   NOT: [UsersScalarWhereWithAggregatesInput!]
   OR: [UsersScalarWhereWithAggregatesInput!]
-  email: StringWithAggregatesFilter
+  auth_id: StringWithAggregatesFilter
   id: IntWithAggregatesFilter
   name: StringNullableWithAggregatesFilter
+  user_name: StringWithAggregatesFilter
 }
 
 type UsersSumAggregate {
@@ -1525,38 +1538,43 @@ input UsersSumOrderByAggregateInput {
 }
 
 input UsersUncheckedCreateInput {
-  email: String!
+  auth_id: String!
   id: Int
   name: String
   sessions: SessionsUncheckedCreateNestedManyWithoutAuthorInput
+  user_name: String
 }
 
 input UsersUncheckedUpdateInput {
-  email: StringFieldUpdateOperationsInput
+  auth_id: StringFieldUpdateOperationsInput
   id: IntFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   sessions: SessionsUncheckedUpdateManyWithoutAuthorInput
+  user_name: StringFieldUpdateOperationsInput
 }
 
 input UsersUncheckedUpdateManyInput {
-  email: StringFieldUpdateOperationsInput
+  auth_id: StringFieldUpdateOperationsInput
   id: IntFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
+  user_name: StringFieldUpdateOperationsInput
 }
 
 input UsersWhereInput {
   AND: [UsersWhereInput!]
   NOT: [UsersWhereInput!]
   OR: [UsersWhereInput!]
-  email: StringFilter
+  auth_id: StringFilter
   id: IntFilter
   name: StringNullableFilter
   sessions: SessionsListRelationFilter
+  user_name: StringFilter
 }
 
 input UsersWhereUniqueInput {
-  email: String
+  auth_id: String
   id: Int
+  user_name: String
 }
 
 input sessions_session_tagsSession_idTag_idCompoundUniqueInput {

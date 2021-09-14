@@ -31,11 +31,13 @@ model sessions {
   tags       sessions_session_tags[]
 }
 
+// DBにはemailは持たず、外部のAuthサービスに任せる
 model users {
-  id       Int        @id @default(autoincrement())
-  email    String     @unique
-  name     String?
-  sessions sessions[]
+  id        Int        @id @default(autoincrement())
+  auth_id   String     @unique @db.VarChar(255) //外部AuthサービスでのID
+  user_name String     @unique @default(uuid())
+  name      String?    @db.VarChar(255)
+  sessions  sessions[]
 }
 
 enum status {

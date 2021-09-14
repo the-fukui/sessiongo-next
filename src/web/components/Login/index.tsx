@@ -3,7 +3,7 @@ import style from './index.module.scss'
 import AuthContext from '@web/contexts/AuthContext'
 import type { auth } from 'firebaseui'
 
-import { EmailAuthProvider } from 'firebase/auth'
+import { EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
 
 interface Props {
   className?: string
@@ -22,6 +22,10 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
         {
           provider: EmailAuthProvider.PROVIDER_ID,
         },
+        {
+          provider: GoogleAuthProvider.PROVIDER_ID,
+          // scopes: ['https://www.googleapis.com/auth/user.emails.read'],
+        },
       ],
       tosUrl: 'https://example.com',
       privacyPolicyUrl: 'https://example.com',
@@ -29,6 +33,7 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
         signInSuccessWithAuthResult,
         signInFailure,
       },
+      credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
     })
   }
 
