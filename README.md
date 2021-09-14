@@ -1,11 +1,11 @@
 # SessionGO next
 
 半ば放置に近い [SessionGO](https://sessiongo.com) をなんとかするプロジェクト。  
-基本新規で書き直してリニューアルしたい。（UIはどうするか検討）
+基本新規で書き直してリニューアルしたい。（UI はどうするか検討）
 
 ## 🎻 SessionGO ?
 
-主にアイルランド音楽のセッション情報を共有するためのイベントリストサイト。  
+主にアイルランド音楽のセッション情報を共有するためのイベントリストサイト。
 
 ### 💭 Feature & Future
 
@@ -20,18 +20,27 @@
 ## 👨‍💻Technology Stack
 
 ### Architecture
+
 - Monorepo (yarn workspace)
 
 ### Frontend
+
 - Next.js
 - React
 - TypeScript
 
 ### Backend
-- Firestore?
-- Firebase Authentication or NextAuth.js?
+
+- Firebase Authentication
 - Firebase Storage?
 - Firebase Functions?
+- [GraphQL] Apollo Server(apollo-server-express)
+- [ORM] Prisma
+
+### DB
+
+- MySQL
+- Firestore?
 
 ### Infrastructure
 
@@ -42,3 +51,17 @@
 - Yarn v3
 - Docker?
 - Firebase Emulator Suite
+
+# Development [WIP]
+
+## Get started
+
+### create & link dotenv
+
+1. Secret env (e.g. .env.local) files are not included in this repository. Create .env with [dotenv-flow](https://github.com/kerimdzhanov/dotenv-flow) at root.
+
+2. Make symlink to each package (just run command below once)
+
+```
+yarn env
+```
