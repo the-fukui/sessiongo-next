@@ -9,8 +9,7 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "src/*",
-      "src/firebase/functions"
+      "src/*"
     ]
   },
   "scripts": {

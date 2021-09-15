@@ -23,10 +23,12 @@ const firebaseConfig = {
 interface State {
   user: User | null
   auth: Auth | null
+  deleteUser: () => void
 }
 const AuthContext = createContext<State>({
   user: null,
   auth: null,
+  deleteUser: () => {},
 })
 
 /**
