@@ -1,5 +1,5 @@
 {
-  "extends": "../../../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
     "noImplicitReturns": true,
@@ -14,5 +14,5 @@
     "isolatedModules": false
   },
   "compileOnSave": true,
-  "include": ["src", "../../shared/**/*.ts"]
+  "include": ["src", "../shared/**/*.ts"]
 }
