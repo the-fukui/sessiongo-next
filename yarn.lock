@@ -4037,6 +4037,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^0.21.1":
+  version: 0.21.4
+  resolution: "axios@npm:0.21.4"
+  dependencies:
+    follow-redirects: ^1.14.0
+  checksum: 44245f24ac971e7458f3120c92f9d66d1fc695e8b97019139de5b0cc65d9b8104647db01e5f46917728edfc0cfd88eb30fc4c55e6053eef4ace76768ce95ff3c
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^2.2.0":
   version: 2.2.0
   resolution: "axobject-query@npm:2.2.0"
@@ -7445,6 +7454,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.14.0":
+  version: 1.14.4
+  resolution: "follow-redirects@npm:1.14.4"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: d4ce74cf5c6f363168b97e706b914eb9ffb6bf4d4c6d8f8330b93088d9b90e566611ddbcf0e42c8ed5fd17598dfeda1d19230d3e9d6d6c6b4d1c10ec3a0b99be
+  languageName: node
+  linkType: hard
+
 "foreach@npm:^2.0.5":
   version: 2.0.5
   resolution: "foreach@npm:2.0.5"
@@ -8321,6 +8340,26 @@ __metadata:
   checksum: 06cc474bed246761ff61c19d629977eb5f53fa817be4313a255a64ae0f433e831a29e83acb6555e3f4592b348497596f1d1653751008dda4f21c9c21ca60ac5a
   languageName: node
   linkType: hard
+
+"hasura-cli@npm:^2.0.8":
+  version: 2.0.8
+  resolution: "hasura-cli@npm:2.0.8"
+  dependencies:
+    axios: ^0.21.1
+    chalk: ^2.4.2
+  bin:
+    hasura: hasura
+  checksum: 3b98b936d824825eb4cc4420969fa9dbb970ad0786e76bd88121629b87e5f065c8b0503529e5c366f4297d0e1f9371d2c746f8e93fb4762ec61fc253bc6ab3bc
+  languageName: node
+  linkType: hard
+
+"hasura@workspace:src/hasura":
+  version: 0.0.0-use.local
+  resolution: "hasura@workspace:src/hasura"
+  dependencies:
+    hasura-cli: ^2.0.8
+  languageName: unknown
+  linkType: soft
 
 "he@npm:1.2.0, he@npm:^1.1.0":
   version: 1.2.0

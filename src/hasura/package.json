@@ -1,0 +1,7 @@
+{
+  "name": "hasura",
+  "packageManager": "yarn@3.0.2",
+  "devDependencies": {
+    "hasura-cli": "^2.0.8"
+  }
+}
