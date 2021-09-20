@@ -1,0 +1,11 @@
+table:
+  name: session_tags
+  schema: public
+array_relationships:
+- name: sessions_tags
+  using:
+    foreign_key_constraint_on:
+      column: tag_id
+      table:
+        name: sessions_session_tags
+        schema: public

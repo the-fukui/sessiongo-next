@@ -1,0 +1,10 @@
+table:
+  name: sessions_tags
+  schema: public
+object_relationships:
+- name: session
+  using:
+    foreign_key_constraint_on: session_id
+- name: session_tag
+  using:
+    foreign_key_constraint_on: tag_id
