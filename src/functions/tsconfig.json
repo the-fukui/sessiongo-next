@@ -8,8 +8,8 @@
     // "outFile": "lib/index.js",
     "sourceMap": true,
     "strict": true,
-    "target": "es2017",
-    "noEmit": false,
+    "target": "esnext",
+    "noEmit": true,
     "resolveJsonModule": false,
     "isolatedModules": false
   },
