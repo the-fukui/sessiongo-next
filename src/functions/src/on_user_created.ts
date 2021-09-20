@@ -15,9 +15,7 @@ export const createUser = functions.auth.user().onCreate(async (user) => {
     // DBへのユーザーデータの作成リクエスト
     const sdk = getSdk(client)
 
-    await sdk.CreateUsersMutation({
-      createUsersData: { auth_id: user.uid },
-    })
+    await sdk.CreateUsersMutation({ auth_id: user.uid })
 
     console.log('new user registered')
 

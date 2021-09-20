@@ -1,5 +1,8 @@
 overwrite: true
-schema: "../graphql/src/generated/schema.graphql"
+schema:
+  - ${GRAPHQL_ENDPOINT}:
+      headers:
+        x-hasura-admin-secret: ${HASURA_GRAPHQL_ADMIN_SECRET}
 documents: "./gql/**/*.gql"
 generates:
   "@types/gql-types.d.ts":

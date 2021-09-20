@@ -3,7 +3,7 @@
   "packageManager": "yarn@3.0.2",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "build": "tsc -p tsconfig.json && esbuild  --bundle --platform=node  ./src/index.ts  --outfile=./dist/index.js",
+    "build:local": "tsc -p tsconfig.json && NODE_ENV=development esbuild  --bundle --platform=node  ./src/index.ts  --outfile=./dist/index.js",
     "serve": "npm run build && firebase emulators:start --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",

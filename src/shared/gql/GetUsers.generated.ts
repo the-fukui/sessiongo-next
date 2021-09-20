@@ -6,12 +6,12 @@ import gql from 'graphql-tag';
 export type GetUsersQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type GetUsersQuery = { findManyUsers: Array<{ id: number, auth_id: string, user_name: string, name?: Types.Maybe<string> }> };
+export type GetUsersQuery = { users: Array<{ id: number, auth_id: string, user_name: string, name?: Types.Maybe<string> }> };
 
 
 export const GetUsersDocument = gql`
     query GetUsers {
-  findManyUsers {
+  users {
     id
     auth_id
     user_name

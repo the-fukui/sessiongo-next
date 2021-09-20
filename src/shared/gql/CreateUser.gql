@@ -1,5 +1,5 @@
-mutation CreateUsersMutation($createUsersData: UsersUncheckedCreateInput!) {
-  createUsers(data: $createUsersData) {
+mutation CreateUsersMutation($auth_id: String) {
+  insert_users_one(object: { auth_id: $auth_id }) {
     id
   }
 }

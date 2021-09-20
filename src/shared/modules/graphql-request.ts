@@ -5,7 +5,7 @@ dotenvFlow.config()
 const endpoint = process.env.GRAPHQL_ENDPOINT || ''
 const option = {
   headers: {
-    'x-api-key': process.env.API_KEY || '',
+    'x-hasura-admin-secret': process.env.HASURA_GRAPHQL_ADMIN_SECRET || '',
   },
 }
 

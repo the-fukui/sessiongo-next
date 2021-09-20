@@ -9,1951 +9,1884 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
-  DateTime: any;
-};
-
-export type AffectedRowsOutput = {
-  count: Scalars['Int'];
-};
-
-export type AggregateSession_Tags = {
-  _avg?: Maybe<Session_TagsAvgAggregate>;
-  _count?: Maybe<Session_TagsCountAggregate>;
-  _max?: Maybe<Session_TagsMaxAggregate>;
-  _min?: Maybe<Session_TagsMinAggregate>;
-  _sum?: Maybe<Session_TagsSumAggregate>;
-};
-
-export type AggregateSessions = {
-  _avg?: Maybe<SessionsAvgAggregate>;
-  _count?: Maybe<SessionsCountAggregate>;
-  _max?: Maybe<SessionsMaxAggregate>;
-  _min?: Maybe<SessionsMinAggregate>;
-  _sum?: Maybe<SessionsSumAggregate>;
-};
-
-export type AggregateSessions_Session_Tags = {
-  _avg?: Maybe<Sessions_Session_TagsAvgAggregate>;
-  _count?: Maybe<Sessions_Session_TagsCountAggregate>;
-  _max?: Maybe<Sessions_Session_TagsMaxAggregate>;
-  _min?: Maybe<Sessions_Session_TagsMinAggregate>;
-  _sum?: Maybe<Sessions_Session_TagsSumAggregate>;
-};
-
-export type AggregateUsers = {
-  _avg?: Maybe<UsersAvgAggregate>;
-  _count?: Maybe<UsersCountAggregate>;
-  _max?: Maybe<UsersMaxAggregate>;
-  _min?: Maybe<UsersMinAggregate>;
-  _sum?: Maybe<UsersSumAggregate>;
-};
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Maybe<Scalars['DateTime']>;
-};
-
-export type DateTimeFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-};
-
-export type DateTimeNullableFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeNullableFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-};
-
-export type DateTimeNullableWithAggregatesFilter = {
-  _count?: Maybe<NestedIntNullableFilter>;
-  _max?: Maybe<NestedDateTimeNullableFilter>;
-  _min?: Maybe<NestedDateTimeNullableFilter>;
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-};
-
-export type DateTimeWithAggregatesFilter = {
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedDateTimeFilter>;
-  _min?: Maybe<NestedDateTimeFilter>;
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-};
-
-export type EnumstatusFieldUpdateOperationsInput = {
-  set?: Maybe<Status>;
-};
-
-export type EnumstatusFilter = {
-  equals?: Maybe<Status>;
-  in?: Maybe<Array<Status>>;
-  not?: Maybe<NestedEnumstatusFilter>;
-  notIn?: Maybe<Array<Status>>;
-};
-
-export type EnumstatusWithAggregatesFilter = {
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedEnumstatusFilter>;
-  _min?: Maybe<NestedEnumstatusFilter>;
-  equals?: Maybe<Status>;
-  in?: Maybe<Array<Status>>;
-  not?: Maybe<NestedEnumstatusWithAggregatesFilter>;
-  notIn?: Maybe<Array<Status>>;
-};
-
-export type IntFieldUpdateOperationsInput = {
-  decrement?: Maybe<Scalars['Int']>;
-  divide?: Maybe<Scalars['Int']>;
-  increment?: Maybe<Scalars['Int']>;
-  multiply?: Maybe<Scalars['Int']>;
-  set?: Maybe<Scalars['Int']>;
-};
-
-export type IntFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  not?: Maybe<NestedIntFilter>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-};
-
-export type IntWithAggregatesFilter = {
-  _avg?: Maybe<NestedFloatFilter>;
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedIntFilter>;
-  _min?: Maybe<NestedIntFilter>;
-  _sum?: Maybe<NestedIntFilter>;
-  equals?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  not?: Maybe<NestedIntWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-};
-
-export type Mutation = {
-  createManySession_tags: AffectedRowsOutput;
-  createManySessions: AffectedRowsOutput;
-  createManySessions_session_tags: AffectedRowsOutput;
-  createManyUsers: AffectedRowsOutput;
-  createSession_tags: Session_Tags;
-  createSessions: Sessions;
-  createSessions_session_tags: Sessions_Session_Tags;
-  createUsers: Users;
-  deleteManySession_tags: AffectedRowsOutput;
-  deleteManySessions: AffectedRowsOutput;
-  deleteManySessions_session_tags: AffectedRowsOutput;
-  deleteManyUsers: AffectedRowsOutput;
-  deleteSession_tags?: Maybe<Session_Tags>;
-  deleteSessions?: Maybe<Sessions>;
-  deleteSessions_session_tags?: Maybe<Sessions_Session_Tags>;
-  deleteUsers?: Maybe<Users>;
-  updateManySession_tags: AffectedRowsOutput;
-  updateManySessions: AffectedRowsOutput;
-  updateManySessions_session_tags: AffectedRowsOutput;
-  updateManyUsers: AffectedRowsOutput;
-  updateSession_tags?: Maybe<Session_Tags>;
-  updateSessions?: Maybe<Sessions>;
-  updateSessions_session_tags?: Maybe<Sessions_Session_Tags>;
-  updateUsers?: Maybe<Users>;
-  upsertSession_tags: Session_Tags;
-  upsertSessions: Sessions;
-  upsertSessions_session_tags: Sessions_Session_Tags;
-  upsertUsers: Users;
-};
-
-
-export type MutationCreateManySession_TagsArgs = {
-  data: Array<Session_TagsCreateManyInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-
-export type MutationCreateManySessionsArgs = {
-  data: Array<SessionsCreateManyInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-
-export type MutationCreateManySessions_Session_TagsArgs = {
-  data: Array<Sessions_Session_TagsCreateManyInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-
-export type MutationCreateManyUsersArgs = {
-  data: Array<UsersCreateManyInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-
-export type MutationCreateSession_TagsArgs = {
-  data: Session_TagsUncheckedCreateInput;
-};
-
-
-export type MutationCreateSessionsArgs = {
-  data: SessionsUncheckedCreateInput;
-};
-
-
-export type MutationCreateSessions_Session_TagsArgs = {
-  data: Sessions_Session_TagsUncheckedCreateInput;
-};
-
-
-export type MutationCreateUsersArgs = {
-  data: UsersUncheckedCreateInput;
-};
-
-
-export type MutationDeleteManySession_TagsArgs = {
-  where?: Maybe<Session_TagsWhereInput>;
-};
-
-
-export type MutationDeleteManySessionsArgs = {
-  where?: Maybe<SessionsWhereInput>;
+  timestamp: any;
+  timestamptz: any;
+};
+
+/** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
+export type Int_Comparison_Exp = {
+  _eq?: Maybe<Scalars['Int']>;
+  _gt?: Maybe<Scalars['Int']>;
+  _gte?: Maybe<Scalars['Int']>;
+  _in?: Maybe<Array<Scalars['Int']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['Int']>;
+  _lte?: Maybe<Scalars['Int']>;
+  _neq?: Maybe<Scalars['Int']>;
+  _nin?: Maybe<Array<Scalars['Int']>>;
+};
+
+/** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
+export type String_Comparison_Exp = {
+  _eq?: Maybe<Scalars['String']>;
+  _gt?: Maybe<Scalars['String']>;
+  _gte?: Maybe<Scalars['String']>;
+  /** does the column match the given case-insensitive pattern */
+  _ilike?: Maybe<Scalars['String']>;
+  _in?: Maybe<Array<Scalars['String']>>;
+  /** does the column match the given POSIX regular expression, case insensitive */
+  _iregex?: Maybe<Scalars['String']>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  /** does the column match the given pattern */
+  _like?: Maybe<Scalars['String']>;
+  _lt?: Maybe<Scalars['String']>;
+  _lte?: Maybe<Scalars['String']>;
+  _neq?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given case-insensitive pattern */
+  _nilike?: Maybe<Scalars['String']>;
+  _nin?: Maybe<Array<Scalars['String']>>;
+  /** does the column NOT match the given POSIX regular expression, case insensitive */
+  _niregex?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given pattern */
+  _nlike?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given POSIX regular expression, case sensitive */
+  _nregex?: Maybe<Scalars['String']>;
+  /** does the column NOT match the given SQL regular expression */
+  _nsimilar?: Maybe<Scalars['String']>;
+  /** does the column match the given POSIX regular expression, case sensitive */
+  _regex?: Maybe<Scalars['String']>;
+  /** does the column match the given SQL regular expression */
+  _similar?: Maybe<Scalars['String']>;
+};
+
+/** mutation root */
+export type Mutation_Root = {
+  /** delete data from the table: "session_tags" */
+  delete_session_tags?: Maybe<Session_Tags_Mutation_Response>;
+  /** delete single row from the table: "session_tags" */
+  delete_session_tags_by_pk?: Maybe<Session_Tags>;
+  /** delete data from the table: "sessions" */
+  delete_sessions?: Maybe<Sessions_Mutation_Response>;
+  /** delete single row from the table: "sessions" */
+  delete_sessions_by_pk?: Maybe<Sessions>;
+  /** delete data from the table: "sessions_session_tags" */
+  delete_sessions_session_tags?: Maybe<Sessions_Session_Tags_Mutation_Response>;
+  /** delete single row from the table: "sessions_session_tags" */
+  delete_sessions_session_tags_by_pk?: Maybe<Sessions_Session_Tags>;
+  /** delete data from the table: "sessions_status" */
+  delete_sessions_status?: Maybe<Sessions_Status_Mutation_Response>;
+  /** delete single row from the table: "sessions_status" */
+  delete_sessions_status_by_pk?: Maybe<Sessions_Status>;
+  /** delete data from the table: "users" */
+  delete_users?: Maybe<Users_Mutation_Response>;
+  /** delete single row from the table: "users" */
+  delete_users_by_pk?: Maybe<Users>;
+  /** insert data into the table: "session_tags" */
+  insert_session_tags?: Maybe<Session_Tags_Mutation_Response>;
+  /** insert a single row into the table: "session_tags" */
+  insert_session_tags_one?: Maybe<Session_Tags>;
+  /** insert data into the table: "sessions" */
+  insert_sessions?: Maybe<Sessions_Mutation_Response>;
+  /** insert a single row into the table: "sessions" */
+  insert_sessions_one?: Maybe<Sessions>;
+  /** insert data into the table: "sessions_session_tags" */
+  insert_sessions_session_tags?: Maybe<Sessions_Session_Tags_Mutation_Response>;
+  /** insert a single row into the table: "sessions_session_tags" */
+  insert_sessions_session_tags_one?: Maybe<Sessions_Session_Tags>;
+  /** insert data into the table: "sessions_status" */
+  insert_sessions_status?: Maybe<Sessions_Status_Mutation_Response>;
+  /** insert a single row into the table: "sessions_status" */
+  insert_sessions_status_one?: Maybe<Sessions_Status>;
+  /** insert data into the table: "users" */
+  insert_users?: Maybe<Users_Mutation_Response>;
+  /** insert a single row into the table: "users" */
+  insert_users_one?: Maybe<Users>;
+  /** update data of the table: "session_tags" */
+  update_session_tags?: Maybe<Session_Tags_Mutation_Response>;
+  /** update single row of the table: "session_tags" */
+  update_session_tags_by_pk?: Maybe<Session_Tags>;
+  /** update data of the table: "sessions" */
+  update_sessions?: Maybe<Sessions_Mutation_Response>;
+  /** update single row of the table: "sessions" */
+  update_sessions_by_pk?: Maybe<Sessions>;
+  /** update data of the table: "sessions_session_tags" */
+  update_sessions_session_tags?: Maybe<Sessions_Session_Tags_Mutation_Response>;
+  /** update single row of the table: "sessions_session_tags" */
+  update_sessions_session_tags_by_pk?: Maybe<Sessions_Session_Tags>;
+  /** update data of the table: "sessions_status" */
+  update_sessions_status?: Maybe<Sessions_Status_Mutation_Response>;
+  /** update single row of the table: "sessions_status" */
+  update_sessions_status_by_pk?: Maybe<Sessions_Status>;
+  /** update data of the table: "users" */
+  update_users?: Maybe<Users_Mutation_Response>;
+  /** update single row of the table: "users" */
+  update_users_by_pk?: Maybe<Users>;
 };
 
 
-export type MutationDeleteManySessions_Session_TagsArgs = {
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+/** mutation root */
+export type Mutation_RootDelete_Session_TagsArgs = {
+  where: Session_Tags_Bool_Exp;
 };
 
 
-export type MutationDeleteManyUsersArgs = {
-  where?: Maybe<UsersWhereInput>;
+/** mutation root */
+export type Mutation_RootDelete_Session_Tags_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
-export type MutationDeleteSession_TagsArgs = {
-  where: Session_TagsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootDelete_SessionsArgs = {
+  where: Sessions_Bool_Exp;
 };
 
 
-export type MutationDeleteSessionsArgs = {
-  where: SessionsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootDelete_Sessions_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
-export type MutationDeleteSessions_Session_TagsArgs = {
-  where: Sessions_Session_TagsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootDelete_Sessions_Session_TagsArgs = {
+  where: Sessions_Session_Tags_Bool_Exp;
 };
 
 
-export type MutationDeleteUsersArgs = {
-  where: UsersWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootDelete_Sessions_Session_Tags_By_PkArgs = {
+  session_id: Scalars['Int'];
+  tag_id: Scalars['Int'];
 };
 
 
-export type MutationUpdateManySession_TagsArgs = {
-  data: Session_TagsUncheckedUpdateManyInput;
-  where?: Maybe<Session_TagsWhereInput>;
+/** mutation root */
+export type Mutation_RootDelete_Sessions_StatusArgs = {
+  where: Sessions_Status_Bool_Exp;
 };
 
 
-export type MutationUpdateManySessionsArgs = {
-  data: SessionsUncheckedUpdateManyInput;
-  where?: Maybe<SessionsWhereInput>;
+/** mutation root */
+export type Mutation_RootDelete_Sessions_Status_By_PkArgs = {
+  value: Scalars['String'];
 };
 
 
-export type MutationUpdateManySessions_Session_TagsArgs = {
-  data: Sessions_Session_TagsUncheckedUpdateManyInput;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+/** mutation root */
+export type Mutation_RootDelete_UsersArgs = {
+  where: Users_Bool_Exp;
 };
 
 
-export type MutationUpdateManyUsersArgs = {
-  data: UsersUncheckedUpdateManyInput;
-  where?: Maybe<UsersWhereInput>;
+/** mutation root */
+export type Mutation_RootDelete_Users_By_PkArgs = {
+  auth_id: Scalars['String'];
+  id: Scalars['Int'];
 };
 
 
-export type MutationUpdateSession_TagsArgs = {
-  data: Session_TagsUncheckedUpdateInput;
-  where: Session_TagsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_Session_TagsArgs = {
+  objects: Array<Session_Tags_Insert_Input>;
+  on_conflict?: Maybe<Session_Tags_On_Conflict>;
 };
 
 
-export type MutationUpdateSessionsArgs = {
-  data: SessionsUncheckedUpdateInput;
-  where: SessionsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_Session_Tags_OneArgs = {
+  object: Session_Tags_Insert_Input;
+  on_conflict?: Maybe<Session_Tags_On_Conflict>;
 };
 
 
-export type MutationUpdateSessions_Session_TagsArgs = {
-  data: Sessions_Session_TagsUncheckedUpdateInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_SessionsArgs = {
+  objects: Array<Sessions_Insert_Input>;
+  on_conflict?: Maybe<Sessions_On_Conflict>;
 };
 
 
-export type MutationUpdateUsersArgs = {
-  data: UsersUncheckedUpdateInput;
-  where: UsersWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_Sessions_OneArgs = {
+  object: Sessions_Insert_Input;
+  on_conflict?: Maybe<Sessions_On_Conflict>;
 };
 
 
-export type MutationUpsertSession_TagsArgs = {
-  create: Session_TagsUncheckedCreateInput;
-  update: Session_TagsUncheckedUpdateInput;
-  where: Session_TagsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_Sessions_Session_TagsArgs = {
+  objects: Array<Sessions_Session_Tags_Insert_Input>;
+  on_conflict?: Maybe<Sessions_Session_Tags_On_Conflict>;
 };
 
 
-export type MutationUpsertSessionsArgs = {
-  create: SessionsUncheckedCreateInput;
-  update: SessionsUncheckedUpdateInput;
-  where: SessionsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_Sessions_Session_Tags_OneArgs = {
+  object: Sessions_Session_Tags_Insert_Input;
+  on_conflict?: Maybe<Sessions_Session_Tags_On_Conflict>;
 };
 
 
-export type MutationUpsertSessions_Session_TagsArgs = {
-  create: Sessions_Session_TagsUncheckedCreateInput;
-  update: Sessions_Session_TagsUncheckedUpdateInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
+/** mutation root */
+export type Mutation_RootInsert_Sessions_StatusArgs = {
+  objects: Array<Sessions_Status_Insert_Input>;
+  on_conflict?: Maybe<Sessions_Status_On_Conflict>;
 };
-
 
-export type MutationUpsertUsersArgs = {
-  create: UsersUncheckedCreateInput;
-  update: UsersUncheckedUpdateInput;
-  where: UsersWhereUniqueInput;
-};
 
-export type NestedDateTimeFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
+/** mutation root */
+export type Mutation_RootInsert_Sessions_Status_OneArgs = {
+  object: Sessions_Status_Insert_Input;
+  on_conflict?: Maybe<Sessions_Status_On_Conflict>;
 };
 
-export type NestedDateTimeNullableFilter = {
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeNullableFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-};
 
-export type NestedDateTimeNullableWithAggregatesFilter = {
-  _count?: Maybe<NestedIntNullableFilter>;
-  _max?: Maybe<NestedDateTimeNullableFilter>;
-  _min?: Maybe<NestedDateTimeNullableFilter>;
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeNullableWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
+/** mutation root */
+export type Mutation_RootInsert_UsersArgs = {
+  objects: Array<Users_Insert_Input>;
+  on_conflict?: Maybe<Users_On_Conflict>;
 };
 
-export type NestedDateTimeWithAggregatesFilter = {
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedDateTimeFilter>;
-  _min?: Maybe<NestedDateTimeFilter>;
-  equals?: Maybe<Scalars['DateTime']>;
-  gt?: Maybe<Scalars['DateTime']>;
-  gte?: Maybe<Scalars['DateTime']>;
-  in?: Maybe<Array<Scalars['DateTime']>>;
-  lt?: Maybe<Scalars['DateTime']>;
-  lte?: Maybe<Scalars['DateTime']>;
-  not?: Maybe<NestedDateTimeWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['DateTime']>>;
-};
 
-export type NestedEnumstatusFilter = {
-  equals?: Maybe<Status>;
-  in?: Maybe<Array<Status>>;
-  not?: Maybe<NestedEnumstatusFilter>;
-  notIn?: Maybe<Array<Status>>;
+/** mutation root */
+export type Mutation_RootInsert_Users_OneArgs = {
+  object: Users_Insert_Input;
+  on_conflict?: Maybe<Users_On_Conflict>;
 };
 
-export type NestedEnumstatusWithAggregatesFilter = {
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedEnumstatusFilter>;
-  _min?: Maybe<NestedEnumstatusFilter>;
-  equals?: Maybe<Status>;
-  in?: Maybe<Array<Status>>;
-  not?: Maybe<NestedEnumstatusWithAggregatesFilter>;
-  notIn?: Maybe<Array<Status>>;
-};
 
-export type NestedFloatFilter = {
-  equals?: Maybe<Scalars['Float']>;
-  gt?: Maybe<Scalars['Float']>;
-  gte?: Maybe<Scalars['Float']>;
-  in?: Maybe<Array<Scalars['Float']>>;
-  lt?: Maybe<Scalars['Float']>;
-  lte?: Maybe<Scalars['Float']>;
-  not?: Maybe<NestedFloatFilter>;
-  notIn?: Maybe<Array<Scalars['Float']>>;
+/** mutation root */
+export type Mutation_RootUpdate_Session_TagsArgs = {
+  _inc?: Maybe<Session_Tags_Inc_Input>;
+  _set?: Maybe<Session_Tags_Set_Input>;
+  where: Session_Tags_Bool_Exp;
 };
 
-export type NestedIntFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  not?: Maybe<NestedIntFilter>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-};
 
-export type NestedIntNullableFilter = {
-  equals?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  not?: Maybe<NestedIntNullableFilter>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
+/** mutation root */
+export type Mutation_RootUpdate_Session_Tags_By_PkArgs = {
+  _inc?: Maybe<Session_Tags_Inc_Input>;
+  _set?: Maybe<Session_Tags_Set_Input>;
+  pk_columns: Session_Tags_Pk_Columns_Input;
 };
 
-export type NestedIntWithAggregatesFilter = {
-  _avg?: Maybe<NestedFloatFilter>;
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedIntFilter>;
-  _min?: Maybe<NestedIntFilter>;
-  _sum?: Maybe<NestedIntFilter>;
-  equals?: Maybe<Scalars['Int']>;
-  gt?: Maybe<Scalars['Int']>;
-  gte?: Maybe<Scalars['Int']>;
-  in?: Maybe<Array<Scalars['Int']>>;
-  lt?: Maybe<Scalars['Int']>;
-  lte?: Maybe<Scalars['Int']>;
-  not?: Maybe<NestedIntWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['Int']>>;
-};
 
-export type NestedStringFilter = {
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
+/** mutation root */
+export type Mutation_RootUpdate_SessionsArgs = {
+  _inc?: Maybe<Sessions_Inc_Input>;
+  _set?: Maybe<Sessions_Set_Input>;
+  where: Sessions_Bool_Exp;
 };
 
-export type NestedStringNullableFilter = {
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringNullableFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
-};
 
-export type NestedStringNullableWithAggregatesFilter = {
-  _count?: Maybe<NestedIntNullableFilter>;
-  _max?: Maybe<NestedStringNullableFilter>;
-  _min?: Maybe<NestedStringNullableFilter>;
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringNullableWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
+/** mutation root */
+export type Mutation_RootUpdate_Sessions_By_PkArgs = {
+  _inc?: Maybe<Sessions_Inc_Input>;
+  _set?: Maybe<Sessions_Set_Input>;
+  pk_columns: Sessions_Pk_Columns_Input;
 };
 
-export type NestedStringWithAggregatesFilter = {
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedStringFilter>;
-  _min?: Maybe<NestedStringFilter>;
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
-};
 
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Maybe<Scalars['DateTime']>;
+/** mutation root */
+export type Mutation_RootUpdate_Sessions_Session_TagsArgs = {
+  _inc?: Maybe<Sessions_Session_Tags_Inc_Input>;
+  _set?: Maybe<Sessions_Session_Tags_Set_Input>;
+  where: Sessions_Session_Tags_Bool_Exp;
 };
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: Maybe<Scalars['String']>;
-};
 
-export type Query = {
-  aggregateSession_tags: AggregateSession_Tags;
-  aggregateSessions: AggregateSessions;
-  aggregateSessions_session_tags: AggregateSessions_Session_Tags;
-  aggregateUsers: AggregateUsers;
-  findFirstSession_tags?: Maybe<Session_Tags>;
-  findFirstSessions?: Maybe<Sessions>;
-  findFirstSessions_session_tags?: Maybe<Sessions_Session_Tags>;
-  findFirstUsers?: Maybe<Users>;
-  findManySession_tags: Array<Session_Tags>;
-  findManySessions: Array<Sessions>;
-  findManySessions_session_tags: Array<Sessions_Session_Tags>;
-  findManyUsers: Array<Users>;
-  findUniqueSession_tags?: Maybe<Session_Tags>;
-  findUniqueSessions?: Maybe<Sessions>;
-  findUniqueSessions_session_tags?: Maybe<Sessions_Session_Tags>;
-  findUniqueUsers?: Maybe<Users>;
-  groupBySession_tags: Array<Session_TagsGroupBy>;
-  groupBySessions: Array<SessionsGroupBy>;
-  groupBySessions_session_tags: Array<Sessions_Session_TagsGroupBy>;
-  groupByUsers: Array<UsersGroupBy>;
+/** mutation root */
+export type Mutation_RootUpdate_Sessions_Session_Tags_By_PkArgs = {
+  _inc?: Maybe<Sessions_Session_Tags_Inc_Input>;
+  _set?: Maybe<Sessions_Session_Tags_Set_Input>;
+  pk_columns: Sessions_Session_Tags_Pk_Columns_Input;
 };
 
 
-export type QueryAggregateSession_TagsArgs = {
-  cursor?: Maybe<Session_TagsWhereUniqueInput>;
-  orderBy?: Maybe<Array<Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Session_TagsWhereInput>;
+/** mutation root */
+export type Mutation_RootUpdate_Sessions_StatusArgs = {
+  _set?: Maybe<Sessions_Status_Set_Input>;
+  where: Sessions_Status_Bool_Exp;
 };
 
 
-export type QueryAggregateSessionsArgs = {
-  cursor?: Maybe<SessionsWhereUniqueInput>;
-  orderBy?: Maybe<Array<SessionsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<SessionsWhereInput>;
+/** mutation root */
+export type Mutation_RootUpdate_Sessions_Status_By_PkArgs = {
+  _set?: Maybe<Sessions_Status_Set_Input>;
+  pk_columns: Sessions_Status_Pk_Columns_Input;
 };
 
 
-export type QueryAggregateSessions_Session_TagsArgs = {
-  cursor?: Maybe<Sessions_Session_TagsWhereUniqueInput>;
-  orderBy?: Maybe<Array<Sessions_Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+/** mutation root */
+export type Mutation_RootUpdate_UsersArgs = {
+  _inc?: Maybe<Users_Inc_Input>;
+  _set?: Maybe<Users_Set_Input>;
+  where: Users_Bool_Exp;
 };
 
 
-export type QueryAggregateUsersArgs = {
-  cursor?: Maybe<UsersWhereUniqueInput>;
-  orderBy?: Maybe<Array<UsersOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<UsersWhereInput>;
+/** mutation root */
+export type Mutation_RootUpdate_Users_By_PkArgs = {
+  _inc?: Maybe<Users_Inc_Input>;
+  _set?: Maybe<Users_Set_Input>;
+  pk_columns: Users_Pk_Columns_Input;
 };
 
+/** column ordering options */
+export enum Order_By {
+  /** in ascending order, nulls last */
+  Asc = 'asc',
+  /** in ascending order, nulls first */
+  AscNullsFirst = 'asc_nulls_first',
+  /** in ascending order, nulls last */
+  AscNullsLast = 'asc_nulls_last',
+  /** in descending order, nulls first */
+  Desc = 'desc',
+  /** in descending order, nulls first */
+  DescNullsFirst = 'desc_nulls_first',
+  /** in descending order, nulls last */
+  DescNullsLast = 'desc_nulls_last'
+}
 
-export type QueryFindFirstSession_TagsArgs = {
-  cursor?: Maybe<Session_TagsWhereUniqueInput>;
-  distinct?: Maybe<Array<Session_TagsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Session_TagsWhereInput>;
+export type Query_Root = {
+  /** fetch data from the table: "session_tags" */
+  session_tags: Array<Session_Tags>;
+  /** fetch aggregated fields from the table: "session_tags" */
+  session_tags_aggregate: Session_Tags_Aggregate;
+  /** fetch data from the table: "session_tags" using primary key columns */
+  session_tags_by_pk?: Maybe<Session_Tags>;
+  /** fetch data from the table: "sessions" */
+  sessions: Array<Sessions>;
+  /** An aggregate relationship */
+  sessions_aggregate: Sessions_Aggregate;
+  /** fetch data from the table: "sessions" using primary key columns */
+  sessions_by_pk?: Maybe<Sessions>;
+  /** fetch data from the table: "sessions_session_tags" */
+  sessions_session_tags: Array<Sessions_Session_Tags>;
+  /** fetch aggregated fields from the table: "sessions_session_tags" */
+  sessions_session_tags_aggregate: Sessions_Session_Tags_Aggregate;
+  /** fetch data from the table: "sessions_session_tags" using primary key columns */
+  sessions_session_tags_by_pk?: Maybe<Sessions_Session_Tags>;
+  /** fetch data from the table: "sessions_status" */
+  sessions_status: Array<Sessions_Status>;
+  /** fetch aggregated fields from the table: "sessions_status" */
+  sessions_status_aggregate: Sessions_Status_Aggregate;
+  /** fetch data from the table: "sessions_status" using primary key columns */
+  sessions_status_by_pk?: Maybe<Sessions_Status>;
+  /** fetch data from the table: "users" */
+  users: Array<Users>;
+  /** fetch aggregated fields from the table: "users" */
+  users_aggregate: Users_Aggregate;
+  /** fetch data from the table: "users" using primary key columns */
+  users_by_pk?: Maybe<Users>;
 };
 
 
-export type QueryFindFirstSessionsArgs = {
-  cursor?: Maybe<SessionsWhereUniqueInput>;
-  distinct?: Maybe<Array<SessionsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<SessionsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<SessionsWhereInput>;
+export type Query_RootSession_TagsArgs = {
+  distinct_on?: Maybe<Array<Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Session_Tags_Order_By>>;
+  where?: Maybe<Session_Tags_Bool_Exp>;
 };
 
 
-export type QueryFindFirstSessions_Session_TagsArgs = {
-  cursor?: Maybe<Sessions_Session_TagsWhereUniqueInput>;
-  distinct?: Maybe<Array<Sessions_Session_TagsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<Sessions_Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+export type Query_RootSession_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Session_Tags_Order_By>>;
+  where?: Maybe<Session_Tags_Bool_Exp>;
 };
 
 
-export type QueryFindFirstUsersArgs = {
-  cursor?: Maybe<UsersWhereUniqueInput>;
-  distinct?: Maybe<Array<UsersScalarFieldEnum>>;
-  orderBy?: Maybe<Array<UsersOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<UsersWhereInput>;
+export type Query_RootSession_Tags_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
-export type QueryFindManySession_TagsArgs = {
-  cursor?: Maybe<Session_TagsWhereUniqueInput>;
-  distinct?: Maybe<Array<Session_TagsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Session_TagsWhereInput>;
+export type Query_RootSessionsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Order_By>>;
+  where?: Maybe<Sessions_Bool_Exp>;
 };
 
 
-export type QueryFindManySessionsArgs = {
-  cursor?: Maybe<SessionsWhereUniqueInput>;
-  distinct?: Maybe<Array<SessionsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<SessionsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<SessionsWhereInput>;
+export type Query_RootSessions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Order_By>>;
+  where?: Maybe<Sessions_Bool_Exp>;
 };
 
 
-export type QueryFindManySessions_Session_TagsArgs = {
-  cursor?: Maybe<Sessions_Session_TagsWhereUniqueInput>;
-  distinct?: Maybe<Array<Sessions_Session_TagsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<Sessions_Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+export type Query_RootSessions_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
-export type QueryFindManyUsersArgs = {
-  cursor?: Maybe<UsersWhereUniqueInput>;
-  distinct?: Maybe<Array<UsersScalarFieldEnum>>;
-  orderBy?: Maybe<Array<UsersOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<UsersWhereInput>;
+export type Query_RootSessions_Session_TagsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
 };
 
 
-export type QueryFindUniqueSession_TagsArgs = {
-  where: Session_TagsWhereUniqueInput;
+export type Query_RootSessions_Session_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
 };
 
 
-export type QueryFindUniqueSessionsArgs = {
-  where: SessionsWhereUniqueInput;
+export type Query_RootSessions_Session_Tags_By_PkArgs = {
+  session_id: Scalars['Int'];
+  tag_id: Scalars['Int'];
 };
 
 
-export type QueryFindUniqueSessions_Session_TagsArgs = {
-  where: Sessions_Session_TagsWhereUniqueInput;
+export type Query_RootSessions_StatusArgs = {
+  distinct_on?: Maybe<Array<Sessions_Status_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Status_Order_By>>;
+  where?: Maybe<Sessions_Status_Bool_Exp>;
 };
 
 
-export type QueryFindUniqueUsersArgs = {
-  where: UsersWhereUniqueInput;
+export type Query_RootSessions_Status_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Status_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Status_Order_By>>;
+  where?: Maybe<Sessions_Status_Bool_Exp>;
 };
 
 
-export type QueryGroupBySession_TagsArgs = {
-  by: Array<Session_TagsScalarFieldEnum>;
-  having?: Maybe<Session_TagsScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<Session_TagsOrderByWithAggregationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Session_TagsWhereInput>;
+export type Query_RootSessions_Status_By_PkArgs = {
+  value: Scalars['String'];
 };
 
 
-export type QueryGroupBySessionsArgs = {
-  by: Array<SessionsScalarFieldEnum>;
-  having?: Maybe<SessionsScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<SessionsOrderByWithAggregationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<SessionsWhereInput>;
+export type Query_RootUsersArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
 };
 
 
-export type QueryGroupBySessions_Session_TagsArgs = {
-  by: Array<Sessions_Session_TagsScalarFieldEnum>;
-  having?: Maybe<Sessions_Session_TagsScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<Sessions_Session_TagsOrderByWithAggregationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+export type Query_RootUsers_AggregateArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
 };
 
 
-export type QueryGroupByUsersArgs = {
-  by: Array<UsersScalarFieldEnum>;
-  having?: Maybe<UsersScalarWhereWithAggregatesInput>;
-  orderBy?: Maybe<Array<UsersOrderByWithAggregationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<UsersWhereInput>;
+export type Query_RootUsers_By_PkArgs = {
+  auth_id: Scalars['String'];
+  id: Scalars['Int'];
 };
 
+/** columns and relationships of "session_tags" */
 export type Session_Tags = {
-  _count?: Maybe<Session_TagsCount>;
-  created_at: Scalars['DateTime'];
+  created_at: Scalars['timestamptz'];
   id: Scalars['Int'];
   label: Scalars['String'];
-  sessions: Array<Sessions_Session_Tags>;
+  /** An array relationship */
+  sessions_tags: Array<Sessions_Session_Tags>;
+  /** An aggregate relationship */
+  sessions_tags_aggregate: Sessions_Session_Tags_Aggregate;
   slug: Scalars['String'];
-  updated_at: Scalars['DateTime'];
+  updated_at: Scalars['timestamptz'];
 };
 
 
-export type Session_TagsSessionsArgs = {
-  cursor?: Maybe<Sessions_Session_TagsWhereUniqueInput>;
-  distinct?: Maybe<Array<Sessions_Session_TagsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<Sessions_Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+/** columns and relationships of "session_tags" */
+export type Session_TagsSessions_TagsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
 };
 
-export type Session_TagsAvgAggregate = {
+
+/** columns and relationships of "session_tags" */
+export type Session_TagsSessions_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+};
+
+/** aggregated selection of "session_tags" */
+export type Session_Tags_Aggregate = {
+  aggregate?: Maybe<Session_Tags_Aggregate_Fields>;
+  nodes: Array<Session_Tags>;
+};
+
+/** aggregate fields of "session_tags" */
+export type Session_Tags_Aggregate_Fields = {
+  avg?: Maybe<Session_Tags_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Session_Tags_Max_Fields>;
+  min?: Maybe<Session_Tags_Min_Fields>;
+  stddev?: Maybe<Session_Tags_Stddev_Fields>;
+  stddev_pop?: Maybe<Session_Tags_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Session_Tags_Stddev_Samp_Fields>;
+  sum?: Maybe<Session_Tags_Sum_Fields>;
+  var_pop?: Maybe<Session_Tags_Var_Pop_Fields>;
+  var_samp?: Maybe<Session_Tags_Var_Samp_Fields>;
+  variance?: Maybe<Session_Tags_Variance_Fields>;
+};
+
+
+/** aggregate fields of "session_tags" */
+export type Session_Tags_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Session_Tags_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Session_Tags_Avg_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-export type Session_TagsAvgOrderByAggregateInput = {
-  id?: Maybe<SortOrder>;
+/** Boolean expression to filter rows from the table "session_tags". All fields are combined with a logical 'AND'. */
+export type Session_Tags_Bool_Exp = {
+  _and?: Maybe<Array<Session_Tags_Bool_Exp>>;
+  _not?: Maybe<Session_Tags_Bool_Exp>;
+  _or?: Maybe<Array<Session_Tags_Bool_Exp>>;
+  created_at?: Maybe<Timestamptz_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  label?: Maybe<String_Comparison_Exp>;
+  sessions_tags?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+  slug?: Maybe<String_Comparison_Exp>;
+  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
 };
 
-export type Session_TagsCount = {
-  sessions: Scalars['Int'];
-};
+/** unique or primary key constraints on table "session_tags" */
+export enum Session_Tags_Constraint {
+  /** unique or primary key constraint */
+  SessionTagsPkey = 'session_tags_pkey',
+  /** unique or primary key constraint */
+  SessionTagsSlugKey = 'session_tags_slug_key'
+}
 
-export type Session_TagsCountAggregate = {
-  _all: Scalars['Int'];
-  created_at: Scalars['Int'];
-  id: Scalars['Int'];
-  label: Scalars['Int'];
-  slug: Scalars['Int'];
-  updated_at: Scalars['Int'];
-};
-
-export type Session_TagsCountOrderByAggregateInput = {
-  created_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  label?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
-};
-
-export type Session_TagsCreateManyInput = {
-  created_at?: Maybe<Scalars['DateTime']>;
+/** input type for incrementing numeric columns in table "session_tags" */
+export type Session_Tags_Inc_Input = {
   id?: Maybe<Scalars['Int']>;
-  label: Scalars['String'];
+};
+
+/** input type for inserting data into table "session_tags" */
+export type Session_Tags_Insert_Input = {
+  created_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  label?: Maybe<Scalars['String']>;
+  sessions_tags?: Maybe<Sessions_Session_Tags_Arr_Rel_Insert_Input>;
   slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-export type Session_TagsCreateNestedOneWithoutSessionsInput = {
-  connect?: Maybe<Session_TagsWhereUniqueInput>;
-  connectOrCreate?: Maybe<Session_TagsCreateOrConnectWithoutSessionsInput>;
-  create?: Maybe<Session_TagsUncheckedCreateWithoutSessionsInput>;
-};
-
-export type Session_TagsCreateOrConnectWithoutSessionsInput = {
-  create: Session_TagsUncheckedCreateWithoutSessionsInput;
-  where: Session_TagsWhereUniqueInput;
-};
-
-export type Session_TagsGroupBy = {
-  _avg?: Maybe<Session_TagsAvgAggregate>;
-  _count?: Maybe<Session_TagsCountAggregate>;
-  _max?: Maybe<Session_TagsMaxAggregate>;
-  _min?: Maybe<Session_TagsMinAggregate>;
-  _sum?: Maybe<Session_TagsSumAggregate>;
-  created_at: Scalars['DateTime'];
-  id: Scalars['Int'];
-  label: Scalars['String'];
-  slug: Scalars['String'];
-  updated_at: Scalars['DateTime'];
-};
-
-export type Session_TagsMaxAggregate = {
-  created_at?: Maybe<Scalars['DateTime']>;
+/** aggregate max on columns */
+export type Session_Tags_Max_Fields = {
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   label?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-export type Session_TagsMaxOrderByAggregateInput = {
-  created_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  label?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
-};
-
-export type Session_TagsMinAggregate = {
-  created_at?: Maybe<Scalars['DateTime']>;
+/** aggregate min on columns */
+export type Session_Tags_Min_Fields = {
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   label?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-export type Session_TagsMinOrderByAggregateInput = {
-  created_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  label?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
+/** response of any mutation on the table "session_tags" */
+export type Session_Tags_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Session_Tags>;
 };
 
-export type Session_TagsOrderByWithAggregationInput = {
-  _avg?: Maybe<Session_TagsAvgOrderByAggregateInput>;
-  _count?: Maybe<Session_TagsCountOrderByAggregateInput>;
-  _max?: Maybe<Session_TagsMaxOrderByAggregateInput>;
-  _min?: Maybe<Session_TagsMinOrderByAggregateInput>;
-  _sum?: Maybe<Session_TagsSumOrderByAggregateInput>;
-  created_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  label?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
+/** input type for inserting object relation for remote table "session_tags" */
+export type Session_Tags_Obj_Rel_Insert_Input = {
+  data: Session_Tags_Insert_Input;
+  /** on conflict condition */
+  on_conflict?: Maybe<Session_Tags_On_Conflict>;
 };
 
-export type Session_TagsOrderByWithRelationInput = {
-  created_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  label?: Maybe<SortOrder>;
-  sessions?: Maybe<Sessions_Session_TagsOrderByRelationAggregateInput>;
-  slug?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
+/** on conflict condition type for table "session_tags" */
+export type Session_Tags_On_Conflict = {
+  constraint: Session_Tags_Constraint;
+  update_columns?: Array<Session_Tags_Update_Column>;
+  where?: Maybe<Session_Tags_Bool_Exp>;
 };
 
-export type Session_TagsRelationFilter = {
-  is?: Maybe<Session_TagsWhereInput>;
-  isNot?: Maybe<Session_TagsWhereInput>;
+/** Ordering options when selecting data from "session_tags". */
+export type Session_Tags_Order_By = {
+  created_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  label?: Maybe<Order_By>;
+  sessions_tags_aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Order_By>;
+  slug?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
 };
 
-export enum Session_TagsScalarFieldEnum {
+/** primary key columns input for table: session_tags */
+export type Session_Tags_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "session_tags" */
+export enum Session_Tags_Select_Column {
+  /** column name */
   CreatedAt = 'created_at',
+  /** column name */
   Id = 'id',
+  /** column name */
   Label = 'label',
+  /** column name */
   Slug = 'slug',
+  /** column name */
   UpdatedAt = 'updated_at'
 }
 
-export type Session_TagsScalarWhereWithAggregatesInput = {
-  AND?: Maybe<Array<Session_TagsScalarWhereWithAggregatesInput>>;
-  NOT?: Maybe<Array<Session_TagsScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<Session_TagsScalarWhereWithAggregatesInput>>;
-  created_at?: Maybe<DateTimeWithAggregatesFilter>;
-  id?: Maybe<IntWithAggregatesFilter>;
-  label?: Maybe<StringWithAggregatesFilter>;
-  slug?: Maybe<StringWithAggregatesFilter>;
-  updated_at?: Maybe<DateTimeWithAggregatesFilter>;
-};
-
-export type Session_TagsSumAggregate = {
+/** input type for updating data in table "session_tags" */
+export type Session_Tags_Set_Input = {
+  created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
-};
-
-export type Session_TagsSumOrderByAggregateInput = {
-  id?: Maybe<SortOrder>;
-};
-
-export type Session_TagsUncheckedCreateInput = {
-  created_at?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['Int']>;
-  label: Scalars['String'];
-  sessions?: Maybe<Sessions_Session_TagsUncheckedCreateNestedManyWithoutTagInput>;
+  label?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-export type Session_TagsUncheckedCreateWithoutSessionsInput = {
-  created_at?: Maybe<Scalars['DateTime']>;
+/** aggregate stddev on columns */
+export type Session_Tags_Stddev_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Session_Tags_Stddev_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Session_Tags_Stddev_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Session_Tags_Sum_Fields = {
   id?: Maybe<Scalars['Int']>;
-  label: Scalars['String'];
-  slug?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
 };
 
-export type Session_TagsUncheckedUpdateInput = {
-  created_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  label?: Maybe<StringFieldUpdateOperationsInput>;
-  sessions?: Maybe<Sessions_Session_TagsUncheckedUpdateManyWithoutTagInput>;
-  slug?: Maybe<StringFieldUpdateOperationsInput>;
-  updated_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
+/** update columns of table "session_tags" */
+export enum Session_Tags_Update_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Label = 'label',
+  /** column name */
+  Slug = 'slug',
+  /** column name */
+  UpdatedAt = 'updated_at'
+}
+
+/** aggregate var_pop on columns */
+export type Session_Tags_Var_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type Session_TagsUncheckedUpdateManyInput = {
-  created_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  label?: Maybe<StringFieldUpdateOperationsInput>;
-  slug?: Maybe<StringFieldUpdateOperationsInput>;
-  updated_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
+/** aggregate var_samp on columns */
+export type Session_Tags_Var_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type Session_TagsWhereInput = {
-  AND?: Maybe<Array<Session_TagsWhereInput>>;
-  NOT?: Maybe<Array<Session_TagsWhereInput>>;
-  OR?: Maybe<Array<Session_TagsWhereInput>>;
-  created_at?: Maybe<DateTimeFilter>;
-  id?: Maybe<IntFilter>;
-  label?: Maybe<StringFilter>;
-  sessions?: Maybe<Sessions_Session_TagsListRelationFilter>;
-  slug?: Maybe<StringFilter>;
-  updated_at?: Maybe<DateTimeFilter>;
+/** aggregate variance on columns */
+export type Session_Tags_Variance_Fields = {
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type Session_TagsWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-};
-
+/** columns and relationships of "sessions" */
 export type Sessions = {
-  _count?: Maybe<SessionsCount>;
-  author: Users;
-  author_id: Scalars['Int'];
-  content: Scalars['String'];
-  created_at: Scalars['DateTime'];
-  ended_at?: Maybe<Scalars['DateTime']>;
+  /** An object relationship */
+  author?: Maybe<Users>;
+  author_id?: Maybe<Scalars['Int']>;
+  created_at: Scalars['timestamptz'];
+  ended_at?: Maybe<Scalars['timestamptz']>;
   id: Scalars['Int'];
+  /** An array relationship */
+  sessions_tags: Array<Sessions_Session_Tags>;
+  /** An aggregate relationship */
+  sessions_tags_aggregate: Sessions_Session_Tags_Aggregate;
   slug: Scalars['String'];
-  started_at: Scalars['DateTime'];
-  status: Status;
-  tags: Array<Sessions_Session_Tags>;
+  started_at: Scalars['timestamp'];
+  status: Sessions_Status_Enum;
   title: Scalars['String'];
-  updated_at: Scalars['DateTime'];
+  updated_at: Scalars['timestamptz'];
 };
 
 
-export type SessionsTagsArgs = {
-  cursor?: Maybe<Sessions_Session_TagsWhereUniqueInput>;
-  distinct?: Maybe<Array<Sessions_Session_TagsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<Sessions_Session_TagsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<Sessions_Session_TagsWhereInput>;
+/** columns and relationships of "sessions" */
+export type SessionsSessions_TagsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
 };
 
-export type SessionsAvgAggregate = {
+
+/** columns and relationships of "sessions" */
+export type SessionsSessions_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+};
+
+/** aggregated selection of "sessions" */
+export type Sessions_Aggregate = {
+  aggregate?: Maybe<Sessions_Aggregate_Fields>;
+  nodes: Array<Sessions>;
+};
+
+/** aggregate fields of "sessions" */
+export type Sessions_Aggregate_Fields = {
+  avg?: Maybe<Sessions_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Sessions_Max_Fields>;
+  min?: Maybe<Sessions_Min_Fields>;
+  stddev?: Maybe<Sessions_Stddev_Fields>;
+  stddev_pop?: Maybe<Sessions_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Sessions_Stddev_Samp_Fields>;
+  sum?: Maybe<Sessions_Sum_Fields>;
+  var_pop?: Maybe<Sessions_Var_Pop_Fields>;
+  var_samp?: Maybe<Sessions_Var_Samp_Fields>;
+  variance?: Maybe<Sessions_Variance_Fields>;
+};
+
+
+/** aggregate fields of "sessions" */
+export type Sessions_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Sessions_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "sessions" */
+export type Sessions_Aggregate_Order_By = {
+  avg?: Maybe<Sessions_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Sessions_Max_Order_By>;
+  min?: Maybe<Sessions_Min_Order_By>;
+  stddev?: Maybe<Sessions_Stddev_Order_By>;
+  stddev_pop?: Maybe<Sessions_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Sessions_Stddev_Samp_Order_By>;
+  sum?: Maybe<Sessions_Sum_Order_By>;
+  var_pop?: Maybe<Sessions_Var_Pop_Order_By>;
+  var_samp?: Maybe<Sessions_Var_Samp_Order_By>;
+  variance?: Maybe<Sessions_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "sessions" */
+export type Sessions_Arr_Rel_Insert_Input = {
+  data: Array<Sessions_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: Maybe<Sessions_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Sessions_Avg_Fields = {
   author_id?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-export type SessionsAvgOrderByAggregateInput = {
-  author_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
+/** order by avg() on columns of table "sessions" */
+export type Sessions_Avg_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type SessionsCount = {
-  tags: Scalars['Int'];
+/** Boolean expression to filter rows from the table "sessions". All fields are combined with a logical 'AND'. */
+export type Sessions_Bool_Exp = {
+  _and?: Maybe<Array<Sessions_Bool_Exp>>;
+  _not?: Maybe<Sessions_Bool_Exp>;
+  _or?: Maybe<Array<Sessions_Bool_Exp>>;
+  author?: Maybe<Users_Bool_Exp>;
+  author_id?: Maybe<Int_Comparison_Exp>;
+  created_at?: Maybe<Timestamptz_Comparison_Exp>;
+  ended_at?: Maybe<Timestamptz_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  sessions_tags?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+  slug?: Maybe<String_Comparison_Exp>;
+  started_at?: Maybe<Timestamp_Comparison_Exp>;
+  status?: Maybe<Sessions_Status_Enum_Comparison_Exp>;
+  title?: Maybe<String_Comparison_Exp>;
+  updated_at?: Maybe<Timestamptz_Comparison_Exp>;
 };
 
-export type SessionsCountAggregate = {
-  _all: Scalars['Int'];
-  author_id: Scalars['Int'];
-  content: Scalars['Int'];
-  created_at: Scalars['Int'];
-  ended_at: Scalars['Int'];
-  id: Scalars['Int'];
-  slug: Scalars['Int'];
-  started_at: Scalars['Int'];
-  status: Scalars['Int'];
-  title: Scalars['Int'];
-  updated_at: Scalars['Int'];
-};
+/** unique or primary key constraints on table "sessions" */
+export enum Sessions_Constraint {
+  /** unique or primary key constraint */
+  SessionsPkey = 'sessions_pkey',
+  /** unique or primary key constraint */
+  SessionsSlugKey = 'sessions_slug_key'
+}
 
-export type SessionsCountOrderByAggregateInput = {
-  author_id?: Maybe<SortOrder>;
-  content?: Maybe<SortOrder>;
-  created_at?: Maybe<SortOrder>;
-  ended_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  started_at?: Maybe<SortOrder>;
-  status?: Maybe<SortOrder>;
-  title?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
-};
-
-export type SessionsCreateManyAuthorInput = {
-  content: Scalars['String'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  title: Scalars['String'];
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type SessionsCreateManyAuthorInputEnvelope = {
-  data: Array<SessionsCreateManyAuthorInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-export type SessionsCreateManyInput = {
-  author_id: Scalars['Int'];
-  content: Scalars['String'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  title: Scalars['String'];
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type SessionsCreateNestedOneWithoutTagsInput = {
-  connect?: Maybe<SessionsWhereUniqueInput>;
-  connectOrCreate?: Maybe<SessionsCreateOrConnectWithoutTagsInput>;
-  create?: Maybe<SessionsUncheckedCreateWithoutTagsInput>;
-};
-
-export type SessionsCreateOrConnectWithoutAuthorInput = {
-  create: SessionsUncheckedCreateWithoutAuthorInput;
-  where: SessionsWhereUniqueInput;
-};
-
-export type SessionsCreateOrConnectWithoutTagsInput = {
-  create: SessionsUncheckedCreateWithoutTagsInput;
-  where: SessionsWhereUniqueInput;
-};
-
-export type SessionsCreateWithoutAuthorInput = {
-  content: Scalars['String'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  tags?: Maybe<Sessions_Session_TagsCreateNestedManyWithoutSessionInput>;
-  title: Scalars['String'];
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type SessionsGroupBy = {
-  _avg?: Maybe<SessionsAvgAggregate>;
-  _count?: Maybe<SessionsCountAggregate>;
-  _max?: Maybe<SessionsMaxAggregate>;
-  _min?: Maybe<SessionsMinAggregate>;
-  _sum?: Maybe<SessionsSumAggregate>;
-  author_id: Scalars['Int'];
-  content: Scalars['String'];
-  created_at: Scalars['DateTime'];
-  ended_at?: Maybe<Scalars['DateTime']>;
-  id: Scalars['Int'];
-  slug: Scalars['String'];
-  started_at: Scalars['DateTime'];
-  status: Status;
-  title: Scalars['String'];
-  updated_at: Scalars['DateTime'];
-};
-
-export type SessionsListRelationFilter = {
-  every?: Maybe<SessionsWhereInput>;
-  none?: Maybe<SessionsWhereInput>;
-  some?: Maybe<SessionsWhereInput>;
-};
-
-export type SessionsMaxAggregate = {
+/** input type for incrementing numeric columns in table "sessions" */
+export type Sessions_Inc_Input = {
   author_id?: Maybe<Scalars['Int']>;
-  content?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  title?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
 };
 
-export type SessionsMaxOrderByAggregateInput = {
-  author_id?: Maybe<SortOrder>;
-  content?: Maybe<SortOrder>;
-  created_at?: Maybe<SortOrder>;
-  ended_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  started_at?: Maybe<SortOrder>;
-  status?: Maybe<SortOrder>;
-  title?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
-};
-
-export type SessionsMinAggregate = {
+/** input type for inserting data into table "sessions" */
+export type Sessions_Insert_Input = {
+  author?: Maybe<Users_Obj_Rel_Insert_Input>;
   author_id?: Maybe<Scalars['Int']>;
-  content?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
+  ended_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  sessions_tags?: Maybe<Sessions_Session_Tags_Arr_Rel_Insert_Input>;
+  slug?: Maybe<Scalars['String']>;
+  started_at?: Maybe<Scalars['timestamp']>;
+  status?: Maybe<Sessions_Status_Enum>;
+  title?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/** aggregate max on columns */
+export type Sessions_Max_Fields = {
+  author_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
+  ended_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
+  started_at?: Maybe<Scalars['timestamp']>;
   title?: Maybe<Scalars['String']>;
-  updated_at?: Maybe<Scalars['DateTime']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-export type SessionsMinOrderByAggregateInput = {
-  author_id?: Maybe<SortOrder>;
-  content?: Maybe<SortOrder>;
-  created_at?: Maybe<SortOrder>;
-  ended_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  started_at?: Maybe<SortOrder>;
-  status?: Maybe<SortOrder>;
-  title?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
+/** order by max() on columns of table "sessions" */
+export type Sessions_Max_Order_By = {
+  author_id?: Maybe<Order_By>;
+  created_at?: Maybe<Order_By>;
+  ended_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  slug?: Maybe<Order_By>;
+  started_at?: Maybe<Order_By>;
+  title?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
 };
 
-export type SessionsOrderByRelationAggregateInput = {
-  _count?: Maybe<SortOrder>;
+/** aggregate min on columns */
+export type Sessions_Min_Fields = {
+  author_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
+  ended_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Scalars['String']>;
+  started_at?: Maybe<Scalars['timestamp']>;
+  title?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
 };
 
-export type SessionsOrderByWithAggregationInput = {
-  _avg?: Maybe<SessionsAvgOrderByAggregateInput>;
-  _count?: Maybe<SessionsCountOrderByAggregateInput>;
-  _max?: Maybe<SessionsMaxOrderByAggregateInput>;
-  _min?: Maybe<SessionsMinOrderByAggregateInput>;
-  _sum?: Maybe<SessionsSumOrderByAggregateInput>;
-  author_id?: Maybe<SortOrder>;
-  content?: Maybe<SortOrder>;
-  created_at?: Maybe<SortOrder>;
-  ended_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  started_at?: Maybe<SortOrder>;
-  status?: Maybe<SortOrder>;
-  title?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
+/** order by min() on columns of table "sessions" */
+export type Sessions_Min_Order_By = {
+  author_id?: Maybe<Order_By>;
+  created_at?: Maybe<Order_By>;
+  ended_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  slug?: Maybe<Order_By>;
+  started_at?: Maybe<Order_By>;
+  title?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
 };
 
-export type SessionsOrderByWithRelationInput = {
-  author?: Maybe<UsersOrderByWithRelationInput>;
-  author_id?: Maybe<SortOrder>;
-  content?: Maybe<SortOrder>;
-  created_at?: Maybe<SortOrder>;
-  ended_at?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  slug?: Maybe<SortOrder>;
-  started_at?: Maybe<SortOrder>;
-  status?: Maybe<SortOrder>;
-  tags?: Maybe<Sessions_Session_TagsOrderByRelationAggregateInput>;
-  title?: Maybe<SortOrder>;
-  updated_at?: Maybe<SortOrder>;
+/** response of any mutation on the table "sessions" */
+export type Sessions_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Sessions>;
 };
 
-export type SessionsRelationFilter = {
-  is?: Maybe<SessionsWhereInput>;
-  isNot?: Maybe<SessionsWhereInput>;
+/** input type for inserting object relation for remote table "sessions" */
+export type Sessions_Obj_Rel_Insert_Input = {
+  data: Sessions_Insert_Input;
+  /** on conflict condition */
+  on_conflict?: Maybe<Sessions_On_Conflict>;
 };
 
-export enum SessionsScalarFieldEnum {
+/** on conflict condition type for table "sessions" */
+export type Sessions_On_Conflict = {
+  constraint: Sessions_Constraint;
+  update_columns?: Array<Sessions_Update_Column>;
+  where?: Maybe<Sessions_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "sessions". */
+export type Sessions_Order_By = {
+  author?: Maybe<Users_Order_By>;
+  author_id?: Maybe<Order_By>;
+  created_at?: Maybe<Order_By>;
+  ended_at?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  sessions_tags_aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Order_By>;
+  slug?: Maybe<Order_By>;
+  started_at?: Maybe<Order_By>;
+  status?: Maybe<Order_By>;
+  title?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: sessions */
+export type Sessions_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "sessions" */
+export enum Sessions_Select_Column {
+  /** column name */
   AuthorId = 'author_id',
-  Content = 'content',
+  /** column name */
   CreatedAt = 'created_at',
+  /** column name */
   EndedAt = 'ended_at',
+  /** column name */
   Id = 'id',
+  /** column name */
   Slug = 'slug',
+  /** column name */
   StartedAt = 'started_at',
+  /** column name */
   Status = 'status',
+  /** column name */
   Title = 'title',
+  /** column name */
   UpdatedAt = 'updated_at'
 }
 
-export type SessionsScalarWhereInput = {
-  AND?: Maybe<Array<SessionsScalarWhereInput>>;
-  NOT?: Maybe<Array<SessionsScalarWhereInput>>;
-  OR?: Maybe<Array<SessionsScalarWhereInput>>;
-  author_id?: Maybe<IntFilter>;
-  content?: Maybe<StringFilter>;
-  created_at?: Maybe<DateTimeFilter>;
-  ended_at?: Maybe<DateTimeNullableFilter>;
-  id?: Maybe<IntFilter>;
-  slug?: Maybe<StringFilter>;
-  started_at?: Maybe<DateTimeFilter>;
-  status?: Maybe<EnumstatusFilter>;
-  title?: Maybe<StringFilter>;
-  updated_at?: Maybe<DateTimeFilter>;
-};
-
-export type SessionsScalarWhereWithAggregatesInput = {
-  AND?: Maybe<Array<SessionsScalarWhereWithAggregatesInput>>;
-  NOT?: Maybe<Array<SessionsScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<SessionsScalarWhereWithAggregatesInput>>;
-  author_id?: Maybe<IntWithAggregatesFilter>;
-  content?: Maybe<StringWithAggregatesFilter>;
-  created_at?: Maybe<DateTimeWithAggregatesFilter>;
-  ended_at?: Maybe<DateTimeNullableWithAggregatesFilter>;
-  id?: Maybe<IntWithAggregatesFilter>;
-  slug?: Maybe<StringWithAggregatesFilter>;
-  started_at?: Maybe<DateTimeWithAggregatesFilter>;
-  status?: Maybe<EnumstatusWithAggregatesFilter>;
-  title?: Maybe<StringWithAggregatesFilter>;
-  updated_at?: Maybe<DateTimeWithAggregatesFilter>;
-};
-
-export type SessionsSumAggregate = {
-  author_id?: Maybe<Scalars['Int']>;
-  id?: Maybe<Scalars['Int']>;
-};
-
-export type SessionsSumOrderByAggregateInput = {
-  author_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-};
-
-export type SessionsUncheckedCreateInput = {
-  author_id: Scalars['Int'];
-  content: Scalars['String'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  tags?: Maybe<Sessions_Session_TagsUncheckedCreateNestedManyWithoutSessionInput>;
-  title: Scalars['String'];
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type SessionsUncheckedCreateNestedManyWithoutAuthorInput = {
-  connect?: Maybe<Array<SessionsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<SessionsCreateOrConnectWithoutAuthorInput>>;
-  create?: Maybe<Array<SessionsCreateWithoutAuthorInput>>;
-  createMany?: Maybe<SessionsCreateManyAuthorInputEnvelope>;
-};
-
-export type SessionsUncheckedCreateWithoutAuthorInput = {
-  content: Scalars['String'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  tags?: Maybe<Sessions_Session_TagsUncheckedCreateNestedManyWithoutSessionInput>;
-  title: Scalars['String'];
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type SessionsUncheckedCreateWithoutTagsInput = {
-  author_id: Scalars['Int'];
-  content: Scalars['String'];
-  created_at?: Maybe<Scalars['DateTime']>;
-  ended_at?: Maybe<Scalars['DateTime']>;
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-  started_at?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Status>;
-  title: Scalars['String'];
-  updated_at?: Maybe<Scalars['DateTime']>;
-};
-
-export type SessionsUncheckedUpdateInput = {
-  author_id?: Maybe<IntFieldUpdateOperationsInput>;
-  content?: Maybe<StringFieldUpdateOperationsInput>;
-  created_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  ended_at?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  slug?: Maybe<StringFieldUpdateOperationsInput>;
-  started_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  status?: Maybe<EnumstatusFieldUpdateOperationsInput>;
-  tags?: Maybe<Sessions_Session_TagsUncheckedUpdateManyWithoutSessionInput>;
-  title?: Maybe<StringFieldUpdateOperationsInput>;
-  updated_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type SessionsUncheckedUpdateManyInput = {
-  author_id?: Maybe<IntFieldUpdateOperationsInput>;
-  content?: Maybe<StringFieldUpdateOperationsInput>;
-  created_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  ended_at?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  slug?: Maybe<StringFieldUpdateOperationsInput>;
-  started_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  status?: Maybe<EnumstatusFieldUpdateOperationsInput>;
-  title?: Maybe<StringFieldUpdateOperationsInput>;
-  updated_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type SessionsUncheckedUpdateManyWithoutAuthorInput = {
-  connect?: Maybe<Array<SessionsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<SessionsCreateOrConnectWithoutAuthorInput>>;
-  create?: Maybe<Array<SessionsCreateWithoutAuthorInput>>;
-  createMany?: Maybe<SessionsCreateManyAuthorInputEnvelope>;
-  delete?: Maybe<Array<SessionsWhereUniqueInput>>;
-  deleteMany?: Maybe<Array<SessionsScalarWhereInput>>;
-  disconnect?: Maybe<Array<SessionsWhereUniqueInput>>;
-  set?: Maybe<Array<SessionsWhereUniqueInput>>;
-  update?: Maybe<Array<SessionsUpdateWithWhereUniqueWithoutAuthorInput>>;
-  updateMany?: Maybe<Array<SessionsUpdateManyWithWhereWithoutAuthorInput>>;
-  upsert?: Maybe<Array<SessionsUpsertWithWhereUniqueWithoutAuthorInput>>;
-};
-
-export type SessionsUncheckedUpdateManyWithoutSessionsInput = {
-  content?: Maybe<StringFieldUpdateOperationsInput>;
-  created_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  ended_at?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  slug?: Maybe<StringFieldUpdateOperationsInput>;
-  started_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  status?: Maybe<EnumstatusFieldUpdateOperationsInput>;
-  title?: Maybe<StringFieldUpdateOperationsInput>;
-  updated_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type SessionsUncheckedUpdateWithoutAuthorInput = {
-  content?: Maybe<StringFieldUpdateOperationsInput>;
-  created_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  ended_at?: Maybe<NullableDateTimeFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  slug?: Maybe<StringFieldUpdateOperationsInput>;
-  started_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-  status?: Maybe<EnumstatusFieldUpdateOperationsInput>;
-  tags?: Maybe<Sessions_Session_TagsUncheckedUpdateManyWithoutSessionInput>;
-  title?: Maybe<StringFieldUpdateOperationsInput>;
-  updated_at?: Maybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type SessionsUpdateManyWithWhereWithoutAuthorInput = {
-  data: SessionsUncheckedUpdateManyWithoutSessionsInput;
-  where: SessionsScalarWhereInput;
-};
-
-export type SessionsUpdateWithWhereUniqueWithoutAuthorInput = {
-  data: SessionsUncheckedUpdateWithoutAuthorInput;
-  where: SessionsWhereUniqueInput;
-};
-
-export type SessionsUpsertWithWhereUniqueWithoutAuthorInput = {
-  create: SessionsUncheckedCreateWithoutAuthorInput;
-  update: SessionsUncheckedUpdateWithoutAuthorInput;
-  where: SessionsWhereUniqueInput;
-};
-
-export type SessionsWhereInput = {
-  AND?: Maybe<Array<SessionsWhereInput>>;
-  NOT?: Maybe<Array<SessionsWhereInput>>;
-  OR?: Maybe<Array<SessionsWhereInput>>;
-  author?: Maybe<UsersRelationFilter>;
-  author_id?: Maybe<IntFilter>;
-  content?: Maybe<StringFilter>;
-  created_at?: Maybe<DateTimeFilter>;
-  ended_at?: Maybe<DateTimeNullableFilter>;
-  id?: Maybe<IntFilter>;
-  slug?: Maybe<StringFilter>;
-  started_at?: Maybe<DateTimeFilter>;
-  status?: Maybe<EnumstatusFilter>;
-  tags?: Maybe<Sessions_Session_TagsListRelationFilter>;
-  title?: Maybe<StringFilter>;
-  updated_at?: Maybe<DateTimeFilter>;
-};
-
-export type SessionsWhereUniqueInput = {
-  id?: Maybe<Scalars['Int']>;
-  slug?: Maybe<Scalars['String']>;
-};
-
+/**
+ * relation
+ *
+ *
+ * columns and relationships of "sessions_session_tags"
+ *
+ */
 export type Sessions_Session_Tags = {
+  /** An object relationship */
   session: Sessions;
   session_id: Scalars['Int'];
-  tag: Session_Tags;
+  /** An object relationship */
+  session_tag: Session_Tags;
   tag_id: Scalars['Int'];
 };
 
-export type Sessions_Session_TagsAvgAggregate = {
+/** aggregated selection of "sessions_session_tags" */
+export type Sessions_Session_Tags_Aggregate = {
+  aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Fields>;
+  nodes: Array<Sessions_Session_Tags>;
+};
+
+/** aggregate fields of "sessions_session_tags" */
+export type Sessions_Session_Tags_Aggregate_Fields = {
+  avg?: Maybe<Sessions_Session_Tags_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Sessions_Session_Tags_Max_Fields>;
+  min?: Maybe<Sessions_Session_Tags_Min_Fields>;
+  stddev?: Maybe<Sessions_Session_Tags_Stddev_Fields>;
+  stddev_pop?: Maybe<Sessions_Session_Tags_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Sessions_Session_Tags_Stddev_Samp_Fields>;
+  sum?: Maybe<Sessions_Session_Tags_Sum_Fields>;
+  var_pop?: Maybe<Sessions_Session_Tags_Var_Pop_Fields>;
+  var_samp?: Maybe<Sessions_Session_Tags_Var_Samp_Fields>;
+  variance?: Maybe<Sessions_Session_Tags_Variance_Fields>;
+};
+
+
+/** aggregate fields of "sessions_session_tags" */
+export type Sessions_Session_Tags_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Aggregate_Order_By = {
+  avg?: Maybe<Sessions_Session_Tags_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Sessions_Session_Tags_Max_Order_By>;
+  min?: Maybe<Sessions_Session_Tags_Min_Order_By>;
+  stddev?: Maybe<Sessions_Session_Tags_Stddev_Order_By>;
+  stddev_pop?: Maybe<Sessions_Session_Tags_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Sessions_Session_Tags_Stddev_Samp_Order_By>;
+  sum?: Maybe<Sessions_Session_Tags_Sum_Order_By>;
+  var_pop?: Maybe<Sessions_Session_Tags_Var_Pop_Order_By>;
+  var_samp?: Maybe<Sessions_Session_Tags_Var_Samp_Order_By>;
+  variance?: Maybe<Sessions_Session_Tags_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "sessions_session_tags" */
+export type Sessions_Session_Tags_Arr_Rel_Insert_Input = {
+  data: Array<Sessions_Session_Tags_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: Maybe<Sessions_Session_Tags_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Sessions_Session_Tags_Avg_Fields = {
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type Sessions_Session_TagsAvgOrderByAggregateInput = {
-  session_id?: Maybe<SortOrder>;
-  tag_id?: Maybe<SortOrder>;
+/** order by avg() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Avg_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsCountAggregate = {
-  _all: Scalars['Int'];
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
+/** Boolean expression to filter rows from the table "sessions_session_tags". All fields are combined with a logical 'AND'. */
+export type Sessions_Session_Tags_Bool_Exp = {
+  _and?: Maybe<Array<Sessions_Session_Tags_Bool_Exp>>;
+  _not?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+  _or?: Maybe<Array<Sessions_Session_Tags_Bool_Exp>>;
+  session?: Maybe<Sessions_Bool_Exp>;
+  session_id?: Maybe<Int_Comparison_Exp>;
+  session_tag?: Maybe<Session_Tags_Bool_Exp>;
+  tag_id?: Maybe<Int_Comparison_Exp>;
 };
 
-export type Sessions_Session_TagsCountOrderByAggregateInput = {
-  session_id?: Maybe<SortOrder>;
-  tag_id?: Maybe<SortOrder>;
-};
+/** unique or primary key constraints on table "sessions_session_tags" */
+export enum Sessions_Session_Tags_Constraint {
+  /** unique or primary key constraint */
+  SessionsTagsPkey = 'sessions_tags_pkey'
+}
 
-export type Sessions_Session_TagsCreateManyInput = {
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
-};
-
-export type Sessions_Session_TagsCreateManySessionInput = {
-  tag_id: Scalars['Int'];
-};
-
-export type Sessions_Session_TagsCreateManySessionInputEnvelope = {
-  data: Array<Sessions_Session_TagsCreateManySessionInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-export type Sessions_Session_TagsCreateManyTagInput = {
-  session_id: Scalars['Int'];
-};
-
-export type Sessions_Session_TagsCreateManyTagInputEnvelope = {
-  data: Array<Sessions_Session_TagsCreateManyTagInput>;
-  skipDuplicates?: Maybe<Scalars['Boolean']>;
-};
-
-export type Sessions_Session_TagsCreateNestedManyWithoutSessionInput = {
-  connect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<Sessions_Session_TagsCreateOrConnectWithoutSessionInput>>;
-  create?: Maybe<Array<Sessions_Session_TagsCreateWithoutSessionInput>>;
-  createMany?: Maybe<Sessions_Session_TagsCreateManySessionInputEnvelope>;
-};
-
-export type Sessions_Session_TagsCreateOrConnectWithoutSessionInput = {
-  create: Sessions_Session_TagsUncheckedCreateWithoutSessionInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
-};
-
-export type Sessions_Session_TagsCreateOrConnectWithoutTagInput = {
-  create: Sessions_Session_TagsUncheckedCreateWithoutTagInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
-};
-
-export type Sessions_Session_TagsCreateWithoutSessionInput = {
-  tag: Session_TagsCreateNestedOneWithoutSessionsInput;
-};
-
-export type Sessions_Session_TagsCreateWithoutTagInput = {
-  session: SessionsCreateNestedOneWithoutTagsInput;
-};
-
-export type Sessions_Session_TagsGroupBy = {
-  _avg?: Maybe<Sessions_Session_TagsAvgAggregate>;
-  _count?: Maybe<Sessions_Session_TagsCountAggregate>;
-  _max?: Maybe<Sessions_Session_TagsMaxAggregate>;
-  _min?: Maybe<Sessions_Session_TagsMinAggregate>;
-  _sum?: Maybe<Sessions_Session_TagsSumAggregate>;
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
-};
-
-export type Sessions_Session_TagsListRelationFilter = {
-  every?: Maybe<Sessions_Session_TagsWhereInput>;
-  none?: Maybe<Sessions_Session_TagsWhereInput>;
-  some?: Maybe<Sessions_Session_TagsWhereInput>;
-};
-
-export type Sessions_Session_TagsMaxAggregate = {
+/** input type for incrementing numeric columns in table "sessions_session_tags" */
+export type Sessions_Session_Tags_Inc_Input = {
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
-export type Sessions_Session_TagsMaxOrderByAggregateInput = {
-  session_id?: Maybe<SortOrder>;
-  tag_id?: Maybe<SortOrder>;
+/** input type for inserting data into table "sessions_session_tags" */
+export type Sessions_Session_Tags_Insert_Input = {
+  session?: Maybe<Sessions_Obj_Rel_Insert_Input>;
+  session_id?: Maybe<Scalars['Int']>;
+  session_tag?: Maybe<Session_Tags_Obj_Rel_Insert_Input>;
+  tag_id?: Maybe<Scalars['Int']>;
 };
 
-export type Sessions_Session_TagsMinAggregate = {
+/** aggregate max on columns */
+export type Sessions_Session_Tags_Max_Fields = {
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
-export type Sessions_Session_TagsMinOrderByAggregateInput = {
-  session_id?: Maybe<SortOrder>;
-  tag_id?: Maybe<SortOrder>;
+/** order by max() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Max_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsOrderByRelationAggregateInput = {
-  _count?: Maybe<SortOrder>;
+/** aggregate min on columns */
+export type Sessions_Session_Tags_Min_Fields = {
+  session_id?: Maybe<Scalars['Int']>;
+  tag_id?: Maybe<Scalars['Int']>;
 };
 
-export type Sessions_Session_TagsOrderByWithAggregationInput = {
-  _avg?: Maybe<Sessions_Session_TagsAvgOrderByAggregateInput>;
-  _count?: Maybe<Sessions_Session_TagsCountOrderByAggregateInput>;
-  _max?: Maybe<Sessions_Session_TagsMaxOrderByAggregateInput>;
-  _min?: Maybe<Sessions_Session_TagsMinOrderByAggregateInput>;
-  _sum?: Maybe<Sessions_Session_TagsSumOrderByAggregateInput>;
-  session_id?: Maybe<SortOrder>;
-  tag_id?: Maybe<SortOrder>;
+/** order by min() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Min_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsOrderByWithRelationInput = {
-  session?: Maybe<SessionsOrderByWithRelationInput>;
-  session_id?: Maybe<SortOrder>;
-  tag?: Maybe<Session_TagsOrderByWithRelationInput>;
-  tag_id?: Maybe<SortOrder>;
+/** response of any mutation on the table "sessions_session_tags" */
+export type Sessions_Session_Tags_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Sessions_Session_Tags>;
 };
 
-export enum Sessions_Session_TagsScalarFieldEnum {
+/** on conflict condition type for table "sessions_session_tags" */
+export type Sessions_Session_Tags_On_Conflict = {
+  constraint: Sessions_Session_Tags_Constraint;
+  update_columns?: Array<Sessions_Session_Tags_Update_Column>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "sessions_session_tags". */
+export type Sessions_Session_Tags_Order_By = {
+  session?: Maybe<Sessions_Order_By>;
+  session_id?: Maybe<Order_By>;
+  session_tag?: Maybe<Session_Tags_Order_By>;
+  tag_id?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: sessions_session_tags */
+export type Sessions_Session_Tags_Pk_Columns_Input = {
+  session_id: Scalars['Int'];
+  tag_id: Scalars['Int'];
+};
+
+/** select columns of table "sessions_session_tags" */
+export enum Sessions_Session_Tags_Select_Column {
+  /** column name */
   SessionId = 'session_id',
+  /** column name */
   TagId = 'tag_id'
 }
 
-export type Sessions_Session_TagsScalarWhereInput = {
-  AND?: Maybe<Array<Sessions_Session_TagsScalarWhereInput>>;
-  NOT?: Maybe<Array<Sessions_Session_TagsScalarWhereInput>>;
-  OR?: Maybe<Array<Sessions_Session_TagsScalarWhereInput>>;
-  session_id?: Maybe<IntFilter>;
-  tag_id?: Maybe<IntFilter>;
-};
-
-export type Sessions_Session_TagsScalarWhereWithAggregatesInput = {
-  AND?: Maybe<Array<Sessions_Session_TagsScalarWhereWithAggregatesInput>>;
-  NOT?: Maybe<Array<Sessions_Session_TagsScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<Sessions_Session_TagsScalarWhereWithAggregatesInput>>;
-  session_id?: Maybe<IntWithAggregatesFilter>;
-  tag_id?: Maybe<IntWithAggregatesFilter>;
-};
-
-export type Sessions_Session_TagsSumAggregate = {
+/** input type for updating data in table "sessions_session_tags" */
+export type Sessions_Session_Tags_Set_Input = {
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
-export type Sessions_Session_TagsSumOrderByAggregateInput = {
-  session_id?: Maybe<SortOrder>;
-  tag_id?: Maybe<SortOrder>;
+/** aggregate stddev on columns */
+export type Sessions_Session_Tags_Stddev_Fields = {
+  session_id?: Maybe<Scalars['Float']>;
+  tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type Sessions_Session_TagsUncheckedCreateInput = {
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
+/** order by stddev() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Stddev_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsUncheckedCreateNestedManyWithoutSessionInput = {
-  connect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<Sessions_Session_TagsCreateOrConnectWithoutSessionInput>>;
-  create?: Maybe<Array<Sessions_Session_TagsCreateWithoutSessionInput>>;
-  createMany?: Maybe<Sessions_Session_TagsCreateManySessionInputEnvelope>;
+/** aggregate stddev_pop on columns */
+export type Sessions_Session_Tags_Stddev_Pop_Fields = {
+  session_id?: Maybe<Scalars['Float']>;
+  tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type Sessions_Session_TagsUncheckedCreateNestedManyWithoutTagInput = {
-  connect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<Sessions_Session_TagsCreateOrConnectWithoutTagInput>>;
-  create?: Maybe<Array<Sessions_Session_TagsCreateWithoutTagInput>>;
-  createMany?: Maybe<Sessions_Session_TagsCreateManyTagInputEnvelope>;
+/** order by stddev_pop() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Stddev_Pop_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsUncheckedCreateWithoutSessionInput = {
-  tag_id: Scalars['Int'];
+/** aggregate stddev_samp on columns */
+export type Sessions_Session_Tags_Stddev_Samp_Fields = {
+  session_id?: Maybe<Scalars['Float']>;
+  tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type Sessions_Session_TagsUncheckedCreateWithoutTagInput = {
-  session_id: Scalars['Int'];
+/** order by stddev_samp() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Stddev_Samp_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsUncheckedUpdateInput = {
-  session_id?: Maybe<IntFieldUpdateOperationsInput>;
-  tag_id?: Maybe<IntFieldUpdateOperationsInput>;
+/** aggregate sum on columns */
+export type Sessions_Session_Tags_Sum_Fields = {
+  session_id?: Maybe<Scalars['Int']>;
+  tag_id?: Maybe<Scalars['Int']>;
 };
 
-export type Sessions_Session_TagsUncheckedUpdateManyInput = {
-  session_id?: Maybe<IntFieldUpdateOperationsInput>;
-  tag_id?: Maybe<IntFieldUpdateOperationsInput>;
+/** order by sum() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Sum_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type Sessions_Session_TagsUncheckedUpdateManyWithoutSessionInput = {
-  connect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<Sessions_Session_TagsCreateOrConnectWithoutSessionInput>>;
-  create?: Maybe<Array<Sessions_Session_TagsCreateWithoutSessionInput>>;
-  createMany?: Maybe<Sessions_Session_TagsCreateManySessionInputEnvelope>;
-  delete?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  deleteMany?: Maybe<Array<Sessions_Session_TagsScalarWhereInput>>;
-  disconnect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  set?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  update?: Maybe<Array<Sessions_Session_TagsUpdateWithWhereUniqueWithoutSessionInput>>;
-  updateMany?: Maybe<Array<Sessions_Session_TagsUpdateManyWithWhereWithoutSessionInput>>;
-  upsert?: Maybe<Array<Sessions_Session_TagsUpsertWithWhereUniqueWithoutSessionInput>>;
-};
-
-export type Sessions_Session_TagsUncheckedUpdateManyWithoutSessionsInput = {
-  session_id?: Maybe<IntFieldUpdateOperationsInput>;
-};
-
-export type Sessions_Session_TagsUncheckedUpdateManyWithoutTagInput = {
-  connect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  connectOrCreate?: Maybe<Array<Sessions_Session_TagsCreateOrConnectWithoutTagInput>>;
-  create?: Maybe<Array<Sessions_Session_TagsCreateWithoutTagInput>>;
-  createMany?: Maybe<Sessions_Session_TagsCreateManyTagInputEnvelope>;
-  delete?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  deleteMany?: Maybe<Array<Sessions_Session_TagsScalarWhereInput>>;
-  disconnect?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  set?: Maybe<Array<Sessions_Session_TagsWhereUniqueInput>>;
-  update?: Maybe<Array<Sessions_Session_TagsUpdateWithWhereUniqueWithoutTagInput>>;
-  updateMany?: Maybe<Array<Sessions_Session_TagsUpdateManyWithWhereWithoutTagInput>>;
-  upsert?: Maybe<Array<Sessions_Session_TagsUpsertWithWhereUniqueWithoutTagInput>>;
-};
-
-export type Sessions_Session_TagsUncheckedUpdateManyWithoutTagsInput = {
-  tag_id?: Maybe<IntFieldUpdateOperationsInput>;
-};
-
-export type Sessions_Session_TagsUncheckedUpdateWithoutSessionInput = {
-  tag_id?: Maybe<IntFieldUpdateOperationsInput>;
-};
-
-export type Sessions_Session_TagsUncheckedUpdateWithoutTagInput = {
-  session_id?: Maybe<IntFieldUpdateOperationsInput>;
-};
-
-export type Sessions_Session_TagsUpdateManyWithWhereWithoutSessionInput = {
-  data: Sessions_Session_TagsUncheckedUpdateManyWithoutTagsInput;
-  where: Sessions_Session_TagsScalarWhereInput;
-};
-
-export type Sessions_Session_TagsUpdateManyWithWhereWithoutTagInput = {
-  data: Sessions_Session_TagsUncheckedUpdateManyWithoutSessionsInput;
-  where: Sessions_Session_TagsScalarWhereInput;
-};
-
-export type Sessions_Session_TagsUpdateWithWhereUniqueWithoutSessionInput = {
-  data: Sessions_Session_TagsUncheckedUpdateWithoutSessionInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
-};
-
-export type Sessions_Session_TagsUpdateWithWhereUniqueWithoutTagInput = {
-  data: Sessions_Session_TagsUncheckedUpdateWithoutTagInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
-};
-
-export type Sessions_Session_TagsUpsertWithWhereUniqueWithoutSessionInput = {
-  create: Sessions_Session_TagsUncheckedCreateWithoutSessionInput;
-  update: Sessions_Session_TagsUncheckedUpdateWithoutSessionInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
-};
-
-export type Sessions_Session_TagsUpsertWithWhereUniqueWithoutTagInput = {
-  create: Sessions_Session_TagsUncheckedCreateWithoutTagInput;
-  update: Sessions_Session_TagsUncheckedUpdateWithoutTagInput;
-  where: Sessions_Session_TagsWhereUniqueInput;
-};
-
-export type Sessions_Session_TagsWhereInput = {
-  AND?: Maybe<Array<Sessions_Session_TagsWhereInput>>;
-  NOT?: Maybe<Array<Sessions_Session_TagsWhereInput>>;
-  OR?: Maybe<Array<Sessions_Session_TagsWhereInput>>;
-  session?: Maybe<SessionsRelationFilter>;
-  session_id?: Maybe<IntFilter>;
-  tag?: Maybe<Session_TagsRelationFilter>;
-  tag_id?: Maybe<IntFilter>;
-};
-
-export type Sessions_Session_TagsWhereUniqueInput = {
-  session_id_tag_id?: Maybe<Sessions_Session_TagsSession_IdTag_IdCompoundUniqueInput>;
-};
-
-export enum SortOrder {
-  Asc = 'asc',
-  Desc = 'desc'
+/** update columns of table "sessions_session_tags" */
+export enum Sessions_Session_Tags_Update_Column {
+  /** column name */
+  SessionId = 'session_id',
+  /** column name */
+  TagId = 'tag_id'
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: Maybe<Scalars['String']>;
+/** aggregate var_pop on columns */
+export type Sessions_Session_Tags_Var_Pop_Fields = {
+  session_id?: Maybe<Scalars['Float']>;
+  tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type StringFilter = {
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
+/** order by var_pop() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Var_Pop_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type StringNullableFilter = {
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringNullableFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
+/** aggregate var_samp on columns */
+export type Sessions_Session_Tags_Var_Samp_Fields = {
+  session_id?: Maybe<Scalars['Float']>;
+  tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type StringNullableWithAggregatesFilter = {
-  _count?: Maybe<NestedIntNullableFilter>;
-  _max?: Maybe<NestedStringNullableFilter>;
-  _min?: Maybe<NestedStringNullableFilter>;
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringNullableWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
+/** order by var_samp() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Var_Samp_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
 };
 
-export type StringWithAggregatesFilter = {
-  _count?: Maybe<NestedIntFilter>;
-  _max?: Maybe<NestedStringFilter>;
-  _min?: Maybe<NestedStringFilter>;
-  contains?: Maybe<Scalars['String']>;
-  endsWith?: Maybe<Scalars['String']>;
-  equals?: Maybe<Scalars['String']>;
-  gt?: Maybe<Scalars['String']>;
-  gte?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
-  lt?: Maybe<Scalars['String']>;
-  lte?: Maybe<Scalars['String']>;
-  not?: Maybe<NestedStringWithAggregatesFilter>;
-  notIn?: Maybe<Array<Scalars['String']>>;
-  startsWith?: Maybe<Scalars['String']>;
+/** aggregate variance on columns */
+export type Sessions_Session_Tags_Variance_Fields = {
+  session_id?: Maybe<Scalars['Float']>;
+  tag_id?: Maybe<Scalars['Float']>;
 };
 
-export type Users = {
-  _count?: Maybe<UsersCount>;
-  auth_id: Scalars['String'];
-  id: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  sessions: Array<Sessions>;
-  user_name: Scalars['String'];
+/** order by variance() on columns of table "sessions_session_tags" */
+export type Sessions_Session_Tags_Variance_Order_By = {
+  session_id?: Maybe<Order_By>;
+  tag_id?: Maybe<Order_By>;
+};
+
+/** input type for updating data in table "sessions" */
+export type Sessions_Set_Input = {
+  author_id?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['timestamptz']>;
+  ended_at?: Maybe<Scalars['timestamptz']>;
+  id?: Maybe<Scalars['Int']>;
+  slug?: Maybe<Scalars['String']>;
+  started_at?: Maybe<Scalars['timestamp']>;
+  status?: Maybe<Sessions_Status_Enum>;
+  title?: Maybe<Scalars['String']>;
+  updated_at?: Maybe<Scalars['timestamptz']>;
+};
+
+/**
+ * Enum
+ *
+ *
+ * columns and relationships of "sessions_status"
+ *
+ */
+export type Sessions_Status = {
+  value: Scalars['String'];
+};
+
+/** aggregated selection of "sessions_status" */
+export type Sessions_Status_Aggregate = {
+  aggregate?: Maybe<Sessions_Status_Aggregate_Fields>;
+  nodes: Array<Sessions_Status>;
+};
+
+/** aggregate fields of "sessions_status" */
+export type Sessions_Status_Aggregate_Fields = {
+  count: Scalars['Int'];
+  max?: Maybe<Sessions_Status_Max_Fields>;
+  min?: Maybe<Sessions_Status_Min_Fields>;
 };
 
 
-export type UsersSessionsArgs = {
-  cursor?: Maybe<SessionsWhereUniqueInput>;
-  distinct?: Maybe<Array<SessionsScalarFieldEnum>>;
-  orderBy?: Maybe<Array<SessionsOrderByWithRelationInput>>;
-  skip?: Maybe<Scalars['Int']>;
-  take?: Maybe<Scalars['Int']>;
-  where?: Maybe<SessionsWhereInput>;
+/** aggregate fields of "sessions_status" */
+export type Sessions_Status_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Sessions_Status_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
 };
 
-export type UsersAvgAggregate = {
+/** Boolean expression to filter rows from the table "sessions_status". All fields are combined with a logical 'AND'. */
+export type Sessions_Status_Bool_Exp = {
+  _and?: Maybe<Array<Sessions_Status_Bool_Exp>>;
+  _not?: Maybe<Sessions_Status_Bool_Exp>;
+  _or?: Maybe<Array<Sessions_Status_Bool_Exp>>;
+  value?: Maybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "sessions_status" */
+export enum Sessions_Status_Constraint {
+  /** unique or primary key constraint */
+  SessionsStatusPkey = 'sessions_status_pkey'
+}
+
+export enum Sessions_Status_Enum {
+  Draft = 'DRAFT',
+  Private = 'PRIVATE',
+  Published = 'PUBLISHED'
+}
+
+/** Boolean expression to compare columns of type "sessions_status_enum". All fields are combined with logical 'AND'. */
+export type Sessions_Status_Enum_Comparison_Exp = {
+  _eq?: Maybe<Sessions_Status_Enum>;
+  _in?: Maybe<Array<Sessions_Status_Enum>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _neq?: Maybe<Sessions_Status_Enum>;
+  _nin?: Maybe<Array<Sessions_Status_Enum>>;
+};
+
+/** input type for inserting data into table "sessions_status" */
+export type Sessions_Status_Insert_Input = {
+  value?: Maybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Sessions_Status_Max_Fields = {
+  value?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Sessions_Status_Min_Fields = {
+  value?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "sessions_status" */
+export type Sessions_Status_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Sessions_Status>;
+};
+
+/** on conflict condition type for table "sessions_status" */
+export type Sessions_Status_On_Conflict = {
+  constraint: Sessions_Status_Constraint;
+  update_columns?: Array<Sessions_Status_Update_Column>;
+  where?: Maybe<Sessions_Status_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "sessions_status". */
+export type Sessions_Status_Order_By = {
+  value?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: sessions_status */
+export type Sessions_Status_Pk_Columns_Input = {
+  value: Scalars['String'];
+};
+
+/** select columns of table "sessions_status" */
+export enum Sessions_Status_Select_Column {
+  /** column name */
+  Value = 'value'
+}
+
+/** input type for updating data in table "sessions_status" */
+export type Sessions_Status_Set_Input = {
+  value?: Maybe<Scalars['String']>;
+};
+
+/** update columns of table "sessions_status" */
+export enum Sessions_Status_Update_Column {
+  /** column name */
+  Value = 'value'
+}
+
+/** aggregate stddev on columns */
+export type Sessions_Stddev_Fields = {
+  author_id?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
 };
 
-export type UsersAvgOrderByAggregateInput = {
-  id?: Maybe<SortOrder>;
+/** order by stddev() on columns of table "sessions" */
+export type Sessions_Stddev_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type UsersCount = {
-  sessions: Scalars['Int'];
+/** aggregate stddev_pop on columns */
+export type Sessions_Stddev_Pop_Fields = {
+  author_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type UsersCountAggregate = {
-  _all: Scalars['Int'];
-  auth_id: Scalars['Int'];
-  id: Scalars['Int'];
-  name: Scalars['Int'];
-  user_name: Scalars['Int'];
+/** order by stddev_pop() on columns of table "sessions" */
+export type Sessions_Stddev_Pop_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type UsersCountOrderByAggregateInput = {
-  auth_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  user_name?: Maybe<SortOrder>;
+/** aggregate stddev_samp on columns */
+export type Sessions_Stddev_Samp_Fields = {
+  author_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type UsersCreateManyInput = {
-  auth_id: Scalars['String'];
+/** order by stddev_samp() on columns of table "sessions" */
+export type Sessions_Stddev_Samp_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Sessions_Sum_Fields = {
+  author_id?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  user_name?: Maybe<Scalars['String']>;
 };
 
-export type UsersGroupBy = {
-  _avg?: Maybe<UsersAvgAggregate>;
-  _count?: Maybe<UsersCountAggregate>;
-  _max?: Maybe<UsersMaxAggregate>;
-  _min?: Maybe<UsersMinAggregate>;
-  _sum?: Maybe<UsersSumAggregate>;
-  auth_id: Scalars['String'];
-  id: Scalars['Int'];
-  name?: Maybe<Scalars['String']>;
-  user_name: Scalars['String'];
+/** order by sum() on columns of table "sessions" */
+export type Sessions_Sum_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type UsersMaxAggregate = {
-  auth_id?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  user_name?: Maybe<Scalars['String']>;
-};
-
-export type UsersMaxOrderByAggregateInput = {
-  auth_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  user_name?: Maybe<SortOrder>;
-};
-
-export type UsersMinAggregate = {
-  auth_id?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  user_name?: Maybe<Scalars['String']>;
-};
-
-export type UsersMinOrderByAggregateInput = {
-  auth_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  user_name?: Maybe<SortOrder>;
-};
-
-export type UsersOrderByWithAggregationInput = {
-  _avg?: Maybe<UsersAvgOrderByAggregateInput>;
-  _count?: Maybe<UsersCountOrderByAggregateInput>;
-  _max?: Maybe<UsersMaxOrderByAggregateInput>;
-  _min?: Maybe<UsersMinOrderByAggregateInput>;
-  _sum?: Maybe<UsersSumOrderByAggregateInput>;
-  auth_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  user_name?: Maybe<SortOrder>;
-};
-
-export type UsersOrderByWithRelationInput = {
-  auth_id?: Maybe<SortOrder>;
-  id?: Maybe<SortOrder>;
-  name?: Maybe<SortOrder>;
-  sessions?: Maybe<SessionsOrderByRelationAggregateInput>;
-  user_name?: Maybe<SortOrder>;
-};
-
-export type UsersRelationFilter = {
-  is?: Maybe<UsersWhereInput>;
-  isNot?: Maybe<UsersWhereInput>;
-};
-
-export enum UsersScalarFieldEnum {
-  AuthId = 'auth_id',
+/** update columns of table "sessions" */
+export enum Sessions_Update_Column {
+  /** column name */
+  AuthorId = 'author_id',
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  EndedAt = 'ended_at',
+  /** column name */
   Id = 'id',
-  Name = 'name',
-  UserName = 'user_name'
+  /** column name */
+  Slug = 'slug',
+  /** column name */
+  StartedAt = 'started_at',
+  /** column name */
+  Status = 'status',
+  /** column name */
+  Title = 'title',
+  /** column name */
+  UpdatedAt = 'updated_at'
 }
 
-export type UsersScalarWhereWithAggregatesInput = {
-  AND?: Maybe<Array<UsersScalarWhereWithAggregatesInput>>;
-  NOT?: Maybe<Array<UsersScalarWhereWithAggregatesInput>>;
-  OR?: Maybe<Array<UsersScalarWhereWithAggregatesInput>>;
-  auth_id?: Maybe<StringWithAggregatesFilter>;
-  id?: Maybe<IntWithAggregatesFilter>;
-  name?: Maybe<StringNullableWithAggregatesFilter>;
-  user_name?: Maybe<StringWithAggregatesFilter>;
+/** aggregate var_pop on columns */
+export type Sessions_Var_Pop_Fields = {
+  author_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type UsersSumAggregate = {
-  id?: Maybe<Scalars['Int']>;
+/** order by var_pop() on columns of table "sessions" */
+export type Sessions_Var_Pop_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type UsersSumOrderByAggregateInput = {
-  id?: Maybe<SortOrder>;
+/** aggregate var_samp on columns */
+export type Sessions_Var_Samp_Fields = {
+  author_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type UsersUncheckedCreateInput = {
-  auth_id: Scalars['String'];
-  id?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  sessions?: Maybe<SessionsUncheckedCreateNestedManyWithoutAuthorInput>;
-  user_name?: Maybe<Scalars['String']>;
+/** order by var_samp() on columns of table "sessions" */
+export type Sessions_Var_Samp_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type UsersUncheckedUpdateInput = {
-  auth_id?: Maybe<StringFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  sessions?: Maybe<SessionsUncheckedUpdateManyWithoutAuthorInput>;
-  user_name?: Maybe<StringFieldUpdateOperationsInput>;
+/** aggregate variance on columns */
+export type Sessions_Variance_Fields = {
+  author_id?: Maybe<Scalars['Float']>;
+  id?: Maybe<Scalars['Float']>;
 };
 
-export type UsersUncheckedUpdateManyInput = {
-  auth_id?: Maybe<StringFieldUpdateOperationsInput>;
-  id?: Maybe<IntFieldUpdateOperationsInput>;
-  name?: Maybe<NullableStringFieldUpdateOperationsInput>;
-  user_name?: Maybe<StringFieldUpdateOperationsInput>;
+/** order by variance() on columns of table "sessions" */
+export type Sessions_Variance_Order_By = {
+  author_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
 };
 
-export type UsersWhereInput = {
-  AND?: Maybe<Array<UsersWhereInput>>;
-  NOT?: Maybe<Array<UsersWhereInput>>;
-  OR?: Maybe<Array<UsersWhereInput>>;
-  auth_id?: Maybe<StringFilter>;
-  id?: Maybe<IntFilter>;
-  name?: Maybe<StringNullableFilter>;
-  sessions?: Maybe<SessionsListRelationFilter>;
-  user_name?: Maybe<StringFilter>;
+export type Subscription_Root = {
+  /** fetch data from the table: "session_tags" */
+  session_tags: Array<Session_Tags>;
+  /** fetch aggregated fields from the table: "session_tags" */
+  session_tags_aggregate: Session_Tags_Aggregate;
+  /** fetch data from the table: "session_tags" using primary key columns */
+  session_tags_by_pk?: Maybe<Session_Tags>;
+  /** fetch data from the table: "sessions" */
+  sessions: Array<Sessions>;
+  /** An aggregate relationship */
+  sessions_aggregate: Sessions_Aggregate;
+  /** fetch data from the table: "sessions" using primary key columns */
+  sessions_by_pk?: Maybe<Sessions>;
+  /** fetch data from the table: "sessions_session_tags" */
+  sessions_session_tags: Array<Sessions_Session_Tags>;
+  /** fetch aggregated fields from the table: "sessions_session_tags" */
+  sessions_session_tags_aggregate: Sessions_Session_Tags_Aggregate;
+  /** fetch data from the table: "sessions_session_tags" using primary key columns */
+  sessions_session_tags_by_pk?: Maybe<Sessions_Session_Tags>;
+  /** fetch data from the table: "sessions_status" */
+  sessions_status: Array<Sessions_Status>;
+  /** fetch aggregated fields from the table: "sessions_status" */
+  sessions_status_aggregate: Sessions_Status_Aggregate;
+  /** fetch data from the table: "sessions_status" using primary key columns */
+  sessions_status_by_pk?: Maybe<Sessions_Status>;
+  /** fetch data from the table: "users" */
+  users: Array<Users>;
+  /** fetch aggregated fields from the table: "users" */
+  users_aggregate: Users_Aggregate;
+  /** fetch data from the table: "users" using primary key columns */
+  users_by_pk?: Maybe<Users>;
 };
 
-export type UsersWhereUniqueInput = {
-  auth_id?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['Int']>;
-  user_name?: Maybe<Scalars['String']>;
+
+export type Subscription_RootSession_TagsArgs = {
+  distinct_on?: Maybe<Array<Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Session_Tags_Order_By>>;
+  where?: Maybe<Session_Tags_Bool_Exp>;
 };
 
-export type Sessions_Session_TagsSession_IdTag_IdCompoundUniqueInput = {
+
+export type Subscription_RootSession_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Session_Tags_Order_By>>;
+  where?: Maybe<Session_Tags_Bool_Exp>;
+};
+
+
+export type Subscription_RootSession_Tags_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootSessionsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Order_By>>;
+  where?: Maybe<Sessions_Bool_Exp>;
+};
+
+
+export type Subscription_RootSessions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Order_By>>;
+  where?: Maybe<Sessions_Bool_Exp>;
+};
+
+
+export type Subscription_RootSessions_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootSessions_Session_TagsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+};
+
+
+export type Subscription_RootSessions_Session_Tags_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Session_Tags_Order_By>>;
+  where?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+};
+
+
+export type Subscription_RootSessions_Session_Tags_By_PkArgs = {
   session_id: Scalars['Int'];
   tag_id: Scalars['Int'];
 };
 
-export enum Status {
-  Draft = 'DRAFT',
-  Published = 'PUBLISHED'
+
+export type Subscription_RootSessions_StatusArgs = {
+  distinct_on?: Maybe<Array<Sessions_Status_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Status_Order_By>>;
+  where?: Maybe<Sessions_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootSessions_Status_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Status_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Status_Order_By>>;
+  where?: Maybe<Sessions_Status_Bool_Exp>;
+};
+
+
+export type Subscription_RootSessions_Status_By_PkArgs = {
+  value: Scalars['String'];
+};
+
+
+export type Subscription_RootUsersArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+
+export type Subscription_RootUsers_AggregateArgs = {
+  distinct_on?: Maybe<Array<Users_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Users_Order_By>>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+
+export type Subscription_RootUsers_By_PkArgs = {
+  auth_id: Scalars['String'];
+  id: Scalars['Int'];
+};
+
+/** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
+export type Timestamp_Comparison_Exp = {
+  _eq?: Maybe<Scalars['timestamp']>;
+  _gt?: Maybe<Scalars['timestamp']>;
+  _gte?: Maybe<Scalars['timestamp']>;
+  _in?: Maybe<Array<Scalars['timestamp']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['timestamp']>;
+  _lte?: Maybe<Scalars['timestamp']>;
+  _neq?: Maybe<Scalars['timestamp']>;
+  _nin?: Maybe<Array<Scalars['timestamp']>>;
+};
+
+/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
+export type Timestamptz_Comparison_Exp = {
+  _eq?: Maybe<Scalars['timestamptz']>;
+  _gt?: Maybe<Scalars['timestamptz']>;
+  _gte?: Maybe<Scalars['timestamptz']>;
+  _in?: Maybe<Array<Scalars['timestamptz']>>;
+  _is_null?: Maybe<Scalars['Boolean']>;
+  _lt?: Maybe<Scalars['timestamptz']>;
+  _lte?: Maybe<Scalars['timestamptz']>;
+  _neq?: Maybe<Scalars['timestamptz']>;
+  _nin?: Maybe<Array<Scalars['timestamptz']>>;
+};
+
+/** columns and relationships of "users" */
+export type Users = {
+  auth_id: Scalars['String'];
+  id: Scalars['Int'];
+  name?: Maybe<Scalars['String']>;
+  /** fetch data from the table: "sessions" */
+  sessions: Array<Sessions>;
+  /** An aggregate relationship */
+  sessions_aggregate: Sessions_Aggregate;
+  user_name: Scalars['String'];
+};
+
+
+/** columns and relationships of "users" */
+export type UsersSessionsArgs = {
+  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Order_By>>;
+  where?: Maybe<Sessions_Bool_Exp>;
+};
+
+
+/** columns and relationships of "users" */
+export type UsersSessions_AggregateArgs = {
+  distinct_on?: Maybe<Array<Sessions_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Sessions_Order_By>>;
+  where?: Maybe<Sessions_Bool_Exp>;
+};
+
+/** aggregated selection of "users" */
+export type Users_Aggregate = {
+  aggregate?: Maybe<Users_Aggregate_Fields>;
+  nodes: Array<Users>;
+};
+
+/** aggregate fields of "users" */
+export type Users_Aggregate_Fields = {
+  avg?: Maybe<Users_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Users_Max_Fields>;
+  min?: Maybe<Users_Min_Fields>;
+  stddev?: Maybe<Users_Stddev_Fields>;
+  stddev_pop?: Maybe<Users_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Users_Stddev_Samp_Fields>;
+  sum?: Maybe<Users_Sum_Fields>;
+  var_pop?: Maybe<Users_Var_Pop_Fields>;
+  var_samp?: Maybe<Users_Var_Samp_Fields>;
+  variance?: Maybe<Users_Variance_Fields>;
+};
+
+
+/** aggregate fields of "users" */
+export type Users_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Users_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Users_Avg_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
+export type Users_Bool_Exp = {
+  _and?: Maybe<Array<Users_Bool_Exp>>;
+  _not?: Maybe<Users_Bool_Exp>;
+  _or?: Maybe<Array<Users_Bool_Exp>>;
+  auth_id?: Maybe<String_Comparison_Exp>;
+  id?: Maybe<Int_Comparison_Exp>;
+  name?: Maybe<String_Comparison_Exp>;
+  sessions?: Maybe<Sessions_Bool_Exp>;
+  user_name?: Maybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "users" */
+export enum Users_Constraint {
+  /** unique or primary key constraint */
+  UsersAuthIdKey = 'users_auth_id_key',
+  /** unique or primary key constraint */
+  UsersIdKey = 'users_id_key',
+  /** unique or primary key constraint */
+  UsersPkey = 'users_pkey',
+  /** unique or primary key constraint */
+  UsersUserNameKey = 'users_user_name_key'
 }
+
+/** input type for incrementing numeric columns in table "users" */
+export type Users_Inc_Input = {
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "users" */
+export type Users_Insert_Input = {
+  auth_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  sessions?: Maybe<Sessions_Arr_Rel_Insert_Input>;
+  user_name?: Maybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Users_Max_Fields = {
+  auth_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  user_name?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Users_Min_Fields = {
+  auth_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  user_name?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "users" */
+export type Users_Mutation_Response = {
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Users>;
+};
+
+/** input type for inserting object relation for remote table "users" */
+export type Users_Obj_Rel_Insert_Input = {
+  data: Users_Insert_Input;
+  /** on conflict condition */
+  on_conflict?: Maybe<Users_On_Conflict>;
+};
+
+/** on conflict condition type for table "users" */
+export type Users_On_Conflict = {
+  constraint: Users_Constraint;
+  update_columns?: Array<Users_Update_Column>;
+  where?: Maybe<Users_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "users". */
+export type Users_Order_By = {
+  auth_id?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  name?: Maybe<Order_By>;
+  sessions_aggregate?: Maybe<Sessions_Aggregate_Order_By>;
+  user_name?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: users */
+export type Users_Pk_Columns_Input = {
+  auth_id: Scalars['String'];
+  id: Scalars['Int'];
+};
+
+/** select columns of table "users" */
+export enum Users_Select_Column {
+  /** column name */
+  AuthId = 'auth_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  UserName = 'user_name'
+}
+
+/** input type for updating data in table "users" */
+export type Users_Set_Input = {
+  auth_id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  user_name?: Maybe<Scalars['String']>;
+};
+
+/** aggregate stddev on columns */
+export type Users_Stddev_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Users_Stddev_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Users_Stddev_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate sum on columns */
+export type Users_Sum_Fields = {
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** update columns of table "users" */
+export enum Users_Update_Column {
+  /** column name */
+  AuthId = 'auth_id',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  Name = 'name',
+  /** column name */
+  UserName = 'user_name'
+}
+
+/** aggregate var_pop on columns */
+export type Users_Var_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Users_Var_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Users_Variance_Fields = {
+  id?: Maybe<Scalars['Float']>;
+};

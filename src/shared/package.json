@@ -2,8 +2,8 @@
   "name": "shared",
   "packageManager": "yarn@3.0.2",
   "scripts": {
-    "dev": "graphql-codegen -r dotenv-flow/config --watch",
-    "codegen": "graphql-codegen -r dotenv-flow/config"
+    "dev": "NODE_ENV=development graphql-codegen -r dotenv-flow/config --watch",
+    "codegen": "NODE_ENV=development graphql-codegen -r dotenv-flow/config"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.2.0",

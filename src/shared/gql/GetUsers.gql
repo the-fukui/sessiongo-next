@@ -1,6 +1,6 @@
 # $sessionsWhere: SessionsWhereInput
 query GetUsers {
-  findManyUsers {
+  users {
     id
     auth_id
     user_name

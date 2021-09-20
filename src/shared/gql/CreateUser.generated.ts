@@ -4,16 +4,16 @@ import { GraphQLClient } from 'graphql-request';
 import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
 export type CreateUsersMutationMutationVariables = Types.Exact<{
-  createUsersData: Types.UsersUncheckedCreateInput;
+  auth_id?: Types.Maybe<Types.Scalars['String']>;
 }>;
 
 
-export type CreateUsersMutationMutation = { createUsers: { id: number } };
+export type CreateUsersMutationMutation = { insert_users_one?: Types.Maybe<{ id: number }> };
 
 
 export const CreateUsersMutationDocument = gql`
-    mutation CreateUsersMutation($createUsersData: UsersUncheckedCreateInput!) {
-  createUsers(data: $createUsersData) {
+    mutation CreateUsersMutation($auth_id: String) {
+  insert_users_one(object: {auth_id: $auth_id}) {
     id
   }
 }
@@ -26,7 +26,7 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    CreateUsersMutation(variables: CreateUsersMutationMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateUsersMutationMutation> {
+    CreateUsersMutation(variables?: CreateUsersMutationMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateUsersMutationMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateUsersMutationMutation>(CreateUsersMutationDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateUsersMutation');
     }
   };
