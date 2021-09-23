@@ -144,7 +144,7 @@ export type Mutation_RootDelete_SessionsArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Sessions_By_PkArgs = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 
@@ -156,8 +156,7 @@ export type Mutation_RootDelete_Sessions_Session_TagsArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Sessions_Session_Tags_By_PkArgs = {
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
+  id: Scalars['Int'];
 };
 
 
@@ -182,7 +181,6 @@ export type Mutation_RootDelete_UsersArgs = {
 /** mutation root */
 export type Mutation_RootDelete_Users_By_PkArgs = {
   auth_id: Scalars['String'];
-  id: Scalars['Int'];
 };
 
 
@@ -362,9 +360,9 @@ export type Query_Root = {
   sessions_aggregate: Sessions_Aggregate;
   /** fetch data from the table: "sessions" using primary key columns */
   sessions_by_pk?: Maybe<Sessions>;
-  /** fetch data from the table: "sessions_session_tags" */
+  /** An array relationship */
   sessions_session_tags: Array<Sessions_Session_Tags>;
-  /** fetch aggregated fields from the table: "sessions_session_tags" */
+  /** An aggregate relationship */
   sessions_session_tags_aggregate: Sessions_Session_Tags_Aggregate;
   /** fetch data from the table: "sessions_session_tags" using primary key columns */
   sessions_session_tags_by_pk?: Maybe<Sessions_Session_Tags>;
@@ -425,7 +423,7 @@ export type Query_RootSessions_AggregateArgs = {
 
 
 export type Query_RootSessions_By_PkArgs = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 
@@ -448,8 +446,7 @@ export type Query_RootSessions_Session_Tags_AggregateArgs = {
 
 
 export type Query_RootSessions_Session_Tags_By_PkArgs = {
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
+  id: Scalars['Int'];
 };
 
 
@@ -496,7 +493,6 @@ export type Query_RootUsers_AggregateArgs = {
 
 export type Query_RootUsers_By_PkArgs = {
   auth_id: Scalars['String'];
-  id: Scalars['Int'];
 };
 
 /** columns and relationships of "session_tags" */
@@ -737,9 +733,9 @@ export type Sessions = {
   ended_at?: Maybe<Scalars['timestamptz']>;
   id: Scalars['Int'];
   /** An array relationship */
-  sessions_tags: Array<Sessions_Session_Tags>;
+  sessions_session_tags: Array<Sessions_Session_Tags>;
   /** An aggregate relationship */
-  sessions_tags_aggregate: Sessions_Session_Tags_Aggregate;
+  sessions_session_tags_aggregate: Sessions_Session_Tags_Aggregate;
   slug: Scalars['String'];
   started_at: Scalars['timestamp'];
   status: Sessions_Status_Enum;
@@ -749,7 +745,7 @@ export type Sessions = {
 
 
 /** columns and relationships of "sessions" */
-export type SessionsSessions_TagsArgs = {
+export type SessionsSessions_Session_TagsArgs = {
   distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -759,7 +755,7 @@ export type SessionsSessions_TagsArgs = {
 
 
 /** columns and relationships of "sessions" */
-export type SessionsSessions_Tags_AggregateArgs = {
+export type SessionsSessions_Session_Tags_AggregateArgs = {
   distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -839,7 +835,7 @@ export type Sessions_Bool_Exp = {
   created_at?: Maybe<Timestamptz_Comparison_Exp>;
   ended_at?: Maybe<Timestamptz_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
-  sessions_tags?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+  sessions_session_tags?: Maybe<Sessions_Session_Tags_Bool_Exp>;
   slug?: Maybe<String_Comparison_Exp>;
   started_at?: Maybe<Timestamp_Comparison_Exp>;
   status?: Maybe<Sessions_Status_Enum_Comparison_Exp>;
@@ -849,6 +845,8 @@ export type Sessions_Bool_Exp = {
 
 /** unique or primary key constraints on table "sessions" */
 export enum Sessions_Constraint {
+  /** unique or primary key constraint */
+  SessionsIdKey = 'sessions_id_key',
   /** unique or primary key constraint */
   SessionsPkey = 'sessions_pkey',
   /** unique or primary key constraint */
@@ -868,7 +866,7 @@ export type Sessions_Insert_Input = {
   created_at?: Maybe<Scalars['timestamptz']>;
   ended_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
-  sessions_tags?: Maybe<Sessions_Session_Tags_Arr_Rel_Insert_Input>;
+  sessions_session_tags?: Maybe<Sessions_Session_Tags_Arr_Rel_Insert_Input>;
   slug?: Maybe<Scalars['String']>;
   started_at?: Maybe<Scalars['timestamp']>;
   status?: Maybe<Sessions_Status_Enum>;
@@ -953,7 +951,7 @@ export type Sessions_Order_By = {
   created_at?: Maybe<Order_By>;
   ended_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
-  sessions_tags_aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Order_By>;
+  sessions_session_tags_aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Order_By>;
   slug?: Maybe<Order_By>;
   started_at?: Maybe<Order_By>;
   status?: Maybe<Order_By>;
@@ -963,7 +961,7 @@ export type Sessions_Order_By = {
 
 /** primary key columns input for table: sessions */
 export type Sessions_Pk_Columns_Input = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 /** select columns of table "sessions" */
@@ -996,6 +994,7 @@ export enum Sessions_Select_Column {
  *
  */
 export type Sessions_Session_Tags = {
+  id: Scalars['Int'];
   /** An object relationship */
   session: Sessions;
   session_id: Scalars['Int'];
@@ -1056,12 +1055,14 @@ export type Sessions_Session_Tags_Arr_Rel_Insert_Input = {
 
 /** aggregate avg on columns */
 export type Sessions_Session_Tags_Avg_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Avg_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
@@ -1071,6 +1072,7 @@ export type Sessions_Session_Tags_Bool_Exp = {
   _and?: Maybe<Array<Sessions_Session_Tags_Bool_Exp>>;
   _not?: Maybe<Sessions_Session_Tags_Bool_Exp>;
   _or?: Maybe<Array<Sessions_Session_Tags_Bool_Exp>>;
+  id?: Maybe<Int_Comparison_Exp>;
   session?: Maybe<Sessions_Bool_Exp>;
   session_id?: Maybe<Int_Comparison_Exp>;
   session_tag?: Maybe<Session_Tags_Bool_Exp>;
@@ -1080,17 +1082,21 @@ export type Sessions_Session_Tags_Bool_Exp = {
 /** unique or primary key constraints on table "sessions_session_tags" */
 export enum Sessions_Session_Tags_Constraint {
   /** unique or primary key constraint */
+  SessionsSessionTagsIdKey = 'sessions_session_tags_id_key',
+  /** unique or primary key constraint */
   SessionsTagsPkey = 'sessions_tags_pkey'
 }
 
 /** input type for incrementing numeric columns in table "sessions_session_tags" */
 export type Sessions_Session_Tags_Inc_Input = {
+  id?: Maybe<Scalars['Int']>;
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "sessions_session_tags" */
 export type Sessions_Session_Tags_Insert_Input = {
+  id?: Maybe<Scalars['Int']>;
   session?: Maybe<Sessions_Obj_Rel_Insert_Input>;
   session_id?: Maybe<Scalars['Int']>;
   session_tag?: Maybe<Session_Tags_Obj_Rel_Insert_Input>;
@@ -1099,24 +1105,28 @@ export type Sessions_Session_Tags_Insert_Input = {
 
 /** aggregate max on columns */
 export type Sessions_Session_Tags_Max_Fields = {
+  id?: Maybe<Scalars['Int']>;
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by max() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Max_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Sessions_Session_Tags_Min_Fields = {
+  id?: Maybe<Scalars['Int']>;
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by min() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Min_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
@@ -1138,6 +1148,7 @@ export type Sessions_Session_Tags_On_Conflict = {
 
 /** Ordering options when selecting data from "sessions_session_tags". */
 export type Sessions_Session_Tags_Order_By = {
+  id?: Maybe<Order_By>;
   session?: Maybe<Sessions_Order_By>;
   session_id?: Maybe<Order_By>;
   session_tag?: Maybe<Session_Tags_Order_By>;
@@ -1146,12 +1157,13 @@ export type Sessions_Session_Tags_Order_By = {
 
 /** primary key columns input for table: sessions_session_tags */
 export type Sessions_Session_Tags_Pk_Columns_Input = {
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
+  id: Scalars['Int'];
 };
 
 /** select columns of table "sessions_session_tags" */
 export enum Sessions_Session_Tags_Select_Column {
+  /** column name */
+  Id = 'id',
   /** column name */
   SessionId = 'session_id',
   /** column name */
@@ -1160,60 +1172,71 @@ export enum Sessions_Session_Tags_Select_Column {
 
 /** input type for updating data in table "sessions_session_tags" */
 export type Sessions_Session_Tags_Set_Input = {
+  id?: Maybe<Scalars['Int']>;
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate stddev on columns */
 export type Sessions_Session_Tags_Stddev_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Sessions_Session_Tags_Stddev_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Sessions_Session_Tags_Stddev_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Sessions_Session_Tags_Sum_Fields = {
+  id?: Maybe<Scalars['Int']>;
   session_id?: Maybe<Scalars['Int']>;
   tag_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by sum() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Sum_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** update columns of table "sessions_session_tags" */
 export enum Sessions_Session_Tags_Update_Column {
+  /** column name */
+  Id = 'id',
   /** column name */
   SessionId = 'session_id',
   /** column name */
@@ -1222,36 +1245,42 @@ export enum Sessions_Session_Tags_Update_Column {
 
 /** aggregate var_pop on columns */
 export type Sessions_Session_Tags_Var_Pop_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Sessions_Session_Tags_Var_Samp_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Sessions_Session_Tags_Variance_Fields = {
+  id?: Maybe<Scalars['Float']>;
   session_id?: Maybe<Scalars['Float']>;
   tag_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "sessions_session_tags" */
 export type Sessions_Session_Tags_Variance_Order_By = {
+  id?: Maybe<Order_By>;
   session_id?: Maybe<Order_By>;
   tag_id?: Maybe<Order_By>;
 };
@@ -1505,9 +1534,9 @@ export type Subscription_Root = {
   sessions_aggregate: Sessions_Aggregate;
   /** fetch data from the table: "sessions" using primary key columns */
   sessions_by_pk?: Maybe<Sessions>;
-  /** fetch data from the table: "sessions_session_tags" */
+  /** An array relationship */
   sessions_session_tags: Array<Sessions_Session_Tags>;
-  /** fetch aggregated fields from the table: "sessions_session_tags" */
+  /** An aggregate relationship */
   sessions_session_tags_aggregate: Sessions_Session_Tags_Aggregate;
   /** fetch data from the table: "sessions_session_tags" using primary key columns */
   sessions_session_tags_by_pk?: Maybe<Sessions_Session_Tags>;
@@ -1568,7 +1597,7 @@ export type Subscription_RootSessions_AggregateArgs = {
 
 
 export type Subscription_RootSessions_By_PkArgs = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 
@@ -1591,8 +1620,7 @@ export type Subscription_RootSessions_Session_Tags_AggregateArgs = {
 
 
 export type Subscription_RootSessions_Session_Tags_By_PkArgs = {
-  session_id: Scalars['Int'];
-  tag_id: Scalars['Int'];
+  id: Scalars['Int'];
 };
 
 
@@ -1639,7 +1667,6 @@ export type Subscription_RootUsers_AggregateArgs = {
 
 export type Subscription_RootUsers_By_PkArgs = {
   auth_id: Scalars['String'];
-  id: Scalars['Int'];
 };
 
 /** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
@@ -1821,7 +1848,6 @@ export type Users_Order_By = {
 /** primary key columns input for table: users */
 export type Users_Pk_Columns_Input = {
   auth_id: Scalars['String'];
-  id: Scalars['Int'];
 };
 
 /** select columns of table "users" */
