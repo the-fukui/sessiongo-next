@@ -5,8 +5,12 @@ services:
     restart: always
     volumes:
       - ./docker:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: postgrespassword
+    env_file:
+      - ./.env
+      - ./.env.development
+      - ./.env.development.local
+    ports:
+      - '5432:5432'
   graphql-engine:
     image: hasura/graphql-engine:v2.0.9
     ports:

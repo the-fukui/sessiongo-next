@@ -1,0 +1,10 @@
+query GetUser($userName: String!) {
+  users(where: { user_name: { _eq: $userName } }) {
+    name
+    sessions(order_by: { started_at: asc }) {
+      id
+      title
+      slug
+    }
+  }
+}

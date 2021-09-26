@@ -9,3 +9,13 @@ array_relationships:
       table:
         name: sessions
         schema: public
+select_permissions:
+- permission:
+    columns:
+    - name
+    - user_name
+    filter:
+      auth_id:
+        _eq: X-Hasura-User-Id
+    limit: 1
+  role: user

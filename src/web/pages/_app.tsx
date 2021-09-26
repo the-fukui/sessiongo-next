@@ -5,6 +5,8 @@ import type { AppContext, AppProps } from 'next/app'
 
 import Layout from '@web/components/Layout'
 import { AuthContextProvider } from '@web/contexts/AuthContext'
+import { FirebaseContextProvider } from '@web/contexts/FirebaseContext'
+import { GraphqlContextProvider } from '@web/contexts/GraphqlContext'
 
 interface InitialProps {}
 
@@ -24,9 +26,13 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
     : (page: ReactElement) => <Layout>{page}</Layout>
 
   return (
-    <AuthContextProvider>
-      {getLayout(<Component {...pageProps} />)}
-    </AuthContextProvider>
+    <FirebaseContextProvider>
+      <AuthContextProvider>
+        <GraphqlContextProvider>
+          {getLayout(<Component {...pageProps} />)}
+        </GraphqlContextProvider>
+      </AuthContextProvider>
+    </FirebaseContextProvider>
   )
 }
 

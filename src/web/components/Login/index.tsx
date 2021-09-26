@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import style from './index.module.scss'
 import AuthContext from '@web/contexts/AuthContext'
+import FirebaseContext from '@web/contexts/FirebaseContext'
 import type { auth } from 'firebaseui'
 
 import {
@@ -23,11 +24,13 @@ interface Props {
 
 const Login: React.VFC<Props> = ({ className = '' }) => {
   const { auth } = useContext(AuthContext)
+  const { app } = useContext(FirebaseContext)
   const [isInitialized, setIsInitialized] = useState<Boolean>(false)
 
   const loadFirebaseUI = async () => {
     console.log('load firebaseui')
     const firebaseui = await import('firebaseui')
+    console.log('authui ', firebaseui.auth.AuthUI.getInstance())
     const ui = new firebaseui.auth.AuthUI(auth)
     ui.start('#firebaseui-auth-container', {
       signInOptions: [
@@ -62,23 +65,6 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
     const additionalUserInfo: AdditionalUserInfo = authResult.additionalUserInfo
     const user: User = authResult.user
 
-    if (additionalUserInfo.isNewUser) {
-      //新規ユーザーの場合、DBにもユーザー情報を作成する
-      ;(async () => {
-        try {
-          const jwt = await user.getIdToken(true)
-          const auth_id = user.uid
-          await createUser(auth_id, jwt)
-          alert('new user login succeed!')
-        } catch (e) {
-          //エラーでDBにユーザーを作れていないので、Authサービスからも削除する
-          await deleteUser(user)
-          alert('login failed...')
-        }
-      })()
-    } else {
-      alert('welcome back!')
-    }
     return false
   }
 
@@ -88,30 +74,6 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
    */
   const signInFailure = (error: auth.AuthUIError) => {
     alert('login failed')
-  }
-
-  /**
-   * auth_id（AuthサービスのID）とJWTを突合させて本人であればDBにユーザーを作成する
-   */
-  const createUser = async (auth_id: string, jwt: string) => {
-    if (!auth_id || !jwt) throw new Error("couldn't get ID or token")
-
-    await fetch('/api/v1/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        auth_id,
-        jwt,
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-      })
-      .catch((e) => {
-        throw e
-      })
   }
 
   useEffect(() => {

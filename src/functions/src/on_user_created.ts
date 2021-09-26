@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
 import dotenvFlow from 'dotenv-flow'
-import { client } from '@shared/modules/graphql-request'
+import { client } from '@shared/modules/graphql-request-admin'
 import { getSdk as getCreateUserSdk } from '@shared/gql/CreateUser.generated'
 import { getSdk as getDeleteUserSdk } from '@shared/gql/DeleteUser.generated'
 
@@ -16,10 +16,14 @@ export const onUserCreated = functions.auth.user().onCreate(async (user) => {
     await createUser(user.uid)
     await createRefreshToken(user.uid)
 
-    // // // カスタムクレームの設定
-    // await admin
-    //   .auth()
-    //   .setCustomUserClaims(user.uid, { db_user_id: createUsers.id })
+    // // カスタムクレームの設定
+    await admin.auth().setCustomUserClaims(user.uid, {
+      'https://hasura.io/jwt/claims': {
+        'x-hasura-default-role': 'user',
+        'x-hasura-allowed-roles': ['user'],
+        'x-hasura-user-id': user.uid,
+      },
+    })
   } catch (e) {
     //ユーザー作成失敗
     onError(e, user.uid)

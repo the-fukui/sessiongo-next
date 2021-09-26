@@ -11,7 +11,7 @@ import Login from '@web/components/Login'
 
 const tes = '/a/'
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  findManyUsers,
+  users,
 }) => {
   return (
     <div className={styles.container}>
@@ -21,7 +21,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Login />
-      {findManyUsers.map((user) => (
+      {users.map((user) => (
         <div key={user.id}>
           {user.id},{user.user_name},{user.auth_id}
         </div>
@@ -86,15 +86,15 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }
 
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
-  const { client } = await import('@shared/modules/graphql-request')
+  const { client } = await import('@shared/modules/graphql-request-admin')
   const { getSdk } = await import('@shared/gql/GetUsers.generated')
   const sdk = getSdk(client)
 
-  const { findManyUsers } = await sdk.GetUsers()
+  const { users } = await sdk.GetUsers()
 
   return {
     props: {
-      findManyUsers,
+      users,
     },
     revalidate: 60,
   }

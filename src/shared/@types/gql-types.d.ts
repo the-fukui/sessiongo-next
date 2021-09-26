@@ -132,7 +132,7 @@ export type Mutation_RootDelete_Session_TagsArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Session_Tags_By_PkArgs = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 
@@ -400,7 +400,7 @@ export type Query_RootSession_Tags_AggregateArgs = {
 
 
 export type Query_RootSession_Tags_By_PkArgs = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 
@@ -501,16 +501,16 @@ export type Session_Tags = {
   id: Scalars['Int'];
   label: Scalars['String'];
   /** An array relationship */
-  sessions_tags: Array<Sessions_Session_Tags>;
+  sessions_session_tags: Array<Sessions_Session_Tags>;
   /** An aggregate relationship */
-  sessions_tags_aggregate: Sessions_Session_Tags_Aggregate;
+  sessions_session_tags_aggregate: Sessions_Session_Tags_Aggregate;
   slug: Scalars['String'];
   updated_at: Scalars['timestamptz'];
 };
 
 
 /** columns and relationships of "session_tags" */
-export type Session_TagsSessions_TagsArgs = {
+export type Session_TagsSessions_Session_TagsArgs = {
   distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -520,7 +520,7 @@ export type Session_TagsSessions_TagsArgs = {
 
 
 /** columns and relationships of "session_tags" */
-export type Session_TagsSessions_Tags_AggregateArgs = {
+export type Session_TagsSessions_Session_Tags_AggregateArgs = {
   distinct_on?: Maybe<Array<Sessions_Session_Tags_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
   offset?: Maybe<Scalars['Int']>;
@@ -569,13 +569,15 @@ export type Session_Tags_Bool_Exp = {
   created_at?: Maybe<Timestamptz_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
   label?: Maybe<String_Comparison_Exp>;
-  sessions_tags?: Maybe<Sessions_Session_Tags_Bool_Exp>;
+  sessions_session_tags?: Maybe<Sessions_Session_Tags_Bool_Exp>;
   slug?: Maybe<String_Comparison_Exp>;
   updated_at?: Maybe<Timestamptz_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "session_tags" */
 export enum Session_Tags_Constraint {
+  /** unique or primary key constraint */
+  SessionTagsIdKey = 'session_tags_id_key',
   /** unique or primary key constraint */
   SessionTagsPkey = 'session_tags_pkey',
   /** unique or primary key constraint */
@@ -592,7 +594,7 @@ export type Session_Tags_Insert_Input = {
   created_at?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['Int']>;
   label?: Maybe<Scalars['String']>;
-  sessions_tags?: Maybe<Sessions_Session_Tags_Arr_Rel_Insert_Input>;
+  sessions_session_tags?: Maybe<Sessions_Session_Tags_Arr_Rel_Insert_Input>;
   slug?: Maybe<Scalars['String']>;
   updated_at?: Maybe<Scalars['timestamptz']>;
 };
@@ -642,14 +644,14 @@ export type Session_Tags_Order_By = {
   created_at?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
   label?: Maybe<Order_By>;
-  sessions_tags_aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Order_By>;
+  sessions_session_tags_aggregate?: Maybe<Sessions_Session_Tags_Aggregate_Order_By>;
   slug?: Maybe<Order_By>;
   updated_at?: Maybe<Order_By>;
 };
 
 /** primary key columns input for table: session_tags */
 export type Session_Tags_Pk_Columns_Input = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 /** select columns of table "session_tags" */
@@ -1574,7 +1576,7 @@ export type Subscription_RootSession_Tags_AggregateArgs = {
 
 
 export type Subscription_RootSession_Tags_By_PkArgs = {
-  id: Scalars['Int'];
+  slug: Scalars['String'];
 };
 
 
