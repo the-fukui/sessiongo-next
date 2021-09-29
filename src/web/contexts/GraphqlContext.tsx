@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import { GraphQLClient } from 'graphql-request'
 import AuthContext from '@web/contexts/AuthContext'
+import jwt from 'jsonwebtoken'
 
 interface State {
   client: GraphQLClient | null
@@ -35,18 +36,33 @@ const createGraphqlRequest = (token?: string) => {
   return { client }
 }
 
+/**
+ * 未署名のJWTトークンに署名して返す（Firebase emulator用）
+ * @param token JWTトークン
+ * @returns 署名済みJWTトークン
+ */
+const getLocallySignedToken = (token: string) => {
+  const decoded = jwt.decode(token)
+  return decoded
+    ? jwt.sign(decoded, 'secretsecretsecretsecretsecretsecret')
+    : token
+}
+
 const GraphqlContextProvider: React.FC = ({ children }) => {
   const [client, setClient] = useState<GraphQLClient | null>(null)
   const { user } = useContext(AuthContext)
 
   useEffect(() => {
     ;(async () => {
-      const token = user ? await user.getIdToken() : undefined
+      let token = user ? await user.getIdToken() : undefined
+
+      //ローカル開発時のみトークンに署名する
+      if (location.hostname === 'localhost' && token) {
+        token = getLocallySignedToken(token)
+      }
+
       const { client: _client } = createGraphqlRequest(token)
       setClient(_client)
-
-      const tokenres = user ? await user.getIdTokenResult() : null
-      console.log(tokenres ? tokenres : null)
     })()
   }, [user])
 

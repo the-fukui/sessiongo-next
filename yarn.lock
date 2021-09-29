@@ -13967,6 +13967,7 @@ typescript@^4.4.2:
     firebase-admin: ^9.11.1
     firebaseui: next
     firebaseui-ja: ^1.0.0
+    jsonwebtoken: ^8.5.1
     next: 11.1.2
     postcss-discard-comments: ^5.0.1
     postcss-import-url: ^7.0.0

@@ -12,6 +12,8 @@ array_relationships:
 select_permissions:
 - permission:
     columns:
+    - auth_id
+    - id
     - name
     - user_name
     filter:

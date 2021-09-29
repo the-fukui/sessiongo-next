@@ -21,14 +21,18 @@ const SettingsProfile: NextPage<inferSSRProps<typeof getStaticProps>> =
     useEffect(() => {
       if (!client || !user) return
       ;(async () => {
-        const sdk = getSdk(client)
-        try {
-          const { users_by_pk: profile } = await sdk.GetProfile({
-            auth_id: user.uid,
-          })
-        } catch (e) {
-          console.log(e)
-        }
+        setTimeout(async () => {
+          try {
+            const sdk = getSdk(client)
+            console.log('request')
+
+            const { users_by_pk: profile } = await sdk.GetProfile({
+              auth_id: user.uid,
+            })
+          } catch (e) {
+            console.log(e)
+          }
+        }, 1000)
         // setProfile(profile)
       })()
     }, [client, user])
