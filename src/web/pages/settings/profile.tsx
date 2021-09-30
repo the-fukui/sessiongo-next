@@ -13,33 +13,41 @@ import { getSdk, GetProfileQuery } from '@shared/gql/GetProfile.generated'
 
 const SettingsProfile: NextPage<inferSSRProps<typeof getStaticProps>> =
   ({}) => {
-    const { client } = useContext(GraphqlContext)
+    const { client, isTokenSet } = useContext(GraphqlContext)
     const { user } = useContext(AuthContext)
 
     const [profile, setProfile] = useState<GetProfileQuery['users_by_pk']>()
 
+    /**
+     * ユーザー情報を取得
+     */
     useEffect(() => {
-      if (!client || !user) return
+      //graphql clientにtokenのセットを矯正する
+      if (!client || !user || !isTokenSet) return
       ;(async () => {
-        setTimeout(async () => {
-          try {
-            const sdk = getSdk(client)
-            console.log('request')
+        try {
+          const sdk = getSdk(client)
+          console.log('request')
 
-            const { users_by_pk: profile } = await sdk.GetProfile({
-              auth_id: user.uid,
-            })
-          } catch (e) {
-            console.log(e)
-          }
-        }, 1000)
-        // setProfile(profile)
+          const { users_by_pk: profile } = await sdk.GetProfile({
+            auth_id: user.uid,
+          })
+
+          setProfile(profile)
+        } catch (e) {
+          console.log(e)
+        }
       })()
-    }, [client, user])
+    }, [client, user, isTokenSet])
+
+    if (!profile) {
+      return <div>Loading...</div>
+    }
 
     return (
       <div>
         <h1>{profile?.name}</h1>
+        <p>{profile.user_name}</p>
       </div>
     )
   }
