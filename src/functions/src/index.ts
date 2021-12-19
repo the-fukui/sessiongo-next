@@ -1,9 +1,6 @@
-import * as functions from "firebase-functions";
-
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+if (
+  !process.env.FUNCTION_NAME ||
+  process.env.FUNCTION_NAME === 'on_user_created'
+) {
+  exports.on_user_created = require('./on_user_created')
+}
