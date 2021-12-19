@@ -29,8 +29,8 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
 
   const loadFirebaseUI = async () => {
     console.log('load firebaseui')
-    const firebaseui = await import('firebaseui')
-    console.log('authui ', firebaseui.auth.AuthUI.getInstance())
+    const firebaseui = await import('firebaseui/dist/npm__ja')
+
     const ui = new firebaseui.auth.AuthUI(auth)
     ui.start('#firebaseui-auth-container', {
       signInOptions: [
@@ -79,7 +79,6 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
   useEffect(() => {
     if (!auth || isInitialized) return
 
-    //TODO: firebaseui-jaを使いたい（現在はバグ解消まち）
     loadFirebaseUI()
     setIsInitialized(true)
   }, [auth, isInitialized])
