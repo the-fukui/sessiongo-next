@@ -5,6 +5,6 @@
     "emulators:start": "NODE_ENV=development firebase emulators:start --import=./db --export-on-exit --project=demo-local-firebase"
   },
   "devDependencies": {
-    "firebase-tools": "^9.18.0"
+    "firebase-tools": "^9.23.3"
   }
 }

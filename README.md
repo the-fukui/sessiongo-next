@@ -34,12 +34,9 @@
 - Firebase Authentication
 - Firebase Storage?
 - Firebase Functions?
-- [GraphQL] Apollo Server(apollo-server-express)
-- [ORM] Prisma
 
 ### DB
 
-- MySQL
 - Firestore?
 
 ### Infrastructure

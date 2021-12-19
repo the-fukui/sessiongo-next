@@ -1,5 +1,0 @@
-mutation DeleteUsersMutation($auth_id: String!) {
-  delete_users_by_pk(auth_id: $auth_id) {
-    id
-  }
-}

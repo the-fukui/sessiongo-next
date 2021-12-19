@@ -1,10 +1,10 @@
 {
   "strict": true,
   "compilerOptions": {
+    "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@web/*": ["./src/web/*"],
-      "@shared/*": ["./src/shared/*"]
+      "@web/*": ["./src/web/*"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],

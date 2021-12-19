@@ -18,13 +18,11 @@ import { FirebaseApp } from '@firebase/app'
 interface State {
   user: User | null
   auth: Auth | null
-  token: string | null
   isInitialLoading: boolean
 }
 const AuthContext = createContext<State>({
   user: null,
   auth: null,
-  token: null,
   isInitialLoading: true,
 })
 
@@ -60,23 +58,9 @@ const watchAuthState = (
   })
 }
 
-/**
- * 未署名のJWTトークンに署名して返す（Firebase emulator用）
- * @param token JWTトークン
- * @returns 署名済みJWTトークン
- */
-const getLocallySignedToken = async (token: string) => {
-  const jwt = await import('jsonwebtoken')
-  const decoded = jwt.decode(token)
-  return decoded
-    ? jwt.sign(decoded, 'secretsecretsecretsecretsecretsecret')
-    : token
-}
-
 const AuthContextProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User | null>(null)
   const [isInitialLoading, setIsInitialLoading] = useState(true)
-  const [token, setToken] = useState<string | null>(null)
   const [auth, setAuth] = useState<Auth | null>(null)
   const { app } = useContext(FirebaseContext)
 
@@ -90,27 +74,8 @@ const AuthContextProvider: React.FC = ({ children }) => {
     watchAuthState(_auth, setUser, setIsInitialLoading)
   }, [app])
 
-  /**
-   * tokenの取得を監視
-   */
-  useEffect(() => {
-    if (!user) return
-    ;(async () => {
-      let token = await user.getIdToken()
-
-      //ローカル開発時のみトークンに署名する
-      if (location.hostname === 'localhost' && token) {
-        token = await getLocallySignedToken(token)
-      }
-
-      console.log({ token })
-
-      setToken(token)
-    })()
-  }, [user])
-
   return (
-    <AuthContext.Provider value={{ user, auth, token, isInitialLoading }}>
+    <AuthContext.Provider value={{ user, auth, isInitialLoading }}>
       {children}
     </AuthContext.Provider>
   )
