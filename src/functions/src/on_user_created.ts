@@ -1,18 +1,33 @@
 import * as functions from 'firebase-functions'
-// import * as admin from 'firebase-admin'
-// import dotenvFlow from 'dotenv-flow'
+import {initializeApp} from 'firebase-admin/app'
+import {getFirestore,Timestamp } from 'firebase-admin/firestore'
+import {getAuth} from 'firebase-admin/auth'
+import { config } from 'dotenv-flow'
+
+import type {User} from '@shared/@types/firestore'
+import type { UserRecord } from 'firebase-functions/v1/auth'
 // import { client } from '@shared/modules/graphql-request-admin'
 // import { getSdk as getCreateUserSdk } from '@shared/gql/CreateUser.generated'
 // import { getSdk as getDeleteUserSdk } from '@shared/gql/DeleteUser.generated'
 
-// dotenvFlow.config()
+config()
 
-// admin.initializeApp({
-//   projectId: process.env.FIREBASE_PROJECT_ID,
-// })
+initializeApp({
+  projectId: process.env.FIREBASE_PROJECT_ID,
+})
+
+const db = getFirestore()
+const auth = getAuth();
 
 export const onUserCreated = functions.auth.user().onCreate(async (user) => {
-  console.log('ok')
+  console.log('[Authentication] User created')
+
+  try{
+    await createUserToDB(user);
+  }catch(e){
+    console.log({e})
+  }
+
   //   try {
   //     await createUser(user.uid)
   //     await createRefreshToken(user.uid)
@@ -30,6 +45,28 @@ export const onUserCreated = functions.auth.user().onCreate(async (user) => {
   //     onError(e, user.uid)
   //   }
 })
+
+/**
+ * Firestoreにユーザーを作成する
+ */
+const createUserToDB = async(user:UserRecord) =>{ 
+  return db.collection('master/v1/users').doc(user.uid).set({
+    displayName:null,
+    createdAt:Timestamp.now().toMillis(),
+    updatedAt:Timestamp.now().toMillis()
+  } as User).catch(e=>{
+    console.log(e)
+    //作成失敗時はAuthenticationからユーザー削除
+    deleteUserFromAuth(user)
+  })
+}
+
+/**
+ * Authenticationからユーザーを削除する
+ */
+const deleteUserFromAuth = async(user:UserRecord) =>{
+  auth.deleteUser(user.uid).catch(e=>console.log(e))
+}
 
 // /**
 //  * DBへのユーザーデータの作成リクエスト
