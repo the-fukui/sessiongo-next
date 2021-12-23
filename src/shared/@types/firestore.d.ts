@@ -1,4 +1,4 @@
-import { SessionFreqType } from './firestore.d'
+import { GeoPoint } from 'firebase/firestore'
 export interface User {
   displayName: string | null
   createdAt: number
@@ -26,4 +26,5 @@ export interface Session {
 
 export interface Place {
   name: string
+  coordinate: GeoPoint
 }
