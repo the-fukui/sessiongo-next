@@ -10,16 +10,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mui/material": "^5.2.5",
+    "@picocss/pico": "^1.4.2",
+    "dayjs": "^1.10.7",
+    "destyle.css": "^3.0.2",
     "firebase": "^9.6.1",
     "firebase-admin": "^10.0.1",
     "firebaseui": "workspace:src/firebaseui",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-calendar": "^3.5.0",
+    "react-dom": "17.0.2",
+    "rrule": "^2.6.8"
   },
   "devDependencies": {
     "@types/react": "17.0.37",
+    "@types/react-calendar": "^3.4.4",
     "postcss-discard-comments": "^5.0.1",
     "postcss-import-url": "^7.0.0",
     "postcss-nested": "^5.0.6",

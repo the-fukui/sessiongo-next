@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import 'destyle.css'
 import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppContext, AppProps } from 'next/app'

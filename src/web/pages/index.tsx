@@ -4,15 +4,18 @@ import type {
   InferGetStaticPropsType,
 } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Top.module.scss'
 
 import Login from '@web/components/Login'
+import Calendar from '@web/components/Calendar'
+import sessionListEntity from '@web/Entity/sessionList'
 
-const tes = '/a/'
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const Top: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   sessions,
 }) => {
+  const { getAllDates } = sessionListEntity(sessions)
+  const allDates = getAllDates()
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,19 +25,8 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       </Head>
       {JSON.stringify(sessions)}
       <Login />
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      {JSON.stringify(allDates)}
+      <Calendar />
     </div>
   )
 }
@@ -43,7 +35,6 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   const { getAllSessions } = await import('@web/repositories/session.server')
 
   const sessions = await getAllSessions()
-  console.log(sessions)
 
   return {
     props: {
@@ -53,4 +44,4 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   }
 }
 
-export default Home
+export default Top
