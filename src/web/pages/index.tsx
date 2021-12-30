@@ -4,16 +4,17 @@ import styles from '../styles/Top.module.scss'
 import Login from '@web/components/Login'
 import Calendar from '@web/components/Calendar'
 import { getSessionList } from '@web/usecases/topUsecase'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import SessionSearchContext from '@web/contexts/SessionSearchContext'
 import dayjs from 'dayjs'
 
 type ContainerProps = InferGetStaticPropsType<typeof getStaticProps>
 type Props = ReturnType<typeof useContainer>
 
 const Presenter: React.VFC<Props> = ({
-  dislaySessionList,
   eventDates,
   onClickCalendarDay,
+  searchResults,
 }) => (
   <div className={styles.container}>
     <Head>
@@ -23,26 +24,22 @@ const Presenter: React.VFC<Props> = ({
     </Head>
     <Login />
     <Calendar eventDates={eventDates} onClickDay={onClickCalendarDay} />
-    {JSON.stringify(dislaySessionList)}
+    {JSON.stringify(searchResults)}
   </div>
 )
 
 const useContainer = (props: ContainerProps) => {
-  const { sessionList } = props
-  const [dislaySessionList, setDisplaySessionList] =
-    useState<typeof sessionList>()
-  const eventDates = sessionList.map((session) => session.startAt)
+  const { sessions, setQuery, searchResults } = useContext(SessionSearchContext)
+
+  const eventDates = sessions.map((session) => session.startAt)
   const onClickCalendarDay = (value: Date) => {
-    const sessionsOfTheDay = sessionList.filter((session) =>
-      dayjs.unix(session.startAt).isSame(dayjs(value), 'day'),
-    )
-    setDisplaySessionList(sessionsOfTheDay)
+    setQuery({ date: dayjs(value).unix() })
   }
 
   const presenterProps = {
     eventDates,
+    searchResults,
     onClickCalendarDay,
-    dislaySessionList,
   }
 
   return {
@@ -52,12 +49,8 @@ const useContainer = (props: ContainerProps) => {
 }
 
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
-  const sessionList = await getSessionList()
-
   return {
-    props: {
-      sessionList,
-    },
+    props: {},
     revalidate: 1,
   }
 }

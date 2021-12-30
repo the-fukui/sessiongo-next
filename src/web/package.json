@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^5.0.1",
     "@picocss/pico": "^1.4.2",
     "dayjs": "^1.10.7",
     "destyle.css": "^3.0.2",

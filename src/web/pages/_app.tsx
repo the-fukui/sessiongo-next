@@ -6,6 +6,7 @@ import type { AppContext, AppProps } from 'next/app'
 import DefaultLayout from '@web/components/Layouts/Default'
 import { AuthContextProvider } from '@web/contexts/AuthContext'
 import { FirebaseContextProvider } from '@web/contexts/FirebaseContext'
+import { SessionSearchContextProvider } from '@web/contexts/SessionSearchContext'
 
 interface InitialProps {}
 
@@ -27,7 +28,9 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   return (
     <FirebaseContextProvider>
       <AuthContextProvider>
-        {getLayout(<Component {...pageProps} />)}
+        <SessionSearchContextProvider>
+          {getLayout(<Component {...pageProps} />)}
+        </SessionSearchContextProvider>
       </AuthContextProvider>
     </FirebaseContextProvider>
   )
