@@ -28,3 +28,24 @@ export interface Place {
   name: string
   coordinate: GeoPoint
 }
+
+/**
+ * カレンダーView用
+ */
+export interface SessionCalendarItem {
+  createdAt: number
+  updatedAt: number
+  title: string | null
+  startAt: number
+  endAt: number
+}
+
+export interface SessionCalendarRecurringItem {
+  createdAt: number
+  updatedAt: number
+  title: string | null
+  startAt: number
+  endAt: number
+  rrule: string | null
+  rruleEndAt: number
+}

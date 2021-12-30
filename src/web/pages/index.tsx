@@ -1,19 +1,20 @@
-import type {
-  NextPage,
-  GetStaticPropsContext,
-  InferGetStaticPropsType,
-} from 'next'
+import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Top.module.scss'
 import Login from '@web/components/Login'
 import Calendar from '@web/components/Calendar'
 import { getSessionList } from '@web/usecases/topUsecase'
-import { ComponentProps } from 'react'
+import { useState } from 'react'
+import dayjs from 'dayjs'
 
 type ContainerProps = InferGetStaticPropsType<typeof getStaticProps>
 type Props = ReturnType<typeof useContainer>
 
-const Presenter: React.VFC<Props> = ({ sessionList }) => (
+const Presenter: React.VFC<Props> = ({
+  dislaySessionList,
+  eventDates,
+  onClickCalendarDay,
+}) => (
   <div className={styles.container}>
     <Head>
       <title>Create Next App</title>
@@ -21,16 +22,32 @@ const Presenter: React.VFC<Props> = ({ sessionList }) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Login />
-    <Calendar />
+    <Calendar eventDates={eventDates} onClickDay={onClickCalendarDay} />
+    {JSON.stringify(dislaySessionList)}
   </div>
 )
 
 const useContainer = (props: ContainerProps) => {
-  const a = 1
+  const { sessionList } = props
+  const [dislaySessionList, setDisplaySessionList] =
+    useState<typeof sessionList>()
+  const eventDates = sessionList.map((session) => session.startAt)
+  const onClickCalendarDay = (value: Date) => {
+    const sessionsOfTheDay = sessionList.filter((session) =>
+      dayjs.unix(session.startAt).isSame(dayjs(value), 'day'),
+    )
+    setDisplaySessionList(sessionsOfTheDay)
+  }
+
+  const presenterProps = {
+    eventDates,
+    onClickCalendarDay,
+    dislaySessionList,
+  }
 
   return {
     ...props,
-    a,
+    ...presenterProps,
   }
 }
 
@@ -41,7 +58,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
     props: {
       sessionList,
     },
-    revalidate: 60,
+    revalidate: 1,
   }
 }
 

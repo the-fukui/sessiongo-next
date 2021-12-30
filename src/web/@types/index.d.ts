@@ -33,3 +33,5 @@ type inferSSRProps<TFn extends GetSSRFn<any>> = TFn extends GetSSRFn<
 >
   ? NonNullable<TProps>
   : never
+
+type unixTime = number
