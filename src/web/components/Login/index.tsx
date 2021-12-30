@@ -9,7 +9,6 @@ import style from './index.module.scss'
 import AuthContext from '@web/contexts/AuthContext'
 import FirebaseContext from '@web/contexts/FirebaseContext'
 import type { auth } from 'firebaseui'
-
 import {
   EmailAuthProvider,
   GoogleAuthProvider,
@@ -18,11 +17,18 @@ import {
   User,
 } from 'firebase/auth'
 
-interface Props {
+type ContainerProps = {
   className?: string
 }
+type Props = ReturnType<typeof useContainer>
 
-const Login: React.VFC<Props> = ({ className = '' }) => {
+const Presenter: React.VFC<Props> = ({ className = '' }) => (
+  <div className={style.firebase_ui}>
+    <div className={`${className}`} id="firebaseui-auth-container" />
+  </div>
+)
+
+const useContainer = (props: ContainerProps) => {
   const { auth } = useContext(AuthContext)
   const { app } = useContext(FirebaseContext)
   const [isInitialized, setIsInitialized] = useState<Boolean>(false)
@@ -83,11 +89,11 @@ const Login: React.VFC<Props> = ({ className = '' }) => {
     setIsInitialized(true)
   }, [auth, isInitialized])
 
-  return (
-    <div className={style.firebase_ui}>
-      <div className={`${className}`} id="firebaseui-auth-container" />
-    </div>
-  )
+  const presenterProps = {}
+
+  return { ...props, ...presenterProps }
 }
 
-export default Login
+export default function Login(props: ContainerProps) {
+  return <Presenter {...useContainer(props)} />
+}

@@ -4,11 +4,12 @@ import 'react-calendar/dist/Calendar.css'
 import style from './index.module.scss'
 import dayjs from 'dayjs'
 
-interface Props {
+type ContainerProps = {
   className?: string
 }
+type Props = ReturnType<typeof useContainer>
 
-const Calendar: React.VFC<Props> = ({ className = '' }) => (
+const Presenter: React.VFC<Props> = ({ className = '' }) => (
   <div className={`${className}`}>
     <ReactCalendar
       formatDay={(locale, date) => String(dayjs(date).get('date'))}
@@ -16,4 +17,14 @@ const Calendar: React.VFC<Props> = ({ className = '' }) => (
   </div>
 )
 
-export default Calendar
+const useContainer = (props: ContainerProps) => {
+  /** Logic here */
+
+  const presenterProps = {}
+
+  return { ...props, ...presenterProps }
+}
+
+export default function Calendar(props: ContainerProps) {
+  return <Presenter {...useContainer(props)} />
+}
