@@ -1,8 +1,5 @@
 {
     "singleQuote": true,
     "semi": false,
-    "trailingComma": "all",
-    "plugins": [
-        "./node_modules/prettier-plugin-prisma"
-    ]
+    "trailingComma": "all"
 }

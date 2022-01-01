@@ -2,9 +2,9 @@
   "name": "firebase",
   "packageManager": "yarn@3.0.2",
   "scripts": {
-    "emulators:start": "NODE_ENV=development firebase emulators:start --import=./db --export-on-exit --project=demo-local-firebase"
+    "emulators:start": "npm --prefix ../functions run build:watch & NODE_ENV=development firebase emulators:start --import=./db --export-on-exit --project=demo-local-firebase"
   },
   "devDependencies": {
-    "firebase-tools": "^9.18.0"
+    "firebase-tools": "^9.23.3"
   }
 }

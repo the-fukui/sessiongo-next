@@ -1,5 +1,0 @@
-mutation CreateUsersMutation($createUsersData: UsersUncheckedCreateInput!) {
-  createUsers(data: $createUsersData) {
-    id
-  }
-}

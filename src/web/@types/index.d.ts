@@ -1,3 +1,5 @@
+type PartiallyPartial<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+
 declare var __NEXT_DATA__: any
 
 type NextApiRequest = import('next').NextApiRequest
@@ -19,3 +21,19 @@ type NextApiHandlerWithParams<
   req: NextApiRequestWithParams<K, T>,
   res: NextApiResponse<P>,
 ) => void | Promise<void>
+
+//InferGetStaticPropsなどでnotFoundが返されていると型がneverになる問題
+// https://github.com/vercel/next.js/issues/15913
+type GetSSRResult<TProps> =
+  //
+  { props: TProps } | { redirect: any } | { notFound: true }
+
+type GetSSRFn<TProps extends any> = (args: any) => Promise<GetSSRResult<TProps>>
+
+type inferSSRProps<TFn extends GetSSRFn<any>> = TFn extends GetSSRFn<
+  infer TProps
+>
+  ? NonNullable<TProps>
+  : never
+
+type unixTime = number

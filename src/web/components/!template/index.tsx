@@ -1,12 +1,23 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import style from './index.module.scss'
 
-interface Props {
+type ContainerProps = {
   className?: string
 }
+type Props = ReturnType<typeof useContainer>
 
-const Component: React.VFC<Props> = ({ className = '' }) => (
+const Presenter: React.VFC<Props> = ({ className = '' }) => (
   <div className={`${className}`}></div>
 )
 
-export default Component
+const useContainer = (props: ContainerProps) => {
+  /** Logic here */
+
+  const presenterProps = {}
+
+  return { ...props, ...presenterProps }
+}
+
+export default function Component(props: ContainerProps) {
+  return <Presenter {...useContainer(props)} />
+}

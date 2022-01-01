@@ -1,5 +1,10 @@
-import React, { createContext, useState, useReducer, useEffect } from 'react'
-import { initializeApp, getApps } from 'firebase/app'
+import React, {
+  createContext,
+  useState,
+  useReducer,
+  useEffect,
+  useContext,
+} from 'react'
 import {
   getAuth,
   connectAuthEmulator,
@@ -7,45 +12,28 @@ import {
   User,
   Auth,
 } from 'firebase/auth'
-
-//firebase初期化
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || 'dammy',
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'dammy',
-  databeseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL || '',
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || '',
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || '',
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSEGING_SENDER_ID || '',
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || '',
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || '',
-}
+import FirebaseContext from '@web/contexts/FirebaseContext'
+import { FirebaseApp } from '@firebase/app'
 
 interface State {
   user: User | null
   auth: Auth | null
-  deleteUser: () => void
+  isInitialLoading: boolean
 }
 const AuthContext = createContext<State>({
   user: null,
   auth: null,
-  deleteUser: () => {},
+  isInitialLoading: true,
 })
 
 /**
- * Firebase初期化
+ * Auth初期化
  */
-const initializeFirebase = () => {
-  //firebaseが初期化されるときか
-  let isInitial = getApps().length === 0
-  let app
-  if (isInitial) {
-    app = initializeApp(firebaseConfig)
-  }
-
+const initializeAuth = (app: FirebaseApp) => {
   //auth
   const auth = getAuth(app)
   //emulator
-  if (process.env.NODE_ENV === 'development' && isInitial) {
+  if (process.env.NODE_ENV === 'development') {
     connectAuthEmulator(auth, 'http://localhost:9099')
   }
 
@@ -55,6 +43,7 @@ const initializeFirebase = () => {
 const watchAuthState = (
   auth: Auth,
   setUser: React.Dispatch<React.SetStateAction<User | null>>,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -64,21 +53,29 @@ const watchAuthState = (
       console.log('not logged in')
       setUser(null)
     }
+
+    setIsLoading(false)
   })
 }
 
 const AuthContextProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User | null>(null)
+  const [isInitialLoading, setIsInitialLoading] = useState(true)
   const [auth, setAuth] = useState<Auth | null>(null)
+  const { app } = useContext(FirebaseContext)
 
+  /**
+   * Authの状態を監視
+   */
   useEffect(() => {
-    const { auth: _auth } = initializeFirebase()
+    if (!app) return
+    const { auth: _auth } = initializeAuth(app)
     setAuth(_auth)
-    watchAuthState(_auth, setUser)
-  }, [])
+    watchAuthState(_auth, setUser, setIsInitialLoading)
+  }, [app])
 
   return (
-    <AuthContext.Provider value={{ user: user, auth: auth }}>
+    <AuthContext.Provider value={{ user, auth, isInitialLoading }}>
       {children}
     </AuthContext.Provider>
   )
