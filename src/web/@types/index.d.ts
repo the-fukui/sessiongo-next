@@ -1,3 +1,5 @@
+type PartiallyPartial<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+
 declare var __NEXT_DATA__: any
 
 type NextApiRequest = import('next').NextApiRequest

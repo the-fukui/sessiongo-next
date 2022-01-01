@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { getSessionList } from '@web/usecases/topUsecase'
+import { getSessionList } from '@web/usecases/sessionSearchUsecase'
 
 type Query = {}
 
