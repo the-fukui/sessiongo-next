@@ -1034,6 +1034,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@googlemaps/js-api-loader@npm:^1.7.0":
+  version: 1.12.12
+  resolution: "@googlemaps/js-api-loader@npm:1.12.12"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+  checksum: f2dc3abfb2b68c9338367dd02c0304e6c18d3f6b599f0207c4459a62db84b432d539322ac0ef5b87006697806ab5b0ab7bdb7ef23734844c5d9c298650285924
+  languageName: node
+  linkType: hard
+
 "@grpc/grpc-js@npm:^1.3.2, @grpc/grpc-js@npm:~1.3.0":
   version: 1.3.7
   resolution: "@grpc/grpc-js@npm:1.3.7"
@@ -1106,6 +1115,13 @@ __metadata:
   version: 7.1.3
   resolution: "@jsdevtools/ono@npm:7.1.3"
   checksum: 2297fcd472ba810bffe8519d2249171132844c7174f3a16634f9260761c8c78bc0428a4190b5b6d72d45673c13918ab9844d706c3ed4ef8f62ab11a2627a08ad
+  languageName: node
+  linkType: hard
+
+"@mapbox/point-geometry@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@mapbox/point-geometry@npm:0.1.0"
+  checksum: ed41c1ce0140de81039424415d9a199abba72cdb2287314e1b8c3e295da3224f7e8c1b0ae99a9b097703e7abe63e1978a518e29896989cc8bba3d482360bc22f
   languageName: node
   linkType: hard
 
@@ -1773,6 +1789,22 @@ __metadata:
     "@types/minimatch": "*"
     "@types/node": "*"
   checksum: 6911a956448f5eddea1e4371f814bf92072e8ceedba83de6ce2a6745938a6f0327376e1c0072fa0d7b3b73d84e255aafda53c1dff148225cfe542a8cc5d54b02
+  languageName: node
+  linkType: hard
+
+"@types/google-map-react@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "@types/google-map-react@npm:2.1.3"
+  dependencies:
+    "@types/react": "*"
+  checksum: 5bef80b2c3969afc00b58c02f697d2b18a493257718fd997a2d438046ca64076c807b2d2dfa84f33ec21b235e7fde55368ae33e04b94af27a56bb8363292044c
+  languageName: node
+  linkType: hard
+
+"@types/google.maps@npm:^3.47.2":
+  version: 3.47.2
+  resolution: "@types/google.maps@npm:3.47.2"
+  checksum: 421416b87d232d2231cdfd83dde64c71ac141d8255f1cac2718c8422bdfdc32f89eeecf86b9b4420387d354761b4eb0635a17bee0113ffbecdaef63ca5b59fd9
   languageName: node
   linkType: hard
 
@@ -6251,6 +6283,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventemitter3@npm:^4.0.4":
+  version: 4.0.7
+  resolution: "eventemitter3@npm:4.0.7"
+  checksum: 1875311c42fcfe9c707b2712c32664a245629b42bb0a5a84439762dd0fd637fc54d078155ea83c2af9e0323c9ac13687e03cfba79b03af9f40c89b4960099374
+  languageName: node
+  linkType: hard
+
 "events-listener@npm:^1.1.0":
   version: 1.1.0
   resolution: "events-listener@npm:1.1.0"
@@ -7986,6 +8025,21 @@ fsevents@^1.2.7:
   bin:
     compileProtos: build/tools/compileProtos.js
   checksum: 9b45953022b1ead4d02c78cc146ee62581da718af90d81d4700ded757e3f79a4b841ad04731ea467a7d9bb3d73775275f732a50926641e18423afa9d9aa0bd61
+  languageName: node
+  linkType: hard
+
+"google-map-react@npm:^2.1.10":
+  version: 2.1.10
+  resolution: "google-map-react@npm:2.1.10"
+  dependencies:
+    "@googlemaps/js-api-loader": ^1.7.0
+    "@mapbox/point-geometry": ^0.1.0
+    eventemitter3: ^4.0.4
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0
+    react-dom: ^16.0.0 || ^17.0.0
+  checksum: 0e0d0639e83eda3f14bd0bc946e0bfccd65f053aed790f6113d8625e7a70d428d10ad68f374feafb6787f5dfcf9d785c67ab4b9d2315d2860a6f9db02a230f97
   languageName: node
   linkType: hard
 
@@ -16579,6 +16633,15 @@ typescript@^4.5.4:
   languageName: node
   linkType: hard
 
+"use-places-autocomplete@npm:^1.11.0":
+  version: 1.11.0
+  resolution: "use-places-autocomplete@npm:1.11.0"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: f4c0a61f35ade4ff60b4221beb641f7b869750132eadd975123809df6b8bc47a30e997069596db3a2090a1a1942dd4ad65dbc519aa7dcb4d3ac40c92f56a15fa
+  languageName: node
+  linkType: hard
+
 "use-subscription@npm:1.5.1":
   version: 1.5.1
   resolution: "use-subscription@npm:1.5.1"
@@ -16862,6 +16925,8 @@ typescript@^4.5.4:
     "@mui/lab": ^5.0.0-alpha.62
     "@mui/material": ^5.2.6
     "@picocss/pico": ^1.4.2
+    "@types/google-map-react": ^2.1.3
+    "@types/google.maps": ^3.47.2
     "@types/react": 17.0.37
     "@types/react-calendar": ^3.4.4
     dayjs: ^1.10.7
@@ -16869,6 +16934,7 @@ typescript@^4.5.4:
     firebase: ^9.6.1
     firebase-admin: ^10.0.1
     firebaseui: "workspace:src/firebaseui"
+    google-map-react: ^2.1.10
     next: 12.0.7
     postcss-discard-comments: ^5.0.1
     postcss-import-url: ^7.0.0
@@ -16879,6 +16945,7 @@ typescript@^4.5.4:
     react-hook-form: ^7.22.5
     rrule: ^2.6.8
     sass: ^1.39.2
+    use-places-autocomplete: ^1.11.0
   languageName: unknown
   linkType: soft
 
