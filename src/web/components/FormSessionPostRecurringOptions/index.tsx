@@ -23,7 +23,7 @@ const Presenter: React.VFC<Props> = ({
     <InputLabel id="recurring-options">繰り返し設定</InputLabel>
     <Select
       labelId="recurring-options"
-      value={0}
+      defaultValue={0}
       label="繰り返し設定"
       // onChange={handleChange}
     >

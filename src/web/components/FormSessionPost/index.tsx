@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState, useRef } from 'react'
 import style from './index.module.scss'
-import { TextField, Grid, Select, MenuItem, InputLabel } from '@mui/material'
+import { TextField, Grid, Button } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import AdapterDayjs from '@mui/lab/AdapterDayjs'
 import dayjsJaLocale from 'dayjs/locale/ja'
@@ -22,6 +22,8 @@ const Presenter: React.VFC<Props> = ({
   className = '',
   register,
   control,
+  setValue,
+  getValues,
   handleSubmit,
   onSubmit,
   recurringOptionsProps,
@@ -100,7 +102,22 @@ const Presenter: React.VFC<Props> = ({
     />
     <Grid container spacing={2} pt={6}>
       <Grid item xs={12}>
-        <FormSessionPostFeatures fullWidth />
+        <FormSessionPostFeatures
+          fullWidth
+          control={control}
+          setValue={setValue}
+          getValues={getValues}
+        />
+      </Grid>
+    </Grid>
+    <Grid container spacing={2} pt={6}>
+      <TextField multiline label="説明文" rows={5} fullWidth />
+    </Grid>
+    <Grid container spacing={2} pt={6}>
+      <Grid item xs={12} textAlign={'center'}>
+        <Button type="submit" variant={'contained'}>
+          投稿する
+        </Button>
       </Grid>
     </Grid>
   </form>
@@ -108,7 +125,8 @@ const Presenter: React.VFC<Props> = ({
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
-  const { register, control, handleSubmit, watch } = useForm()
+  const { register, control, handleSubmit, watch, setValue, getValues } =
+    useForm()
   const onSubmit = (data) => {
     console.log({ data })
   }
@@ -128,6 +146,8 @@ const useContainer = (props: ContainerProps) => {
   const presenterProps = {
     register,
     control,
+    setValue,
+    getValues,
     handleSubmit,
     onSubmit,
     recurringOptionsProps,

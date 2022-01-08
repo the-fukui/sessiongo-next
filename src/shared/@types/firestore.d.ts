@@ -1,4 +1,5 @@
-import { GeoPoint } from 'firebase/firestore'
+import { SESSION_FEATURE_LABELS } from '@shared/constants'
+import { GeoPoint, Timestamp } from 'firebase/firestore'
 export interface User {
   displayName: string | null
   createdAt: number
@@ -6,6 +7,7 @@ export interface User {
 }
 
 export type SessionStatus = 'public' | 'draft' | 'protected'
+export type Features = keyof typeof SESSION_FEATURE_LABELS
 
 /**
  * 繰り返しイベントは
@@ -13,15 +15,17 @@ export type SessionStatus = 'public' | 'draft' | 'protected'
  * @see https://tex2e.github.io/rfc-translater/html/rfc5545.html
  */
 export interface Session {
-  createdAt: number
-  updatedAt: number
+  createdAt: Timestamp
+  updatedAt: Timestamp
   title: string | null
   description: string | null
   status: SessionStatus
-  startAt: number
-  endAt: number
+  startAt: Timestamp
+  duration: number
+  endAt: Timestamp
   rrule: string | null
   placeID: string //google map API placeID
+  feature: Features[]
 }
 
 export interface Place {
@@ -32,20 +36,12 @@ export interface Place {
 /**
  * カレンダーView用
  */
-export interface SessionCalendarItem {
-  createdAt: number
-  updatedAt: number
+export interface SessionCalendar {
+  createdAt: Timestamp
+  updatedAt: Timestamp
   title: string | null
-  startAt: number
-  endAt: number
-}
-
-export interface SessionCalendarRecurringItem {
-  createdAt: number
-  updatedAt: number
-  title: string | null
-  startAt: number
-  endAt: number
+  startAt: Timestamp
+  duration: number
+  endAt: Timestamp
   rrule: string | null
-  rruleEndAt: number
 }
