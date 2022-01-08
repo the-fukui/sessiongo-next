@@ -64,14 +64,14 @@ const SessionSearchContextProvider: React.FC = ({ children }) => {
   const [searchResults, setSearchResults] = useState<State['searchResults']>([])
   const [query, setQuery] = useState<State['query']>({})
 
-  useEffect(() => {
-    ;(async () => {
-      console.log('initialize sessionSearchContext')
-      const { sessions, query } = await initialize()
-      setSessions(sessions)
-      setQuery(query)
-    })()
-  }, [])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     console.log('initialize sessionSearchContext')
+  //     const { sessions, query } = await initialize()
+  //     setSessions(sessions)
+  //     setQuery(query)
+  //   })()
+  // }, [])
 
   useEffect(() => {
     const result = search(sessions, query)
