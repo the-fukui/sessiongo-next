@@ -16633,15 +16633,6 @@ typescript@^4.5.4:
   languageName: node
   linkType: hard
 
-"use-places-autocomplete@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "use-places-autocomplete@npm:1.11.0"
-  peerDependencies:
-    react: ">= 16.8.0"
-  checksum: f4c0a61f35ade4ff60b4221beb641f7b869750132eadd975123809df6b8bc47a30e997069596db3a2090a1a1942dd4ad65dbc519aa7dcb4d3ac40c92f56a15fa
-  languageName: node
-  linkType: hard
-
 "use-subscription@npm:1.5.1":
   version: 1.5.1
   resolution: "use-subscription@npm:1.5.1"
@@ -16945,7 +16936,6 @@ typescript@^4.5.4:
     react-hook-form: ^7.22.5
     rrule: ^2.6.8
     sass: ^1.39.2
-    use-places-autocomplete: ^1.11.0
   languageName: unknown
   linkType: soft
 

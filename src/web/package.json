@@ -28,8 +28,7 @@
     "react-calendar": "^3.5.0",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.22.5",
-    "rrule": "^2.6.8",
-    "use-places-autocomplete": "^1.11.0"
+    "rrule": "^2.6.8"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.3",
