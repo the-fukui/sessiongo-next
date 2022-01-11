@@ -1,16 +1,10 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react'
+import React, { useEffect, useMemo, useContext } from 'react'
 import style from './index.module.scss'
 import { TextField, Grid, Button } from '@mui/material'
-import { useForm } from 'react-hook-form'
-import AdapterDayjs from '@mui/lab/AdapterDayjs'
-import dayjsJaLocale from 'dayjs/locale/ja'
-import LocalizationProvider from '@mui/lab/LocalizationProvider'
 import DatePicker from '@web/components/FormDatePicker'
-import dayjs from 'dayjs'
-import 'dayjs/locale/ja'
-import weekOfYear from 'dayjs/plugin/weekOfYear'
+import SessionPostContext from '@web/contexts/SessionPostContext'
 import FormSessionPostRecurringOptions from '@web/components/FormSessionPostRecurringOptions'
-import FormSessionPostPlacePicker from '@web/components/FormSessionPostPlacePicker'
+import FormSessionPostPlace from '@web/components/FormSessionPostPlace'
 import FormSessionPostFeatures from '@web/components/FormSessionPostFeatures'
 
 type ContainerProps = {
@@ -22,13 +16,9 @@ const Presenter: React.VFC<Props> = ({
   className = '',
   register,
   control,
-  setValue,
-  getValues,
-  handleSubmit,
   onSubmit,
-  recurringOptionsProps,
 }) => (
-  <form className={`${className}`} onSubmit={handleSubmit(onSubmit)}>
+  <form className={`${className}`} onSubmit={onSubmit}>
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <TextField
@@ -49,14 +39,12 @@ const Presenter: React.VFC<Props> = ({
     </Grid>
     <Grid container spacing={2} pt={6}>
       <Grid item xs={6}>
-        <LocalizationProvider dateAdapter={AdapterDayjs} locale={dayjsJaLocale}>
-          <DatePicker
-            label="開催日"
-            mask="____/__/__"
-            control={control}
-            renderInput={(params) => <TextField {...params} fullWidth />}
-          />
-        </LocalizationProvider>
+        <DatePicker
+          label="開催日"
+          control={control}
+          inputName="date"
+          renderInput={(params) => <TextField {...params} fullWidth />}
+        />
       </Grid>
       <Grid item xs={3}>
         <TextField
@@ -89,29 +77,29 @@ const Presenter: React.VFC<Props> = ({
         />
       </Grid>
       <Grid item xs={6}>
-        <FormSessionPostRecurringOptions
-          fullWidth
-          recurringOptionsProps={recurringOptionsProps}
-        />
+        <FormSessionPostRecurringOptions fullWidth />
       </Grid>
     </Grid>
-    <FormSessionPostPlacePicker
-      spacing={2}
-      pt={6}
-      inputRegister={{ ...register('name') }}
-    />
     <Grid container spacing={2} pt={6}>
       <Grid item xs={12}>
-        <FormSessionPostFeatures
-          fullWidth
-          control={control}
-          setValue={setValue}
-          getValues={getValues}
-        />
+        <FormSessionPostPlace inputName="place" />
       </Grid>
     </Grid>
     <Grid container spacing={2} pt={6}>
-      <TextField multiline label="説明文" rows={5} fullWidth />
+      <Grid item xs={12}>
+        <FormSessionPostFeatures fullWidth inputName="features" />
+      </Grid>
+    </Grid>
+    <Grid container spacing={2} pt={6}>
+      <Grid item xs={12}>
+        <TextField
+          multiline
+          label="説明文"
+          rows={5}
+          fullWidth
+          {...register('description')}
+        />
+      </Grid>
     </Grid>
     <Grid container spacing={2} pt={6}>
       <Grid item xs={12} textAlign={'center'}>
@@ -125,32 +113,14 @@ const Presenter: React.VFC<Props> = ({
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
-  const { register, control, handleSubmit, watch, setValue, getValues } =
-    useForm()
-  const onSubmit = (data) => {
-    console.log({ data })
-  }
-
-  //繰り返し選択肢用
-  const watchedDate = watch(['date'])[0]
-  const recurringOptionsProps = useMemo(() => {
-    dayjs.extend(weekOfYear)
-    const selected = dayjs(watchedDate).locale('ja')
-    const date = selected.get('date')
-    const dayOfWeek = selected.format('ddd')
-    const weekOfMonth = Math.floor((selected.get('date') - 1) / 7) + 1
-
-    return { date, dayOfWeek, weekOfMonth }
-  }, [watchedDate])
+  const { register, control, handleSubmit, onSubmit } =
+    useContext(SessionPostContext)
 
   const presenterProps = {
     register,
     control,
-    setValue,
-    getValues,
     handleSubmit,
     onSubmit,
-    recurringOptionsProps,
   }
 
   return { ...props, ...presenterProps }

@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, ComponentProps } from 'react'
+import React, { useEffect, useRef, ComponentProps, useState } from 'react'
 import style from './index.module.scss'
 import GoogleMapReact from 'google-map-react'
-import { Grid, TextField } from '@mui/material'
+import { TextField, Grid, Box } from '@mui/material'
 import { UseFormRegisterReturn } from 'react-hook-form'
 
 type ContainerProps = {
   className?: string
-  inputRegister: UseFormRegisterReturn
-} & ComponentProps<typeof Grid>
+  spacing?: ComponentProps<typeof Grid>['spacing']
+}
 
 type Props = ReturnType<typeof useContainer>
 
@@ -16,19 +16,11 @@ const Presenter: React.VFC<Props> = ({
   handleApiLoaded,
   placeInput,
   defaultCenter,
-  inputRegister,
-  ...gridProps
+  spacing,
 }) => (
-  <Grid container {...gridProps}>
-    <Grid item xs={12}>
-      <TextField
-        label="開催場所"
-        inputRef={placeInput}
-        fullWidth
-        {...inputRegister}
-      />
-    </Grid>
-    <Grid item xs={12} minHeight={300}>
+  <>
+    <TextField label="開催場所" inputRef={placeInput} fullWidth />
+    <Box mt={spacing} height={300} borderRadius={1} overflow={'hidden'}>
       <GoogleMapReact
         bootstrapURLKeys={{
           key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
@@ -36,22 +28,27 @@ const Presenter: React.VFC<Props> = ({
         }}
         defaultCenter={defaultCenter}
         defaultZoom={15}
-        onGoogleApiLoaded={({ map, maps }: { maps: typeof google.maps }) =>
-          handleApiLoaded(map, maps)
-        }
+        onGoogleApiLoaded={({
+          map,
+          maps,
+        }: {
+          map: any
+          maps: typeof google.maps
+        }) => handleApiLoaded(map, maps)}
       />
-    </Grid>
-  </Grid>
+    </Box>
+  </>
 )
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
+
   const defaultCenter = {
     lat: 35.66, // 緯度経度
     lng: 139.74,
   }
   const placeInput = useRef<HTMLInputElement>(null)
-  const handleApiLoaded = (map, maps: typeof google.maps) => {
+  const handleApiLoaded = (map: any, maps: typeof google.maps) => {
     if (placeInput.current) {
       const LatLngFrom = new maps.LatLng(45.3326, 148.4508)
       const LatLngTo = new maps.LatLng(24.2658, 122.5601)
@@ -90,6 +87,6 @@ const useContainer = (props: ContainerProps) => {
   return { ...props, ...presenterProps }
 }
 
-export default function FormSessionPostPlacePicker(props: ContainerProps) {
+export default function FormPlacePicker(props: ContainerProps) {
   return <Presenter {...useContainer(props)} />
 }

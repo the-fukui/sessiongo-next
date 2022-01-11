@@ -1,14 +1,13 @@
-import React, { ComponentProps, useEffect } from 'react'
+import React, { ComponentProps, useEffect, useContext } from 'react'
 import style from './index.module.scss'
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material'
+import SessionPostContext from '@web/contexts/SessionPostContext'
+import { useWatch } from 'react-hook-form'
+import weekOfYear from 'dayjs/plugin/weekOfYear'
+import dayjs from 'dayjs'
 
 type ContainerProps = {
   className?: string
-  recurringOptionsProps: {
-    dayOfWeek: string
-    date: number
-    weekOfMonth: number
-  }
 } & ComponentProps<typeof FormControl>
 
 type Props = ReturnType<typeof useContainer>
@@ -16,7 +15,6 @@ type Props = ReturnType<typeof useContainer>
 const Presenter: React.VFC<Props> = ({
   className = '',
   recurringOptions,
-  recurringOptionsProps,
   ...formControlProps
 }) => (
   <FormControl {...formControlProps}>
@@ -38,8 +36,16 @@ const Presenter: React.VFC<Props> = ({
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
+  const { control } = useContext(SessionPostContext)
 
-  const { dayOfWeek, date, weekOfMonth } = props.recurringOptionsProps
+  //繰り返し選択肢用
+  const watchedDate = useWatch({ control, name: 'date' })
+
+  dayjs.extend(weekOfYear)
+  const selected = dayjs(watchedDate).locale('ja')
+  const date = selected.get('date')
+  const dayOfWeek = selected.format('ddd')
+  const weekOfMonth = Math.floor((selected.get('date') - 1) / 7) + 1
 
   const recurringOptions = [
     {

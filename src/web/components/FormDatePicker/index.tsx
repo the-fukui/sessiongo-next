@@ -1,32 +1,37 @@
 import React, { ComponentProps, useEffect } from 'react'
 import style from './index.module.scss'
 import { DatePicker } from '@mui/lab'
-import { DateInputProps } from '@mui/lab/internal/pickers/PureDateInput'
-import { Controller, Control, Path } from 'react-hook-form'
+import { Controller, Control } from 'react-hook-form'
+import AdapterDayjs from '@mui/lab/AdapterDayjs'
+import dayjsJaLocale from 'dayjs/locale/ja'
+import LocalizationProvider from '@mui/lab/LocalizationProvider'
 
 type ContainerProps = {
   className?: string
-  error?: string
-  control: Control
+  control: Control<any, object>
+  inputName: string
 } & PartiallyPartial<ComponentProps<typeof DatePicker>, 'onChange' | 'value'>
 type Props = ReturnType<typeof useContainer>
 
 const Presenter: React.VFC<Props> = ({
   className = '',
   control,
-  error,
+  inputName,
   ...dateInputProps
 }) => (
   <Controller
     control={control}
-    name={'date'}
+    name={inputName}
     render={({ field: { onChange, value } }) => (
-      <DatePicker
-        {...dateInputProps}
-        value={value}
-        onChange={onChange}
-        className={`${className}`}
-      />
+      <LocalizationProvider dateAdapter={AdapterDayjs} locale={dayjsJaLocale}>
+        <DatePicker
+          mask="____/__/__"
+          {...dateInputProps}
+          value={value}
+          onChange={onChange}
+          className={`${className}`}
+        />
+      </LocalizationProvider>
     )}
   />
 )

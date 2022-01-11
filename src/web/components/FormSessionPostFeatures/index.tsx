@@ -1,4 +1,4 @@
-import React, { useEffect, ComponentProps } from 'react'
+import React, { useEffect, ComponentProps, useContext } from 'react'
 import style from './index.module.scss'
 import {
   FormControl,
@@ -7,20 +7,13 @@ import {
   FormGroup,
   Checkbox,
 } from '@mui/material'
+import { Controller } from 'react-hook-form'
 import { SESSION_FEATURE_LABELS } from '@shared/constants'
-import {
-  Controller,
-  Control,
-  UseFormSetValue,
-  UseFormGetValues,
-  FieldValues,
-} from 'react-hook-form'
+import SessionPostContext, { Inputs } from '@web/contexts/SessionPostContext'
 
 type ContainerProps = {
   className?: string
-  control: Control
-  setValue: UseFormSetValue<FieldValues>
-  getValues: UseFormGetValues<FieldValues>
+  inputName: keyof Inputs
 } & ComponentProps<typeof FormControl>
 type Props = ReturnType<typeof useContainer>
 
@@ -28,9 +21,8 @@ const Presenter: React.VFC<Props> = ({
   className = '',
   features,
   control,
-  setValue,
-  getValues,
   handleCheck,
+  inputName,
   ...formControlProps
 }) => (
   <FormControl className={`${className}`} {...formControlProps}>
@@ -39,7 +31,7 @@ const Presenter: React.VFC<Props> = ({
       <Controller
         name="features"
         control={control}
-        defaultValue=""
+        defaultValue={[]}
         render={({ field, fieldState }) => (
           <>
             {features.map((feature) => (
@@ -65,7 +57,8 @@ const Presenter: React.VFC<Props> = ({
 )
 
 const useContainer = (props: ContainerProps) => {
-  const { getValues, setValue } = props
+  const { getValues, setValue, control } = useContext(SessionPostContext)
+  const { inputName } = props
 
   /**
    * Options
@@ -88,8 +81,8 @@ const useContainer = (props: ContainerProps) => {
     value: keyof typeof SESSION_FEATURE_LABELS,
     event: React.ChangeEvent<{}>,
   ) => {
-    let values: string[] = getValues('features') || []
-    values = values.filter((v) => v) // 空要素削除
+    let values = getValues(inputName) || []
+    values = Array.isArray(values) ? values.filter((v) => v) : [] // 空要素削除
 
     let newValues: string[] = []
     if ((event.target as HTMLInputElement).checked) {
@@ -97,7 +90,7 @@ const useContainer = (props: ContainerProps) => {
     } else {
       newValues = values?.filter((value) => value !== value)
     }
-    setValue('features', newValues)
+    setValue(inputName, newValues)
 
     return newValues
   }
@@ -105,6 +98,7 @@ const useContainer = (props: ContainerProps) => {
   const presenterProps = {
     features,
     handleCheck,
+    control,
   }
 
   return { ...props, ...presenterProps }
