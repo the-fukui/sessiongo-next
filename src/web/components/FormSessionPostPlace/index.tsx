@@ -6,8 +6,7 @@ import React, {
   useContext,
 } from 'react'
 import style from './index.module.scss'
-import { Grid, TextField, Switch, FormControlLabel } from '@mui/material'
-import { UseFormRegisterReturn } from 'react-hook-form'
+import { Grid, Switch, FormControlLabel, Box } from '@mui/material'
 import FormPlacePicker from '@web/components/FormPlacePicker'
 import SessionPostContext, { Inputs } from '@web/contexts/SessionPostContext'
 
@@ -18,17 +17,42 @@ type ContainerProps = {
 
 type Props = ReturnType<typeof useContainer>
 
-const Presenter: React.VFC<Props> = ({ className = '' }) => (
+const Presenter: React.VFC<Props> = ({
+  className = '',
+  handleIsOnline,
+  isOnline,
+  TRANSITION_DURATION,
+}) => (
   <>
-    <FormPlacePicker spacing={2} />
+    <FormControlLabel
+      control={<Switch onChange={handleIsOnline} value={isOnline} />}
+      label="オンラインイベント"
+      sx={{ paddingBottom: 2 }}
+    />
+    <Box display={isOnline ? 'block' : 'none'}>
+      説明文にURLや使用するツールの説明をどうぞ
+    </Box>
+    <Box display={isOnline ? 'none' : 'block'}>
+      <FormPlacePicker spacing={2} />
+    </Box>
   </>
 )
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
   const { register } = useContext(SessionPostContext)
+  const [isOnline, setIsOnline] = useState(false)
+  const handleIsOnline = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsOnline(event.target.checked)
+  }
 
-  const presenterProps = {}
+  const TRANSITION_DURATION = 2000
+
+  const presenterProps = {
+    isOnline,
+    handleIsOnline,
+    TRANSITION_DURATION,
+  }
 
   return { ...props, ...presenterProps }
 }

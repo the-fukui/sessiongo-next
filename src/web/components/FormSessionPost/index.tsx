@@ -24,7 +24,7 @@ const Presenter: React.VFC<Props> = ({
         <TextField
           {...register('title')}
           label="セッションタイトル"
-          size="small"
+          size="medium"
           fullWidth
         />
       </Grid>
@@ -32,7 +32,7 @@ const Presenter: React.VFC<Props> = ({
         <TextField
           {...register('host')}
           label="セッションホスト"
-          size="small"
+          size="medium"
           fullWidth
         />
       </Grid>

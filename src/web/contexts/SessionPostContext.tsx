@@ -28,6 +28,7 @@ export interface Inputs {
   endAt: string
   place: {
     isOnline: boolean
+    // onlineURL: string
     name: string
     address: string
     ID: string
@@ -36,7 +37,7 @@ export interface Inputs {
   description: string
 }
 
-const SessionPostContext = createContext<State>({})
+const SessionPostContext = createContext<State>({} as State)
 
 const SessionPostContextProvider: React.FC = ({ children }) => {
   const useFormReturn = useForm<Inputs>()

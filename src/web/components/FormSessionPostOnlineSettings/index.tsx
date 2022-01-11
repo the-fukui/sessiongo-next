@@ -1,22 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import style from './index.module.scss'
-import { Grid, Switch, FormControlLabel } from '@mui/material'
+import { Grid, TextField } from '@mui/material'
+import SessionPostContext from '@web/contexts/SessionPostContext'
 
 type ContainerProps = {
   className?: string
 }
 type Props = ReturnType<typeof useContainer>
 
-const Presenter: React.VFC<Props> = ({ className = '' }) => (
-  <Grid item xs={12}>
-    aaa
-  </Grid>
+const Presenter: React.VFC<Props> = ({ className = '', register }) => (
+  <TextField
+    label="会場URL"
+    //  {...register('place.onlineURL')}
+    fullWidth
+  />
 )
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
+  const { register } = useContext(SessionPostContext)
 
-  const presenterProps = {}
+  const presenterProps = {
+    register,
+  }
 
   return { ...props, ...presenterProps }
 }
