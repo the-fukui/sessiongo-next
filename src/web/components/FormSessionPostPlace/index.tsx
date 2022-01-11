@@ -7,25 +7,31 @@ import React, {
 } from 'react'
 import style from './index.module.scss'
 import { Grid, Switch, FormControlLabel, Box } from '@mui/material'
-import FormPlacePicker from '@web/components/FormPlacePicker'
+import FormPlacePicker, { Place } from '@web/components/FormPlacePicker'
 import SessionPostContext, { Inputs } from '@web/contexts/SessionPostContext'
+import { useWatch } from 'react-hook-form'
 
 type ContainerProps = {
   className?: string
-  inputName: keyof Inputs
+  placeInputName: keyof Inputs
+  isOnlineInputName: keyof Inputs
 } & ComponentProps<typeof Grid>
 
 type Props = ReturnType<typeof useContainer>
 
 const Presenter: React.VFC<Props> = ({
   className = '',
-  handleIsOnline,
+  // handleIsOnline,
   isOnline,
-  TRANSITION_DURATION,
+  placeInputName,
+  isOnlineInputName,
+  register,
+  place,
+  setPlace,
 }) => (
   <>
     <FormControlLabel
-      control={<Switch onChange={handleIsOnline} value={isOnline} />}
+      control={<Switch {...register(isOnlineInputName)} />}
       label="オンラインイベント"
       sx={{ paddingBottom: 2 }}
     />
@@ -33,25 +39,28 @@ const Presenter: React.VFC<Props> = ({
       説明文にURLや使用するツールの説明をどうぞ
     </Box>
     <Box display={isOnline ? 'none' : 'block'}>
-      <FormPlacePicker spacing={2} />
+      <FormPlacePicker spacing={2} place={place} setPlace={setPlace} />
     </Box>
   </>
 )
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
-  const { register } = useContext(SessionPostContext)
-  const [isOnline, setIsOnline] = useState(false)
-  const handleIsOnline = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsOnline(event.target.checked)
-  }
+  const { register, control, setValue } = useContext(SessionPostContext)
+  const isOnline = useWatch({ control, name: 'isOnline' })
+  const [place, setPlace] = useState<Place | null>(null)
 
-  const TRANSITION_DURATION = 2000
+  useEffect(() => {
+    if (!place) return
+    setValue('place', place)
+  }, [place, setValue])
 
   const presenterProps = {
     isOnline,
-    handleIsOnline,
-    TRANSITION_DURATION,
+    // handleIsOnline,
+    register,
+    place,
+    setPlace,
   }
 
   return { ...props, ...presenterProps }

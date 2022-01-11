@@ -82,7 +82,10 @@ const Presenter: React.VFC<Props> = ({
     </Grid>
     <Grid container spacing={2} pt={6}>
       <Grid item xs={12}>
-        <FormSessionPostPlace inputName="place" />
+        <FormSessionPostPlace
+          placeInputName="place"
+          isOnlineInputName="isOnline"
+        />
       </Grid>
     </Grid>
     <Grid container spacing={2} pt={6}>

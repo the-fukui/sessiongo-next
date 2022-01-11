@@ -26,13 +26,18 @@ export interface Inputs {
   date: string
   startAt: string
   endAt: string
+  isOnline: boolean
   place: {
-    isOnline: boolean
     // onlineURL: string
     name: string
     address: string
+    country: string
+    region: string
+    postalCode: string
     ID: string
-  }
+    lat: number
+    lng: number
+  } | null
   features: string[]
   description: string
 }
