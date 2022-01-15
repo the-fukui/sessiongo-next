@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useContext } from 'react'
 import style from './index.module.scss'
-import { TextField, Grid, Button } from '@mui/material'
+import { TextField, Grid, Button, FormLabel } from '@mui/material'
 import DatePicker from '@web/components/FormDatePicker'
 import SessionPostContext from '@web/contexts/SessionPostContext'
 import FormSessionPostRecurringOptions from '@web/components/FormSessionPostRecurringOptions'
 import FormSessionPostPlace from '@web/components/FormSessionPostPlace'
 import FormSessionPostFeatures from '@web/components/FormSessionPostFeatures'
+import FormDropZone from '@web/components/FormDropZone'
 
 type ContainerProps = {
   className?: string
@@ -102,6 +103,12 @@ const Presenter: React.VFC<Props> = ({
           fullWidth
           {...register('description')}
         />
+      </Grid>
+    </Grid>
+    <Grid container spacing={2} pt={6}>
+      <Grid item xs={12}>
+        <FormLabel htmlFor="thumbnail">画像</FormLabel>
+        <FormDropZone control={control} inputName={'thumbnail'} mt={1} />
       </Grid>
     </Grid>
     <Grid container spacing={2} pt={6}>

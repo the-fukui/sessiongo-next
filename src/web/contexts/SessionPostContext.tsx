@@ -40,6 +40,7 @@ export interface Inputs {
   } | null
   features: string[]
   description: string
+  thumbnail: File
 }
 
 const SessionPostContext = createContext<State>({} as State)
